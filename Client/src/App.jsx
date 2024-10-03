@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from './utils/themes.js'
 import Navbar from './components/Navbar/index.jsx'
 import About from './components/About/index.jsx'
+import Hero from './components/Hero/index.jsx'
 
 const BodyWrapper = styled.div`
   background-color: ${props => props.theme.background};
@@ -19,6 +20,7 @@ function App() {
         <BodyWrapper>
           <Navbar/>
           <About/>
+          <Hero/>
         </BodyWrapper>
       </ThemeProvider>
     </>
