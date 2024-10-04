@@ -4,7 +4,7 @@ import { AboutWrapper, AboutContainer, AboutContent, AboutTitle, AboutDescriptio
 const About = () => {
     return (
         <>
-            <AboutWrapper>
+            <AboutWrapper id='about'>
                 <AboutContainer>
                     <AboutContent>
                         <AboutTitle>Unlock Your Full Career Potential with JCC</AboutTitle>

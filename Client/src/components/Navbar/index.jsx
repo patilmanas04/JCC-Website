@@ -13,7 +13,7 @@ const Navbar = () => {
                     </NavbarLogo>
                     <NavbarMenu>
                         <NavbarItem>
-                            <NavbarLink href="#">About</NavbarLink>
+                            <NavbarLink href="#about">About Us</NavbarLink>
                         </NavbarItem>
                         <NavbarItem>
                             <NavbarLink href="#">Services</NavbarLink>

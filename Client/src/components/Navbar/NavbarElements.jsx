@@ -5,7 +5,7 @@ const NavbarWrapper = styled.div`
     color: ${props => props.theme.primary};
     width: 100%;
     height: 80px;
-    padding: 20px;
+    padding: 20px 40px;
     overflow-x: hidden;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -73,17 +73,17 @@ const LoginOptions = styled.div`
 `
 
 const LoginButton = styled.a`
-    background-color: ${props => props.theme.primary};
+    background-color: ${props => props.theme.accent};
     color: ${props => props.theme.secondary};
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none;
-    border: 1px solid ${props => props.theme.primary};
+    border: 1px solid ${props => props.theme.accent};
     transition: all 200ms ease-in-out; 
 
     &:hover {
         background-color: ${props => props.theme.secondary};
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.accent};
     }
 `
 
