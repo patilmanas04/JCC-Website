@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection/Index'
 import About from './components/About/Index'
 import Services from './components/Services/Index'
+import Benefits from './components/Benefits/Index'
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 			<HeroSection />
 			<About />
 			<Services />
+			<Benefits />
 		</ThemeProvider>
 		</>
 	)

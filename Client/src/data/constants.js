@@ -30,3 +30,26 @@ export const services = [
         description: "We provide customized programs for businesses who want to help their employees advance their careers by assisting them in developing a Learning and Development, Recruitment, and Employee Engagement strategy. These programs promote professional development, upskill people, and establish a culture of continual learning and advancement inside the firm. They also assist the organization with the recruitment process."
     },
 ]
+
+export const benefits = [
+    {
+        id: 1,
+        title: "Expert Guidance",
+        description: "Our counsellors have diverse industry experience."
+    },
+    {
+        id: 2,
+        title: "Tailored Solutions",
+        description: "We understand that everyone’s journey is unique."
+    },
+    {
+        id: 3,
+        title: "Success Stories",
+        description: "We have helped hundreds of clients land their dream jobs and advance their careers."
+    },
+    {
+        id: 4,
+        title: "Flexible Scheduling",
+        description: "We offer in-person and virtual sessions to accommodate busy schedules."
+    },
+]
