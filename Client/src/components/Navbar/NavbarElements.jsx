@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavbarWrapper = styled.div`
+export const NavbarWrapper = styled.section`
     width: 100%;
     height: 80px;
     background-color: ${({ theme }) => theme.secondary};
@@ -122,6 +122,8 @@ export const NavbarMobileMenu = styled.div`
     display: none;
     flex-direction: column;
     gap: 20px;
+    border: 1px solid ${({ theme }) => theme.divider};
+    border-radius: 5px;
 
     @media screen and (max-width: 768px){
         &.active{
