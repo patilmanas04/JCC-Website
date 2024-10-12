@@ -7,6 +7,7 @@ import About from './components/About/Index'
 import Services from './components/Services/Index'
 import Benefits from './components/Benefits/Index'
 import JCCForStudents from './components/JCCForStudents/Index'
+import Contact from './components/Contact/Index'
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 			<Services />
 			<Benefits />
 			<JCCForStudents />
+			<Contact />
 		</ThemeProvider>
 		</>
 	)
