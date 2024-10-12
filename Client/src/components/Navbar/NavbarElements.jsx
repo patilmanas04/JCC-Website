@@ -87,7 +87,7 @@ export const NavbarItem = styled.a`
     }
 `
 
-export const LoginButton = styled.a`
+export const LoginButton = styled.button`
     background-color: ${({ theme }) => theme.accent};
     color: ${({ theme }) => theme.background};
     font-size: 18px;
