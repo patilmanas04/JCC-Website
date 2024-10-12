@@ -8,6 +8,8 @@ import Services from './components/Services/Index'
 import Benefits from './components/Benefits/Index'
 import JCCForStudents from './components/JCCForStudents/Index'
 import Contact from './components/Contact/Index'
+import Footer from './components/Footer/Index'
+import Copyright from './components/Copyright/Index'
 
 function App() {
 	return (
@@ -20,6 +22,8 @@ function App() {
 			<Benefits />
 			<JCCForStudents />
 			<Contact />
+			<Footer />
+			<Copyright />
 		</ThemeProvider>
 		</>
 	)

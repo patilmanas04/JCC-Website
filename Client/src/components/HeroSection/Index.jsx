@@ -8,7 +8,7 @@ const HeroSection = () => {
                 <HeroSectionTitle>Unlock Your Full Career Potential with JCC</HeroSectionTitle>
                 <HeroSectionSubtitle>Take the first step towards a fulfilling career with us today!</HeroSectionSubtitle>
                 <HeroSectionButtons>
-                    <OurServicesButton>Our Services</OurServicesButton>
+                    <OurServicesButton href='#services'>Our Services</OurServicesButton>
                     <ScheduleACallButton>Schedule a Call</ScheduleACallButton>
                 </HeroSectionButtons>
             </HeroSectionContent>
