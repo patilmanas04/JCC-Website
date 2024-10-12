@@ -56,6 +56,7 @@ export const NavbarMenu = styled.div`
 `
 
 export const NavbarItem = styled.a`
+    width: fit-content;
     color: ${({ theme }) => theme.primary};
     font-size: 18px;
     cursor: pointer;
