@@ -9,3 +9,15 @@ body{
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
+
+a{
+    text-decoration: none !important;
+    color: inherit;
+}
+
+button{
+    font-family: 'Jost', sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}

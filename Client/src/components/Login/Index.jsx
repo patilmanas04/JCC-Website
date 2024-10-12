@@ -1,5 +1,6 @@
 import React from 'react'
 import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './LoginElements'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     return (
@@ -22,7 +23,7 @@ const Login = () => {
                     <LoginButton type='submit'>Log in</LoginButton>
                 </LoginForm>
                 <LoginFooter>
-                    Don't have an account? <Span>Sign up for free!</Span>
+                    Don't have an account? <Link to="/signup"><Span>Sign up for free!</Span></Link>
                 </LoginFooter>
             </LoginContainer>
         </LoginWrapper>

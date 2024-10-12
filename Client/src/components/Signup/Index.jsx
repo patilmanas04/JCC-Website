@@ -1,5 +1,6 @@
 import React from 'react'
 import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './SignupElements'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
     return (
@@ -26,7 +27,7 @@ const Signup = () => {
                     <SignupButton type='submit'>Sign up</SignupButton>
                 </SignupForm>
                 <SignupFooter>
-                    Already have an account? <Span>Login</Span>
+                    Already have an account? <Link to="/login"><Span>Login</Span></Link>
                 </SignupFooter>
             </SignupContainer>
         </SignupWrapper>
