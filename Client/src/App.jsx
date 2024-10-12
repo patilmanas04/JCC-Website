@@ -10,6 +10,7 @@ import JCCForStudents from './components/JCCForStudents/Index'
 import Contact from './components/Contact/Index'
 import Footer from './components/Footer/Index'
 import Copyright from './components/Copyright/Index'
+import Login from './components/Login/Index'
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 			<Contact />
 			<Footer />
 			<Copyright />
+			{/* <Login /> */}
 		</ThemeProvider>
 		</>
 	)
