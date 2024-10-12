@@ -11,12 +11,13 @@ import Contact from './components/Contact/Index'
 import Footer from './components/Footer/Index'
 import Copyright from './components/Copyright/Index'
 import Login from './components/Login/Index'
+import Signup from './components/Signup/Index'
 
 function App() {
 	return (
 		<>
 		<ThemeProvider theme={lightTheme}>
-			<Navbar />
+			{/* <Navbar />
 			<HeroSection />
 			<About />
 			<Services />
@@ -24,8 +25,9 @@ function App() {
 			<JCCForStudents />
 			<Contact />
 			<Footer />
-			<Copyright />
-			{/* <Login /> */}
+			<Copyright /> */}
+			<Login />
+			{/* <Signup /> */}
 		</ThemeProvider>
 		</>
 	)

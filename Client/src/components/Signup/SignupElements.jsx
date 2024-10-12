@@ -1,28 +1,28 @@
 import styled from "styled-components"
 
-export const LoginWrapper = styled.section`
+export const SignupWrapper = styled.section`
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.background};
-    padding: 0 40px;
+    padding: 20px 40px;
     overflow-y: scroll;
 
-    @media screen and (max-height: 500px){
+    @media screen and (max-height: 550px){
         height: 100%;
     }
 
     @media screen and (max-width: 768px){
-        padding: 0 20px;
+        padding: 20px 20px;
     }
 `
 
-export const LoginContainer = styled.div`
+export const SignupContainer = styled.div`
     max-width: 500px;
     width: 100%;
-    height: 500px;
+    height: 550px;
     background: ${({ theme }) => theme.background};
     border-radius: 10px;
     padding: 60px;
@@ -41,7 +41,7 @@ export const LoginContainer = styled.div`
     }
 `
 
-export const LoginContent = styled.div`
+export const SignupContent = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@ export const LoginContent = styled.div`
     }
 `
 
-export const LoginTitle = styled.h1`
+export const SignupTitle = styled.h1`
     font-size: 30px;
     font-weight: 600;
     line-height: 1.2;
@@ -64,7 +64,7 @@ export const LoginTitle = styled.h1`
     }
 `
 
-export const LoginSubtitle = styled.p`
+export const SignupSubtitle = styled.p`
     font-size: 16px;
 
     @media screen and (max-width: 500px){
@@ -72,7 +72,7 @@ export const LoginSubtitle = styled.p`
     }
 `
 
-export const LoginForm = styled.form`
+export const SignupForm = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@ export const LoginForm = styled.form`
     gap: 20px;
 `
 
-export const LoginField = styled.div`
+export const SignupField = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@ export const Input = styled.input`
     }
 `
 
-export const LoginButton = styled.button`
+export const SignupButton = styled.button`
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -117,7 +117,7 @@ export const LoginButton = styled.button`
     cursor: pointer;
 `
 
-export const LoginFooter = styled.p`
+export const SignupFooter = styled.p`
     width: 100%;
     font-size: 16px;
     text-align: center;
