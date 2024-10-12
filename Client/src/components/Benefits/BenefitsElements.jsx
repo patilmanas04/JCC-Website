@@ -26,6 +26,10 @@ export const BenefitsTitle = styled.h1`
     color: ${({ theme }) => theme.primary};
     text-align: center;
     line-height: 1.2;
+
+    @media screen and (max-width: 768px){
+        font-size: 36px;
+    }
 `
 
 export const Span = styled.span`

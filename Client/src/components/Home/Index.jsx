@@ -3,7 +3,7 @@ import Navbar from '../Navbar'
 import HeroSection from '../HeroSection/Index'
 import About from '../About/Index'
 import Services from '../Services/Index'
-import { Benefit } from '../Benefits/BenefitsElements'
+import Benefits from '../Benefits/Index'
 import JCCForStudents from '../JCCForStudents/Index'
 import Contact from '../Contact/Index'
 import Footer from '../Footer/Index'
@@ -16,7 +16,7 @@ const Home = () => {
             <HeroSection />
             <About />
             <Services />
-            <Benefit />
+            <Benefits />
             <JCCForStudents />
             <Contact />
             <Footer />
