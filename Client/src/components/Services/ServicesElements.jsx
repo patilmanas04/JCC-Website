@@ -25,17 +25,29 @@ export const ServicesContent = styled.div`
 
 export const ServicesTitle = styled.h1`
     font-size: 48px;
+    font-weight: 500;
     color: ${({ theme }) => theme.primary};
-    `
+    text-align: center;
+    line-height: 1.2;
+
+    @media screen and (max-width: 768px){
+        font-size: 40px;
+    }
+`
 
 export const Span = styled.span`
     color: ${({ theme }) => theme.accent};
-    `
+`
 
 export const ServicesSubtitle = styled.p`
     font-size: 24px;
     color: ${({ theme }) => theme.primary};
-    `
+    text-align: center;
+
+    @media screen and (max-width: 768px){
+        font-size: 20px;
+    }
+`
 
 export const ServicesContainer = styled.div`
     margin-top: 60px;
@@ -46,7 +58,7 @@ export const ServicesContainer = styled.div`
     gap: 50px;
     max-width: 1200px;
     width: 100%;
-    `
+`
 
 export const ServiceCard = styled.div`
     display: flex;
