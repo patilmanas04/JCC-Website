@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../../assets/logo.png'
 import menu_icon from '../../assets/menu_icon.svg'
 import close_icon from '../../assets/close_icon.svg'
-import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu } from './NavbarElements'
+import ProfileIcon from '../../assets/profile_icon.svg'
+import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton } from './NavbarElements'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    useEffect(() => {
+        const token = localStorage.getItem('authToken')
+        console.log(token)
+        if(token){
+            setIsLoggedIn(true)
+        }
+    })
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
+    }
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken')
+        setIsLoggedIn(false)
     }
 
     return (
@@ -23,14 +38,18 @@ const Navbar = () => {
                     <NavbarItem href='#aboutus'>About Us</NavbarItem>
                     <NavbarItem href='#services'>Services</NavbarItem>
                     <NavbarItem href='#contactus'>Contact Us</NavbarItem>
-                    <Link to="/login"><LoginButton type='button'>Login</LoginButton></Link>
+                    {
+                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/dashboard'><ProfileButton src={ProfileIcon} alt='profile_icon'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
+                    }
                 </NavbarMenu>
                 <NavbarMobileMenuIcon src={!isOpen?menu_icon:close_icon} logo='menu_icon' onClick={toggleMenu}/>
                 <NavbarMobileMenu className={isOpen?'active':''}>
                     <NavbarItem href='#aboutus'>About Us</NavbarItem>
                     <NavbarItem href='#services'>Services</NavbarItem>
                     <NavbarItem href='#contactus'>Contact Us</NavbarItem>
-                    <Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
+                    {
+                        isLoggedIn?<><NavbarItem><Link to="/dashboard">Profile</Link></NavbarItem><NavbarItem type='button' onClick={handleLogout}>Logout</NavbarItem></>:<NavbarItem><Link to="/login">Login</Link></NavbarItem>
+                    }
                 </NavbarMobileMenu>
             </NavbarContainer>
         </NavbarWrapper>

@@ -10,7 +10,7 @@ const TokenModel = require('../models/Token')
 const sendEmail = require('../utils/sendEmail')
 
 // Regsiter a new user
-router.get('/register', [
+router.post('/register', [
     body('firstName', 'First Name is required').notEmpty().isLength({ min: 1 }),
     body('lastName', 'Last Name is required').notEmpty().isLength({ min: 1 }),
     body('email', 'Email is required').isEmail(),
@@ -20,7 +20,7 @@ router.get('/register', [
 
     const errors = validationResult(req)
     if(!errors.isEmpty()){
-        return res.status(400).json({ errors: errors.array() })
+        return res.status(400).json({ success, errors: errors.array() })
     }
 
     try{
@@ -65,7 +65,7 @@ router.get('/register', [
 })
 
 // Verify email
-router.get('/users/:id/verify-email/:token', async (req, res) => {
+router.post('/users/:id/verify-email/:token', async (req, res) => {
     let success = false
 
     try{
@@ -101,7 +101,7 @@ router.get('/users/:id/verify-email/:token', async (req, res) => {
 })
 
 // Login a user
-router.get('/login', [
+router.post('/login', [
     body('email', 'Email is required').isEmail(),
     body('password', 'Password is required').isLength({ min: 1 })
 ], async (req, res) => {
@@ -133,7 +133,15 @@ router.get('/login', [
 
         const isVerified = user.verified
         if(!isVerified){
-            const token = await TokenModel.create({
+            let token = await TokenModel.findOne({ userId: user._id })
+            if(token){
+                return res.status(400).json({
+                    success,
+                    message: "An email sent to your mail id please verify"
+                })
+            }
+
+            token = await TokenModel.create({
                 userId: user._id,
                 token: crypto.randomBytes(32).toString('hex')
             })

@@ -2,17 +2,13 @@ import styled from "styled-components"
 
 export const SignupWrapper = styled.section`
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.background};
     padding: 20px 40px;
     overflow-y: scroll;
-
-    @media screen and (max-height: 550px){
-        height: 100%;
-    }
 
     @media screen and (max-width: 768px){
         padding: 20px 20px;
@@ -22,7 +18,6 @@ export const SignupWrapper = styled.section`
 export const SignupContainer = styled.div`
     max-width: 500px;
     width: 100%;
-    height: 550px;
     background: ${({ theme }) => theme.background};
     border-radius: 10px;
     padding: 60px;

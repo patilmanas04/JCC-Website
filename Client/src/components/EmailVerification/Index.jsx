@@ -13,7 +13,7 @@ const EmailVerification = () => {
         const verifyEmail = async () => {
             try{
                 const response = await fetch(`http://localhost:3000/api/auth/users/${userId}/verify-email/${verificationToken}`, { 
-                    method: 'GET',
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     }

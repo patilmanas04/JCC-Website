@@ -5,7 +5,7 @@ const Copyright = () => {
     return (
         <CopyrightWrapper>
             <CopyrightText>
-                    Copyright © 2024 Johari Career Consultancy All Rights Reserved.
+                    Copyright © 2024 Johari Career Consultancy. All Rights Reserved.
             </CopyrightText>
         </CopyrightWrapper>
     )

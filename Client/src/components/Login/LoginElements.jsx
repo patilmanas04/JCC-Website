@@ -10,7 +10,7 @@ export const LoginWrapper = styled.section`
     padding: 0 40px;
     overflow-y: scroll;
 
-    @media screen and (max-height: 500px){
+    @media screen and (max-height: 550px){
         height: 100%;
     }
 
@@ -22,7 +22,7 @@ export const LoginWrapper = styled.section`
 export const LoginContainer = styled.div`
     max-width: 500px;
     width: 100%;
-    height: 500px;
+    height: 550px;
     background: ${({ theme }) => theme.background};
     border-radius: 10px;
     padding: 60px;

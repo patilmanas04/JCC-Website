@@ -6,6 +6,8 @@ const lightTheme = {
     secondaryText: "#AFAFAF",
     secondaryAccent: "#F4835F",
     divider: "#D9D9D9",
+    error: "#FF3333",
+    success: "#00CC00",
 }
 
 const darkTheme = {

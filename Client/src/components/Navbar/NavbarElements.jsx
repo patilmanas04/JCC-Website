@@ -108,6 +108,34 @@ export const LoginButton = styled.button`
     }
 `
 
+export const LogoutButton = styled.button`
+    background-color: ${({ theme }) => theme.error};
+    color: ${({ theme }) => theme.background};
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.3s;
+    text-align: center;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.primary};
+    }
+
+    @media screen and (max-width: 768px){
+        font-size: 16px;
+    }
+`
+
+export const ProfileButton = styled.img`
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    cursor: pointer;
+`
+
 export const NavbarMobileMenuIcon = styled.img`
     display: none;
 
