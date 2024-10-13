@@ -24,9 +24,9 @@ const sendEmail = (to, subject, text) => {
 
         console.log("Email sent successfully")
     }
-    catch(err){
+    catch(error){
         console.log("Error sending email")
-        console.log(err)
+        console.log(error)
     }
 }
 
