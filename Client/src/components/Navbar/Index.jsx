@@ -12,7 +12,6 @@ const Navbar = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('authToken')
-        console.log(token)
         if(token){
             setIsLoggedIn(true)
         }
@@ -39,7 +38,7 @@ const Navbar = () => {
                     <NavbarItem href='#services'>Services</NavbarItem>
                     <NavbarItem href='#contactus'>Contact Us</NavbarItem>
                     {
-                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/dashboard'><ProfileButton src={ProfileIcon} alt='profile_icon'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
+                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton src={ProfileIcon} alt='profile_icon'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
                     }
                 </NavbarMenu>
                 <NavbarMobileMenuIcon src={!isOpen?menu_icon:close_icon} logo='menu_icon' onClick={toggleMenu}/>
@@ -48,7 +47,7 @@ const Navbar = () => {
                     <NavbarItem href='#services'>Services</NavbarItem>
                     <NavbarItem href='#contactus'>Contact Us</NavbarItem>
                     {
-                        isLoggedIn?<><NavbarItem><Link to="/dashboard">Profile</Link></NavbarItem><NavbarItem type='button' onClick={handleLogout}>Logout</NavbarItem></>:<NavbarItem><Link to="/login">Login</Link></NavbarItem>
+                        isLoggedIn?<><NavbarItem><Link to="/profile">Profile</Link></NavbarItem><NavbarItem type='button' onClick={handleLogout}>Logout</NavbarItem></>:<NavbarItem><Link to="/login">Login</Link></NavbarItem>
                     }
                 </NavbarMobileMenu>
             </NavbarContainer>

@@ -8,6 +8,7 @@ const crypto = require('crypto')
 const UserModel = require('../models/User')
 const TokenModel = require('../models/Token')
 const sendEmail = require('../utils/sendEmail')
+const fetchUserDetails = require('../middleware/fatchUserDetails')
 
 // Regsiter a new user
 router.post('/register', [
@@ -20,7 +21,7 @@ router.post('/register', [
 
     const errors = validationResult(req)
     if(!errors.isEmpty()){
-        return res.status(400).json({ success, errors: errors.array() })
+        return res.status(400).json({ success, message: "First Name, Last Name, Email and Password should not be empty" })
     }
 
     try{
@@ -109,7 +110,7 @@ router.post('/login', [
 
     const errors = validationResult(req)
     if(!errors.isEmpty()){
-        return res.status(400).json({ errors: errors.array() })
+        return res.status(400).json({ success, message: "Email and Password should not be empty" })
     }
 
     try{
@@ -173,6 +174,56 @@ router.post('/login', [
             success,
             message: "Internal Server Error!"
         })   
+    }
+})
+
+// Get user details from auth token
+router.get('/getuser', fetchUserDetails, async(req, res) => {
+    let success = false
+
+    try{
+        const userId = req.user.id
+        const userDetails = await UserModel.findOne({ _id: userId }, { password: 0, verified: 0, __v: 0, _id: 0, date: 0 })
+
+        success = true
+        return res.status(200).json({ success, userDetails })
+    }
+    catch(error){
+        console.error(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
+    }
+})
+
+// Update user details
+router.put('/updateuser', fetchUserDetails, [
+    body('firstName', 'First Name is required').notEmpty().isLength({ min: 1 }),
+    body('lastName', 'Last Name is required').notEmpty().isLength({ min: 1 })
+], async(req, res) => {
+    let success = false
+
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        return res.status(400).json({ success, message: "First Name and Last Name should not be empty" })
+    }
+
+    try{
+        const userId = req.user.id
+        const { firstName, lastName } = req.body
+
+        const newUserDetails = await UserModel.updateOne({ _id: userId }, { firstName, lastName })
+
+        success = true
+        return res.status(200).json({ success, message: "Details updated successfully!", newUserDetails })
+    }
+    catch(error){
+        console.error(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
     }
 })
 
