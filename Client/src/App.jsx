@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/Home/Index'
 import EmailVerification from './components/EmailVerification/Index'
 import Profile from './components/Profile/Index'
+import CallScheduler from './components/CallScheduler/Index'
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 					<Route path="/signup" element={<Signup />} />
 					<Route path="/users/:userId/verify-email/:verificationToken" element={<EmailVerification />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/scheduleacall" element={<CallScheduler />} />
 				</Routes>
 			</Router>
 		</ThemeProvider>

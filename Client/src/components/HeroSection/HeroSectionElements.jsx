@@ -83,7 +83,7 @@ export const OurServicesButton = styled.a`
     }
 `
 
-export const ScheduleACallButton = styled.a`
+export const ScheduleACallButton = styled.button`
     padding: 10px 20px;
     background-color: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.background};

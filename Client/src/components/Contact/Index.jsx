@@ -2,6 +2,7 @@ import React from 'react'
 import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
 import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider } from './ContactElements'
+import { Link } from 'react-router-dom'
 
 const Contact = () => {
     return (
@@ -26,7 +27,9 @@ const Contact = () => {
                     </ContactField>
                     <ContactButtons>
                         <SendMessageButton type='submit'>Send Message</SendMessageButton>
-                        <ScheduleACallButton type='button'>Schedule a Call</ScheduleACallButton>
+                        <Link to='/scheduleacall' style={{
+                            width: '100%',
+                        }}><ScheduleACallButton type='button'>Schedule a Call</ScheduleACallButton></Link>
                     </ContactButtons>
                 </ContactForm>
                 <ContactInformation>

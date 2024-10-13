@@ -4,6 +4,7 @@ import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
 import InstagramIcon from '../../assets/instagram_icon.svg'
 import { FooterWrapper, FooterContainer, FooterInformation, CompanyName, Logo, CompanyNameText, CompanyAddress, AddressTitle, Address, CompanyContact, ContactDetails, ContactIcon, ContactText, CompanySocialMedia, SocialMediaTitle, SocialMediaLinks, SocialMediaLink, SocialMediaIcon, FooterLinks, LinksTitle, QuickLinks, QuickLink} from './FooterElements'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -41,7 +42,7 @@ const Footer = () => {
                         <QuickLink href='#aboutus'>About Us</QuickLink>
                         <QuickLink href='#services'>Services</QuickLink>
                         <QuickLink href='#contactus'>Contact Us</QuickLink>
-                        <QuickLink>Schedule a call</QuickLink>
+                        <QuickLink><Link to='/scheduleacall'>Schedule a call</Link></QuickLink>
                     </QuickLinks>
                 </FooterLinks>
             </FooterContainer>

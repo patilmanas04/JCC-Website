@@ -1,5 +1,6 @@
 import React from 'react'
 import { HeroSectionWrapper, HeroSectionContent, HeroSectionTitle, HeroSectionSubtitle, HeroSectionButtons, OurServicesButton, ScheduleACallButton } from './HeroSectionElements'
+import { Link } from 'react-router-dom'
 
 const HeroSection = () => {
     return (
@@ -9,7 +10,7 @@ const HeroSection = () => {
                 <HeroSectionSubtitle>Take the first step towards a fulfilling career with us today!</HeroSectionSubtitle>
                 <HeroSectionButtons>
                     <OurServicesButton href='#services'>Our Services</OurServicesButton>
-                    <ScheduleACallButton>Schedule a Call</ScheduleACallButton>
+                    <Link to='/scheduleacall'><ScheduleACallButton>Schedule a Call</ScheduleACallButton></Link>
                 </HeroSectionButtons>
             </HeroSectionContent>
         </HeroSectionWrapper>
