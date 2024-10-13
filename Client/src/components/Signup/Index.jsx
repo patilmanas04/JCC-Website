@@ -1,10 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './SignupElements'
 import { Link } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 
 const Signup = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })
+
+    useEffect(() => {
+        document.title = "JCC | Sign up"
+    })
 
     const firstNameRef = useRef()
     const lastNameRef = useRef()

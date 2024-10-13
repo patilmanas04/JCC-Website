@@ -10,6 +10,8 @@ const CallScheduler = () => {
         if (!token) {
             navigate('/login')
         }
+
+        document.title = 'JCC | Schedule a Call'
     })
 
     return (

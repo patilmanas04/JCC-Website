@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../Navbar'
 import HeroSection from '../HeroSection/Index'
 import About from '../About/Index'
@@ -10,6 +10,10 @@ import Footer from '../Footer/Index'
 import Copyright from '../Copyright/Index'
 
 const Home = () => {
+    useEffect(() => {
+        document.title = "JCC | Home"
+    }, [])
+
     return (
         <>
             <Navbar />

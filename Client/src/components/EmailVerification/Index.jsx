@@ -9,7 +9,8 @@ const EmailVerification = () => {
     const { userId, verificationToken } = useParams()
 
     useEffect(() => {
-        
+        document.title = "JCC | Email Verification"
+
         const verifyEmail = async () => {
             try{
                 const response = await fetch(`http://localhost:3000/api/auth/users/${userId}/verify-email/${verificationToken}`, { 

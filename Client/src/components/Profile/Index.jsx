@@ -39,6 +39,7 @@ const Profile = () => {
 
                 if(data.success){
                     setCredentials(data.userDetails)
+                    document.title = 'JCC | Profile'
                 }
                 else{
                     navigate('/login')

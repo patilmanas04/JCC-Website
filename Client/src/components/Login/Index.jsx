@@ -1,10 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './LoginElements'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 
 const Login = () => {
     const [alert, setAlert] = useState({ success: false, message: '', authToken: '' })
+
+    useEffect(() => {
+        document.title = "JCC | Log in"
+    }, [])
 
     const navigate = useNavigate()
     const emailRef = useRef()
