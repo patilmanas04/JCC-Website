@@ -158,7 +158,7 @@ router.post('/login', [
             })
         }
 
-        if(UserModel.userType === 'admin'){
+        if(user.userType === 'admin'){
             isAdmin = true
         }
 

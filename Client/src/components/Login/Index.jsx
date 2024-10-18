@@ -32,7 +32,12 @@ const Login = () => {
 
         if(data.success){
             localStorage.setItem('authToken', data.authToken)
-            navigate('/')
+            if(data.isAdmin){
+                navigate('/admin-dashboard')
+            }
+            else{
+                navigate('/')
+            }
         }
 
         setAlert(data)

@@ -8,6 +8,7 @@ import Home from './components/Home/Index'
 import EmailVerification from './components/EmailVerification/Index'
 import Profile from './components/Profile/Index'
 import CallScheduler from './components/CallScheduler/Index'
+import AdminDashboard from './components/AdminDashboard/Index'
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path="/users/:userId/verify-email/:verificationToken" element={<EmailVerification />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/scheduleacall" element={<CallScheduler />} />
+					<Route path="/admin-dashboard" element={<AdminDashboard />} />
 				</Routes>
 			</Router>
 		</ThemeProvider>
