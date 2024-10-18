@@ -22,6 +22,10 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    userType:{
+        type: String,
+        default: 'user'
+    },
     verified: {
         type: Boolean,
         default: false

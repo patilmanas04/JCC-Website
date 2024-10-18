@@ -8,7 +8,7 @@ const crypto = require('crypto')
 const UserModel = require('../models/User')
 const TokenModel = require('../models/Token')
 const sendEmail = require('../utils/sendEmail')
-const fetchUserDetails = require('../middleware/fatchUserDetails')
+const fetchUserDetails = require('../middleware/fetchUserDetails')
 
 // Regsiter a new user
 router.post('/register', [
@@ -107,6 +107,7 @@ router.post('/login', [
     body('password', 'Password is required').isLength({ min: 1 })
 ], async (req, res) => {
     let success = false
+    let isAdmin = false
 
     const errors = validationResult(req)
     if(!errors.isEmpty()){
@@ -157,6 +158,10 @@ router.post('/login', [
             })
         }
 
+        if(UserModel.userType === 'admin'){
+            isAdmin = true
+        }
+
         const payload = {
             user: {
                 id: user._id
@@ -166,7 +171,7 @@ router.post('/login', [
         const authToken = jwt.sign(payload, process.env.JWT_SECRET)
 
         success = true
-        res.status(200).json({ success, authToken, message: "Logged in successfully!" })
+        res.status(200).json({ success, authToken, isAdmin, message: "Logged in successfully!" })
     }
     catch (error) {
         console.error(error.message)
