@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ContactWrapper = styled.section`
     width: 100%;
-    background-color: ${({ theme }) => theme.accent};
+    background-color: ${({ theme }) => theme.colors.accent};
     padding: 100px 40px;
     display: flex;
     justify-content: center;
@@ -32,28 +32,37 @@ export const ContactContent = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.colors.background};
 `
 
 export const ContactTitle = styled.h1`
-    font-size: 48px;
+    font-size: ${({ theme }) => theme.typography.desktopHeading};
     font-weight: 500;
-    line-height: 1.2;
+    line-height: ${({ theme }) => theme.typography.lineHeight};
+    margin-bottom: 5px;
 
     @media screen and (max-width: 768px){
-        font-size: 36px;
+        font-size: ${({ theme }) => theme.typography.tabletHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileHeading};
     }
 `
 
 export const Span = styled.span`
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const ContactSubtitle = styled.p`
-    font-size: 24px;
+    font-size: ${({ theme }) => theme.typography.desktopSubHeading};
 
     @media screen and (max-width: 768px){
-        font-size: 20px;
+        font-size: ${({ theme }) => theme.typography.tabletSubHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileSubHeading};
     }
 `
 
@@ -65,7 +74,7 @@ export const ContactForm = styled.form`
     gap: 20px;
     max-width: 700px;
     width: 100%;
-    color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.colors.background};
 
     @media screen and (max-width: 768px){
         gap: 10px;
@@ -79,10 +88,14 @@ export const ContactField = styled.div`
 `
 
 export const Label = styled.label`
-    font-size: 24px;
+    font-size: 20px;
 
     @media screen and (max-width: 768px){
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: 16px;
     }
 `
 
@@ -90,13 +103,19 @@ export const Input = styled.input`
     width: 100%;
     height: 55px;
     padding: 10px;
-    font-size: 18px;
+    font-size: 20px;
     border: none;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.secondaryAccent};
+    background-color: ${({ theme }) => theme.colors.secondaryAccent};
 
     @media screen and (max-width: 768px){
         height: 50px;
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 480px){
+        height: 45px;
+        font-size: 16px;
     }
 `
 
@@ -105,13 +124,19 @@ export const Textarea = styled.textarea`
     width: 100%;
     height: 130px;
     padding: 10px;
-    font-size: 18px;
+    font-size: 20px;
     border: none;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.secondaryAccent};
+    background-color: ${({ theme }) => theme.colors.secondaryAccent};
 
     @media screen and (max-width: 768px){
         height: 100px;
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 480px){
+        height: 80px;
+        font-size: 16px;
     }
 `
 
@@ -136,8 +161,8 @@ export const SendMessageButton = styled.button`
     font-size: 24px;
     border: none;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.accent};
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.accent};
     cursor: pointer;
 
     @media screen and (max-width: 768px){
@@ -153,8 +178,8 @@ export const ScheduleACallButton = styled.button`
     font-size: 24px;
     border: none;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
     cursor: pointer;
 
     @media screen and (max-width: 768px){
@@ -169,7 +194,7 @@ export const ContactInformation = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.colors.background};
 
     @media screen and (max-width: 628px){
         flex-direction: column;
@@ -189,12 +214,30 @@ export const IconWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
     border-radius: 999px;
+
+    @media screen and (max-width: 768px){
+        width: 70px;
+        height: 70px;
+    }
+
+    @media screen and (max-width: 480px){
+        width: 60px;
+        height: 60px;
+    }
 `
 
 export const Icon = styled.img`
     width: 40px;
+
+    @media screen and (max-width: 768px){
+        width: 35px;
+    }
+
+    @media screen and (max-width: 480px){
+        width: 30px;
+    }
 `
 
 export const InformationContent = styled.div`
@@ -205,18 +248,34 @@ export const InformationContent = styled.div`
 `
 
 export const InformationTitle = styled.h2`
-    font-size: 24px;
+    font-size: ${({ theme }) => theme.typography.desktopSubHeading};
     font-weight: 500;
+
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletSubHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileSubHeading};
+    }
 `
 
 export const InformationSubtitle = styled.p`
     font-size: 18px;
+
+    @media screen and (max-width: 768px){
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: 14px;
+    }
 `
 
 export const Divider = styled.div`
     width: 2px;
     height: 100px;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
     margin: 0 40px;
 
     @media screen and (max-width: 628px){

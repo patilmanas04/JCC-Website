@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const NavbarWrapper = styled.section`
     width: 100%;
     height: 80px;
-    background-color: ${({ theme }) => theme.secondary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid ${({ theme }) => theme.divider};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.divider};
     padding: 0 40px;
 
     @media screen and (max-width: 768px){
@@ -39,7 +39,7 @@ export const NavbarIcon = styled.img`
 `
 
 export const NavbarTitle = styled.h1`
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
     font-size: 20px;
     font-weight: 700;
     margin-left: 10px;
@@ -57,8 +57,8 @@ export const NavbarMenu = styled.div`
 
 export const NavbarItem = styled.a`
     width: fit-content;
-    color: ${({ theme }) => theme.primary};
-    font-size: 18px;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     cursor: pointer;
     text-decoration: none;
 
@@ -74,7 +74,7 @@ export const NavbarItem = styled.a`
         display: block;
         width: 0;
         height: 2px;
-        background-color: ${({ theme }) => theme.primary};
+        background-color: ${({ theme }) => theme.colors.primary};
         transition: width ease-in-out 0.3s;
     }
 
@@ -83,14 +83,18 @@ export const NavbarItem = styled.a`
     }
 
     @media screen and (max-width: 768px){
-        font-size: 16px;
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
 
 export const LoginButton = styled.button`
-    background-color: ${({ theme }) => theme.accent};
-    color: ${({ theme }) => theme.background};
-    font-size: 18px;
+    background-color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -100,18 +104,22 @@ export const LoginButton = styled.button`
     text-align: center;
 
     &:hover{
-        background-color: ${({ theme }) => theme.primary};
+        background-color: ${({ theme }) => theme.colors.primary};
     }
 
     @media screen and (max-width: 768px){
-        font-size: 16px;
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
 
 export const LogoutButton = styled.button`
-    background-color: ${({ theme }) => theme.error};
-    color: ${({ theme }) => theme.background};
-    font-size: 18px;
+    background-color: ${({ theme }) => theme.colors.error};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -121,11 +129,15 @@ export const LogoutButton = styled.button`
     text-align: center;
 
     &:hover{
-        background-color: ${({ theme }) => theme.primary};
+        background-color: ${({ theme }) => theme.colors.primary};
     }
 
     @media screen and (max-width: 768px){
-        font-size: 16px;
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
 
@@ -151,7 +163,7 @@ export const NavbarMobileMenu = styled.div`
     display: none;
     flex-direction: column;
     gap: 20px;
-    border: 1px solid ${({ theme }) => theme.divider};
+    border: 1px solid ${({ theme }) => theme.colors.divider};
     border-radius: 5px;
 
     @media screen and (max-width: 768px){
@@ -160,7 +172,7 @@ export const NavbarMobileMenu = styled.div`
             position: absolute;
             top: 90px;
             right: 20px;
-            background-color: ${({ theme }) => theme.secondary};
+            background-color: ${({ theme }) => theme.colors.secondary};
             padding: 20px;
             transition: top ease-in-out 0.3s;
         }
