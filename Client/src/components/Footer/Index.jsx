@@ -16,7 +16,7 @@ const Footer = () => {
                         <CompanyNameText>Johari Career Consultancy</CompanyNameText>
                     </CompanyName>
                     <CompanyAddress>
-                        <AddressTitle>Registered Office:</AddressTitle>
+                        <AddressTitle>Registered Office</AddressTitle>
                         <Address>182/3, Magarmuha, Ujjain, Madhya Pradesh, 456010</Address>
                     </CompanyAddress>
                     <CompanyContact>
@@ -30,14 +30,14 @@ const Footer = () => {
                         </ContactDetails>
                     </CompanyContact>
                     <CompanySocialMedia>
-                        <SocialMediaTitle>Follow Us:</SocialMediaTitle>
+                        <SocialMediaTitle>Follow Us</SocialMediaTitle>
                         <SocialMediaLinks>
                             <SocialMediaLink href='https://www.instagram.com/johari_counsultancy?igsh=Yzl5NnM0NWZ0bGhy' target='_blank'><SocialMediaIcon src={InstagramIcon}/></SocialMediaLink>
                         </SocialMediaLinks>
                     </CompanySocialMedia>
                 </FooterInformation>
                 <FooterLinks>
-                    <LinksTitle>Quick Links:</LinksTitle>
+                    <LinksTitle>Quick Links</LinksTitle>
                     <QuickLinks>
                         <QuickLink href='#aboutus'>About Us</QuickLink>
                         <QuickLink href='#services'>Services</QuickLink>

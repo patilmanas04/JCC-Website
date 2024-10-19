@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const AboutWrapper = styled.section`
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.colors.background};
     padding: 100px 40px;
     width: 100%;
     display: flex;
@@ -15,11 +15,11 @@ export const AboutWrapper = styled.section`
 
 export const AboutContainer = styled.div`
     max-width: 1200px;
+    width: 100%;
     display: flex;
-    background-color: ${({ theme }) => theme.secondary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     justify-content: center;
     align-items: center;
-    width: 100%;
     padding: 40px;
     border-radius: 10px;
 
@@ -30,8 +30,8 @@ export const AboutContainer = styled.div`
 `
 
 export const AboutDescription = styled.p`
-    color: ${({ theme }) => theme.primary};
-    font-size: 16px;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     width: 70%;
     text-align: justify;
 
@@ -39,8 +39,16 @@ export const AboutDescription = styled.p`
         width: 50%;
     }
 
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
     @media screen and (max-width: 927px){
         width: 100%;
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
 

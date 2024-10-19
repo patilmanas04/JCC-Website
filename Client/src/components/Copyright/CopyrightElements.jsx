@@ -16,11 +16,15 @@ export const CopyrightWrapper = styled.section`
 
 export const CopyrightText = styled.p`
     width: 100%;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     font-weight: 400;
     text-align: center;
 
     @media screen and (max-width: 768px){
-        font-size: 14px;
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `

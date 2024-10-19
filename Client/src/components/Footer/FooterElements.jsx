@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const FooterWrapper = styled.footer`
-    background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
     width: 100%;
     padding: 5rem 40px;
     display: flex;
@@ -131,7 +131,7 @@ export const SocialMediaLink = styled.a`
     width: 50px;
     height: 50px;
     border-radius: 999px;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
     cursor: pointer;
 
     @media screen and (max-width: 768px){
@@ -179,7 +179,7 @@ export const QuickLink = styled.a`
     font-weight: 400;
     width: fit-content;
     text-decoration: none;
-    color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.colors.background};
     cursor: pointer;
 
     &::after{
@@ -187,7 +187,7 @@ export const QuickLink = styled.a`
         display: block;
         width: 0;
         height: 2px;
-        background-color: ${({ theme }) => theme.background};
+        background-color: ${({ theme }) => theme.colors.background};
         transition: width 0.3s;
     }
 

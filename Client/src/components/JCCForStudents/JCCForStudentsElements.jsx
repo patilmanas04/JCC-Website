@@ -47,27 +47,31 @@ export const JCCForStudentsContent = styled.div`
 `
 
 export const JCCForStudentsTitle = styled.h1`
-    font-size: 48px;
+    font-size: ${({ theme }) => theme.typography.desktopHeading};
     font-weight: 500;
-    color: ${({ theme }) => theme.background};
-    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.background};
+    line-height: ${({ theme }) => theme.typography.lineHeight};
 
     @media screen and (max-width: 768px){
-        font-size: 32px;
+        font-size: ${({ theme }) => theme.typography.tabletHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileHeading};
     }
 `
 
 export const Span = styled.span`
-    color: ${({ theme }) => theme.accent};
+    color: ${({ theme }) => theme.colors.accent};
 `
 
 export const JCCForStudentsDescription = styled.p`
     font-size: 20px;
-    color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.colors.background};
     margin-top: 20px;
 
     @media screen and (max-width: 768px){
-        font-size: 16px;
+        font-size: 18px;
         text-align: justify;
     }
 `

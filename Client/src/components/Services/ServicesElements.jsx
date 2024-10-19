@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ServicesWrapper = styled.section`
     width: 100%;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +10,7 @@ export const ServicesWrapper = styled.section`
     padding: 0 40px;
 
     @media screen and (max-width: 768px){
+        margin-top: 20px;
         padding: 0 20px;
     }
 `
@@ -24,28 +25,38 @@ export const ServicesContent = styled.div`
 `
 
 export const ServicesTitle = styled.h1`
-    font-size: 48px;
+    font-size: ${({ theme }) => theme.typography.desktopHeading};
     font-weight: 500;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
     text-align: center;
-    line-height: 1.2;
+    line-height: ${({ theme }) => theme.typography.lineHeight};
+    margin-bottom: 5px;
 
     @media screen and (max-width: 768px){
-        font-size: 40px;
+        font-size: ${({ theme }) => theme.typography.tabletHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileHeading};
     }
 `
 
 export const Span = styled.span`
-    color: ${({ theme }) => theme.accent};
+    color: ${({ theme }) => theme.colors.accent};
 `
 
 export const ServicesSubtitle = styled.p`
-    font-size: 24px;
-    color: ${({ theme }) => theme.primary};
+    font-size: ${({ theme }) => theme.typography.desktopSubHeading};
+    color: ${({ theme }) => theme.colors.primary};
     text-align: center;
+    line-height: ${({ theme }) => theme.typography.lineHeight};
 
     @media screen and (max-width: 768px){
-        font-size: 20px;
+        font-size: ${({ theme }) => theme.typography.tabletSubHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileSubHeading};
     }
 `
 
@@ -97,11 +108,11 @@ export const ServiceCardContent = styled.div`
 `
 
 export const ServiceCardTitle = styled.h2`
-    border-left: 5px solid ${({ theme }) => theme.accent};
+    border-left: 5px solid ${({ theme }) => theme.colors.accent};
     padding-left: 6px;
     font-size: 30px;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: ${({ theme }) => theme.typography.lineHeight};
 
     @media screen and (max-width: 1000px){
         font-size: 24px;
@@ -111,28 +122,32 @@ export const ServiceCardTitle = styled.h2`
 export const ServiceCardSubtitle = styled.p`
     font-size: 16px;
 
-    @media screen and (max-width: 1000px){
-        font-size: 14px;
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
 
 export const Divider = styled.div`
     width: 100%;
     height: 1px;
-    background-color: ${({ theme }) => theme.divider};
+    background-color: ${({ theme }) => theme.colors.divider};
 `
 
 export const ServiceCardDescription = styled.p`
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     line-height: 1.7;
     text-align: justify;
 
-    @media screen and (max-width: 1000px){
-        font-size: 14px;
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
     }
 
-    @media screen and (max-width: 768px){
-        /* text-align: left; */
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
         line-height: 1.5;
     }
 `

@@ -29,25 +29,32 @@ export const HeroSectionContent = styled.div`
 `
 
 export const HeroSectionTitle = styled.h1`
-    color: ${({ theme }) => theme.primary};
-    font-size: 48px;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: ${({ theme }) => theme.typography.desktopHeading};
     font-weight: 700;
     text-align: center;
-    line-height: 1.2;
+    line-height: ${({ theme }) => theme.typography.lineHeight};
 
     @media screen and (max-width: 768px){
-        font-size: 32px;
+        font-size: ${({ theme }) => theme.typography.tabletHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileHeading};
     }
 `
 
 export const HeroSectionSubtitle = styled.p`
-    color: ${({ theme }) => theme.primary};
-    font-size: 24px;
-    font-weight: 400;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: ${({ theme }) => theme.typography.desktopSubHeading};
     text-align: center;
 
     @media screen and (max-width: 768px){
-        font-size: 18px;
+        font-size: ${({ theme }) => theme.typography.tabletSubHeading};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileSubHeading};
     }
 `
 
@@ -62,15 +69,14 @@ export const HeroSectionButtons = styled.div`
 
     @media screen and (max-width: 380px){
         flex-direction: column;
-        gap: 10px;
     }
 `
 
 export const OurServicesButton = styled.a`
     padding: 10px 20px;
-    background-color: ${({ theme }) => theme.accent};
-    color: ${({ theme }) => theme.background};
-    font-size: 18px;
+    background-color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -79,15 +85,19 @@ export const OurServicesButton = styled.a`
 
     @media screen and (max-width: 768px){
         padding: 8px 16px;
-        font-size: 16px;
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 380px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
 
 export const ScheduleACallButton = styled.button`
     padding: 10px 20px;
-    background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.background};
-    font-size: 18px;
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -96,6 +106,10 @@ export const ScheduleACallButton = styled.button`
 
     @media screen and (max-width: 768px){
         padding: 8px 16px;
-        font-size: 16px;
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 380px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
     }
 `
