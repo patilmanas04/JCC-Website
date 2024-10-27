@@ -10,11 +10,11 @@ export const AuthenticationAlertMessageWrapper = styled.div`
     font-size: 1rem;
     
     &.success{
-        background-color: ${props => props.theme.success};
+        background-color: ${props => props.theme.colors.success};
     }
 
     &.fail{
-        background-color: ${props => props.theme.error};
+        background-color: ${props => props.theme.colors.error};
     }
 `
 
@@ -22,7 +22,7 @@ export const AlertMessage = styled.p`
     margin: 0;
     padding: 0;
     font-size: 1rem;
-    color: ${props => props.theme.background};
+    color: ${props => props.theme.colors.background};
     text-align: center;
     width: 100%;
 `

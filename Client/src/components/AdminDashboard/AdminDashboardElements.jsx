@@ -5,7 +5,7 @@ export const AdminDashboardWrapper = styled.section`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
     padding: 40px;
 ` 
 
@@ -16,7 +16,7 @@ export const AdminDashboardContainer = styled.div`
     align-items: flex-start;
     max-width: 1200px;
     width: 100%;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
     gap: 30px;
 `
 
@@ -29,12 +29,12 @@ export const AdminDashboardHeader = styled.div`
 
 export const AdminDashboardTitle = styled.h1`
     font-size: 48px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const AdminDashboardSubtitle = styled.h2`
     font-size: 24px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const AdminDetails = styled.div`
@@ -46,19 +46,19 @@ export const AdminDetails = styled.div`
 
 export const AdminName = styled.h2`
     font-size: 24px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const AdminEmail = styled.p`
     font-size: 18px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const LogoutButton = styled.button`
     margin-top: 10px;
     font-size: 18px;
-    color: ${({ theme }) => theme.background};
-    background-color: ${({ theme }) => theme.accent};
+    color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.accent};
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -80,8 +80,8 @@ export const UserDetails = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-    background-color: ${({ theme }) => theme.secondary};
-    border: 1px solid ${({ theme }) => theme.divider};
+    background-color: ${({ theme }) => theme.colors.secondary};
+    border: 1px solid ${({ theme }) => theme.colors.divider};
     border-radius: 8px;
     padding: 20px;
     flex-basis: 350px;
@@ -91,15 +91,15 @@ export const UserDetails = styled.div`
 
 export const UserName = styled.h3`
     font-size: 24px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const UserEmail = styled.p`
     font-size: 18px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const AccountCreationDate = styled.p`
     font-size: 14px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `

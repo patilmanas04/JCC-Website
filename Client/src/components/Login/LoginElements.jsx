@@ -6,7 +6,7 @@ export const LoginWrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.colors.background};
     padding: 0 40px;
     overflow-y: scroll;
 
@@ -23,16 +23,16 @@ export const LoginContainer = styled.div`
     max-width: 500px;
     width: 100%;
     height: 550px;
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.colors.background};
     border-radius: 10px;
     padding: 60px;
-    border: 1px solid ${({ theme }) => theme.divider};
+    border: 1px solid ${({ theme }) => theme.colors.divider};
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 40px;
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 
     @media screen and (max-width: 768px){
         padding: 0;
@@ -97,12 +97,12 @@ export const Input = styled.input`
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid ${({ theme }) => theme.divider};
+    border: 1px solid ${({ theme }) => theme.colors.divider};
     border-radius: 5px;
 
     &:focus{
         outline: none;
-        border: 1px solid ${({ theme }) => theme.primary};
+        border: 1px solid ${({ theme }) => theme.colors.primary};
     }
 `
 
@@ -110,8 +110,8 @@ export const LoginButton = styled.button`
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    background: ${({ theme }) => theme.accent};
-    color: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.background};
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -124,6 +124,6 @@ export const LoginFooter = styled.p`
 `
 
 export const Span = styled.span`
-    color: ${({ theme }) => theme.accent};
+    color: ${({ theme }) => theme.colors.accent};
     cursor: pointer;
 `
