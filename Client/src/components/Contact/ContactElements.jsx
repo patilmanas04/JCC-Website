@@ -306,3 +306,30 @@ export const ModalContent = styled.p`
     font-size: 16px;
     text-align: left;
 `
+
+export const DropDownMenu = styled.select`
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.secondaryAccent};
+    color: ${({ theme }) => theme.colors.background};
+
+    @media screen and (max-width: 768px){
+        height: 50px;
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 480px){
+        height: 45px;
+        font-size: 16px;
+    }
+`
+
+export const Option = styled.option`
+    font-size: 20px;
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.primary};
+`

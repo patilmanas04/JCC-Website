@@ -1,7 +1,7 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer')
 
-const sendMessage = (name, email, message) => {
+const sendMessage = (type, name, company, email, message) => {
     try{
         const transporter = nodemailer.createTransport({
             service: process.env.MAIL_SERVICE,
@@ -17,7 +17,7 @@ const sendMessage = (name, email, message) => {
             from: process.env.MAIL_AUTH_USER,
             to: process.env.MAIL_AUTH_USER,
             subject: `Message from ${name} <${email}>`,
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+            text: `Type: ${type}\nName: ${name}\n${(company!=null?"Company: "+company+"\n":"")}Email: ${email}\nMessage: ${message}`
         }
     
         transporter.sendMail(mailOptions)

@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
-import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, Modal, ModalContent } from './ContactElements'
+import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, Modal, ModalContent, DropDownMenu, Option } from './ContactElements'
 import { Link } from 'react-router-dom'
 
 const Contact = () => {
     const [showModal, setShowModal] = useState(false)
+    const [type, setType] = useState('individual')
+    const dropDownRef = useRef()
+
+    const handleDropDownChange = (e) => {
+        setType(e.target.value)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -13,7 +19,8 @@ const Contact = () => {
         const name = formData.get('name')
         const email = formData.get('email')
         const message = formData.get('message')
-        
+        const type = dropDownRef.current.value
+        const company = formData.get('company')
 
         const response = await fetch('http://localhost:3000/api/contact/sendmessage', {
             method: 'POST',
@@ -21,7 +28,9 @@ const Contact = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                type,
                 name,
+                company,
                 email,
                 message
             })
@@ -49,9 +58,24 @@ const Contact = () => {
                 </ContactContent>
                 <ContactForm onSubmit={handleSubmit}>
                     <ContactField>
+                        <Label htmlFor='type'>You are</Label>
+                        <DropDownMenu onChange={handleDropDownChange} ref={dropDownRef} id='type' name='type' required defaultValue="individual">
+                            <Option value='individual'>Individual</Option>
+                            <Option value='corporate'>Corporate</Option>
+                        </DropDownMenu>
+                    </ContactField>
+                    <ContactField>
                         <Label htmlFor='name'>Name</Label>
                         <Input id='name' name='name' type="text" required/>
                     </ContactField>
+                    {
+                        type==='corporate' && (
+                            <ContactField>
+                                <Label htmlFor='company'>Company</Label>
+                                <Input id='company' name='company' type="text" required/>
+                            </ContactField>
+                        )
+                    }
                     <ContactField>
                         <Label htmlFor='email'>Email</Label>
                         <Input id='email' name='email' type="email" required/>

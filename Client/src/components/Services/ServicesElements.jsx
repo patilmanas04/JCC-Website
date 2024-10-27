@@ -151,3 +151,18 @@ export const ServiceCardDescription = styled.p`
         line-height: 1.5;
     }
 `
+
+export const WantToConnect = styled.a`
+    margin-top: 10px;
+    color: ${({ theme }) => theme.colors.accent};
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
+`

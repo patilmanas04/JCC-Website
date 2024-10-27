@@ -5,7 +5,7 @@ import Image2 from '../../assets/resume_and_cover_letter_assistance.jpg'
 import Image3 from '../../assets/interview_preparation.jpg'
 import Image4 from '../../assets/career_workshops.jpg'
 import Image5 from '../../assets/corporate_partnerships.jpg'
-import { ServicesWrapper, ServicesContent, ServicesTitle, Span, ServicesSubtitle, ServicesContainer, ServiceCard, ServiceCardImage, ServiceCardContent, ServiceCardTitle, ServiceCardSubtitle, Divider, ServiceCardDescription } from './ServicesElements'
+import { ServicesWrapper, ServicesContent, ServicesTitle, Span, ServicesSubtitle, ServicesContainer, ServiceCard, ServiceCardImage, ServiceCardContent, ServiceCardTitle, ServiceCardSubtitle, Divider, ServiceCardDescription, WantToConnect } from './ServicesElements'
 
 const Services = () => {
     const serviceImages = [Image1, Image2, Image3, Image4, Image5]
@@ -28,6 +28,7 @@ const Services = () => {
                                         <ServiceCardSubtitle>{service.subtitle}</ServiceCardSubtitle>
                                         <Divider></Divider>
                                         <ServiceCardDescription>{service.description}</ServiceCardDescription>
+                                        {service.id===5?<WantToConnect href='#contactus'>Want to Connect?</WantToConnect>:""}
                                     </ServiceCardContent>
                                 </ServiceCard>
                             )
@@ -39,6 +40,7 @@ const Services = () => {
                                     <ServiceCardSubtitle>{service.subtitle}</ServiceCardSubtitle>
                                     <Divider></Divider>
                                     <ServiceCardDescription>{service.description}</ServiceCardDescription>
+                                    {service.id===5?<WantToConnect href='#contactus'>Want to Connect?</WantToConnect>:""}
                                 </ServiceCardContent>
                                 <ServiceCardImage src={serviceImages[index]} alt={service.title} />
                             </ServiceCard>
