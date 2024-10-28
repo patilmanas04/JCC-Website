@@ -22,7 +22,7 @@ const Services = () => {
                         if(index % 2 === 0){
                             return (
                                 <ServiceCard key={service.id}>
-                                    <ServiceCardImage src={serviceImages[index]} alt={service.title} />
+                                    <ServiceCardImage loading='lazy' src={serviceImages[index]} alt={service.title} />
                                     <ServiceCardContent>
                                         <ServiceCardTitle>{service.title}</ServiceCardTitle>
                                         <ServiceCardSubtitle>{service.subtitle}</ServiceCardSubtitle>
@@ -42,7 +42,7 @@ const Services = () => {
                                     <ServiceCardDescription>{service.description}</ServiceCardDescription>
                                     {service.id===5?<WantToConnect href='#contactus'>Want to Connect?</WantToConnect>:""}
                                 </ServiceCardContent>
-                                <ServiceCardImage src={serviceImages[index]} alt={service.title} />
+                                <ServiceCardImage loading='lazy' src={serviceImages[index]} alt={service.title} />
                             </ServiceCard>
                         )
                     })

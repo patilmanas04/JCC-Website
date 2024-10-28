@@ -12,7 +12,6 @@ export const JCCForStudentsWrapper = styled.section`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     position: relative;
 
     &::before {
