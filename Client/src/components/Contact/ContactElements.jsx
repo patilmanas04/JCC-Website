@@ -108,6 +108,11 @@ export const Input = styled.input`
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.secondaryAccent};
 
+    &:focus{
+        outline: none;
+        border: 2px solid ${({ theme }) => theme.colors.background};
+    }
+
     @media screen and (max-width: 768px){
         height: 50px;
         font-size: 18px;
@@ -128,6 +133,11 @@ export const Textarea = styled.textarea`
     border: none;
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.secondaryAccent};
+
+    &:focus{
+        outline: none;
+        border: 2px solid ${({ theme }) => theme.colors.background};
+    }
 
     @media screen and (max-width: 768px){
         height: 100px;
