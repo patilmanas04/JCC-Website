@@ -161,8 +161,11 @@ export const WantToConnect = styled.a`
     font-size: 16px;
     font-weight: 500;
     transition: all 0.3s ease;
+    width: fit-content;
 
     @media screen and (max-width: 768px){
         width: 100%;
+        margin-top: 0;
+        margin-bottom: 5px;
     }
 `
