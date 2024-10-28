@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './SignupElements'
-import { Link } from 'react-router-dom'
+import LeftArrow from '../../assets/left_arrow.svg'
+import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span, GoToHomeButton, LeftArrowIcon } from './SignupElements'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 
 const Signup = () => {
@@ -10,6 +11,7 @@ const Signup = () => {
         document.title = "JCC | Sign up"
     })
 
+    const navigate = useNavigate()
     const firstNameRef = useRef()
     const lastNameRef = useRef()
     const emailRef = useRef()
@@ -39,6 +41,7 @@ const Signup = () => {
         <SignupWrapper>
             <SignupContainer>
                 <SignupContent>
+                    <GoToHomeButton onClick={() => navigate('/')}><LeftArrowIcon src={LeftArrow} />Go to home</GoToHomeButton>
                     <SignupTitle>Create a new account👋</SignupTitle>
                     <SignupSubtitle>It's quick and easy!
                     </SignupSubtitle>

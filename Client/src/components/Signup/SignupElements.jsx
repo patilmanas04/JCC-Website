@@ -2,16 +2,20 @@ import styled from "styled-components"
 
 export const SignupWrapper = styled.section`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.colors.background};
     padding: 20px 40px;
-    overflow-y: scroll;
+    overflow: auto;
 
     @media screen and (max-width: 768px){
         padding: 20px 20px;
+    }
+
+    @media screen and (max-height: 700px){
+        height: 100%;
     }
 `
 
@@ -47,6 +51,20 @@ export const SignupContent = styled.div`
         align-items: center;
         text-align: center;
     }
+`
+
+export const GoToHomeButton = styled.p`
+    font-size: 18px;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.accent};
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+`
+
+export const LeftArrowIcon = styled.img`
+    width: 20px;
 `
 
 export const SignupTitle = styled.h1`

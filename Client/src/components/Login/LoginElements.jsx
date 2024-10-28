@@ -8,7 +8,7 @@ export const LoginWrapper = styled.section`
     align-items: center;
     background: ${({ theme }) => theme.colors.background};
     padding: 0 40px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     @media screen and (max-height: 550px){
         height: 100%;
@@ -52,6 +52,20 @@ export const LoginContent = styled.div`
         align-items: center;
         text-align: center;
     }
+`
+
+export const GoToHomeButton = styled.p`
+    font-size: 18px;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.accent};
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+`
+
+export const LeftArrowIcon = styled.img`
+    width: 20px;
 `
 
 export const LoginTitle = styled.h1`

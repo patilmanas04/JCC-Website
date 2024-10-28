@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './LoginElements'
+import LeftArrow from '../../assets/left_arrow.svg'
+import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span, GoToHomeButton, LeftArrowIcon } from './LoginElements'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 
@@ -47,6 +48,7 @@ const Login = () => {
         <LoginWrapper>
             <LoginContainer>
                 <LoginContent>
+                    <GoToHomeButton onClick={() => navigate('/')}><LeftArrowIcon src={LeftArrow} />Go to home</GoToHomeButton>
                     <LoginTitle>WELCOME BACK 👋</LoginTitle>
                     <LoginSubtitle>Welcome back! Please enter your details.
                     </LoginSubtitle>
