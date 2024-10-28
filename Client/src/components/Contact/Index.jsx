@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
-import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, Modal, ModalContent, DropDownMenu, Option } from './ContactElements'
+import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, Modal, ModalContent, DropDownMenu, Option, DropDownMenuWrapper } from './ContactElements'
 import { Link } from 'react-router-dom'
 
 const Contact = () => {
@@ -59,10 +59,12 @@ const Contact = () => {
                 <ContactForm onSubmit={handleSubmit}>
                     <ContactField>
                         <Label htmlFor='type'>You are</Label>
-                        <DropDownMenu onChange={handleDropDownChange} ref={dropDownRef} id='type' name='type' required defaultValue="individual">
-                            <Option value='individual'>Individual</Option>
-                            <Option value='corporate'>Corporate</Option>
-                        </DropDownMenu>
+                        <DropDownMenuWrapper>
+                            <DropDownMenu onChange={handleDropDownChange} ref={dropDownRef} id='type' name='type' required defaultValue="individual">
+                                <Option value='individual'>Individual</Option>
+                                <Option value='corporate'>Corporate</Option>
+                            </DropDownMenu>
+                        </DropDownMenuWrapper>
                     </ContactField>
                     <ContactField>
                         <Label htmlFor='name'>Name</Label>

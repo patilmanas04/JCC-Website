@@ -107,10 +107,11 @@ export const Input = styled.input`
     border: none;
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.secondaryAccent};
+    border: 2px solid transparent;
 
     &:focus{
         outline: none;
-        border: 2px solid ${({ theme }) => theme.colors.background};
+        border-color: ${({ theme }) => theme.colors.background};
     }
 
     @media screen and (max-width: 768px){
@@ -121,6 +122,7 @@ export const Input = styled.input`
     @media screen and (max-width: 480px){
         height: 45px;
         font-size: 16px;
+        border-width: 1.5px;
     }
 `
 
@@ -133,10 +135,11 @@ export const Textarea = styled.textarea`
     border: none;
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.secondaryAccent};
+    border: 2px solid transparent;
 
     &:focus{
         outline: none;
-        border: 2px solid ${({ theme }) => theme.colors.background};
+        border-color: ${({ theme }) => theme.colors.background};
     }
 
     @media screen and (max-width: 768px){
@@ -147,6 +150,7 @@ export const Textarea = styled.textarea`
     @media screen and (max-width: 480px){
         height: 80px;
         font-size: 16px;
+        border-width: 1.5px;
     }
 `
 
@@ -317,6 +321,43 @@ export const ModalContent = styled.p`
     text-align: left;
 `
 
+export const DropDownMenuWrapper = styled.div`
+    width: 100%;
+    height: 55px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid ${({ theme }) => theme.colors.background};
+        border-left: 2px solid ${({ theme }) => theme.colors.background};
+        right: 15px;
+        top: 50%;
+        transform: translateY(-60%) rotate(225deg);
+        font-size: 15px;
+    }
+
+    @media screen and (max-width: 768px){
+        height: 50px;
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 480px){
+        height: 45px;
+        font-size: 16px;
+
+        &::after{
+            width: 6px;
+            height: 6px;
+        }
+    }
+` 
+
 export const DropDownMenu = styled.select`
     width: 100%;
     height: 55px;
@@ -326,6 +367,13 @@ export const DropDownMenu = styled.select`
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.secondaryAccent};
     color: ${({ theme }) => theme.colors.background};
+    border: 2px solid transparent;
+    appearance: none;
+
+    &:focus{
+        outline: none;
+        border-color: ${({ theme }) => theme.colors.background};
+    }
 
     @media screen and (max-width: 768px){
         height: 50px;
