@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import LeftArrow from '../../assets/left_arrow.svg'
-import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span, GoToHomeButton, LeftArrowIcon } from './SignupElements'
+import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './SignupElements'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
+import GoToHomeButton from '../GoToHomeButton/Index'
 
 const Signup = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })
@@ -41,7 +41,7 @@ const Signup = () => {
         <SignupWrapper>
             <SignupContainer>
                 <SignupContent>
-                    <GoToHomeButton onClick={() => navigate('/')}><LeftArrowIcon src={LeftArrow} />Go to home</GoToHomeButton>
+                    <GoToHomeButton />
                     <SignupTitle>Create a new account👋</SignupTitle>
                     <SignupSubtitle>It's quick and easy!
                     </SignupSubtitle>

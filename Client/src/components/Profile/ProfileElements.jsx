@@ -4,11 +4,12 @@ export const ProfileWrapper = styled.section`
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.colors.background};
     padding: 40px 40px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     @media screen and (max-width: 768px){
         padding: 20px 20px;

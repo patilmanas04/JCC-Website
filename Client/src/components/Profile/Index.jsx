@@ -3,6 +3,7 @@ import ProfileIconSvg from '../../assets/profile_icon.svg'
 import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './ProfileElements'
 import { useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
+import GoToHomeButton from '../GoToHomeButton/Index'
 
 const Profile = () => {
     const navigate = useNavigate()
@@ -92,6 +93,7 @@ const Profile = () => {
 
     return (
         <ProfileWrapper>
+            <GoToHomeButton />
             <ProfileContainer>
                 <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
                 <ProfileOverview>

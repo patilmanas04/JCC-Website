@@ -136,17 +136,12 @@ router.post('/login', [
         const isVerified = user.verified
         if(!isVerified){
             let token = await TokenModel.findOne({ userId: user._id })
-            if(token){
-                return res.status(400).json({
-                    success,
-                    message: "An email sent to your mail id please verify"
+            if(!token){
+                token = await TokenModel.create({
+                    userId: user._id,
+                    token: crypto.randomBytes(32).toString('hex')
                 })
             }
-
-            token = await TokenModel.create({
-                userId: user._id,
-                token: crypto.randomBytes(32).toString('hex')
-            })
     
             const url = `${process.env.CLIENT_URL}/users/${user._id}/verify-email/${token.token}`
     

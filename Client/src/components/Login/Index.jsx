@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import LeftArrow from '../../assets/left_arrow.svg'
-import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span, GoToHomeButton, LeftArrowIcon } from './LoginElements'
+import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './LoginElements'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
+import GoToHomeButton from '../GoToHomeButton/Index'
 
 const Login = () => {
     const [alert, setAlert] = useState({ success: false, message: '', authToken: '' })
@@ -48,7 +48,7 @@ const Login = () => {
         <LoginWrapper>
             <LoginContainer>
                 <LoginContent>
-                    <GoToHomeButton onClick={() => navigate('/')}><LeftArrowIcon src={LeftArrow} />Go to home</GoToHomeButton>
+                    <GoToHomeButton />
                     <LoginTitle>WELCOME BACK 👋</LoginTitle>
                     <LoginSubtitle>Welcome back! Please enter your details.
                     </LoginSubtitle>
