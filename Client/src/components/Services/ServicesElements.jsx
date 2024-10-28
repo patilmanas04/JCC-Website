@@ -164,8 +164,27 @@ export const WantToConnect = styled.a`
     width: fit-content;
     -webkit-tap-highlight-color: transparent;
 
-    @media screen and (max-width: 768px){
+    &::before{
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+    }
+
+    &::after{
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: ${({ theme }) => theme.colors.accent};
+        transition: width ease-in-out 0.3s;
+    }
+
+    &:hover::after{
         width: 100%;
+    }
+
+    @media screen and (max-width: 768px){
         margin-top: 0;
         margin-bottom: 5px;
     }
