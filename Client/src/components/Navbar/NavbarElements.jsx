@@ -16,6 +16,11 @@ export const NavbarWrapper = styled.section`
     @media screen and (max-width: 768px){
         padding: 0 20px;
     }
+
+    @media screen and (max-width: 480px){
+        padding: 0 10px;
+        height: 60px;
+    }
 `
 
 export const NavbarContainer = styled.div`
@@ -36,6 +41,11 @@ export const NavbarIcon = styled.img`
     width: 50px;
     height: 50px;
     border-radius: 999px;
+
+    @media screen and (max-width: 480px){
+        width: 40px;
+        height: 40px;
+    }
 `
 
 export const NavbarTitle = styled.h1`
@@ -43,6 +53,10 @@ export const NavbarTitle = styled.h1`
     font-size: 20px;
     font-weight: 700;
     margin-left: 10px;
+
+    @media screen and (max-width: 480px){
+        font-size: 18px;
+    }
 `
 
 export const NavbarMenu = styled.div`
@@ -61,6 +75,7 @@ export const NavbarItem = styled.a`
     font-size: ${({ theme }) => theme.typography.desktopBody};
     cursor: pointer;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 
     &::before{
         content: '';
@@ -150,12 +165,18 @@ export const ProfileButton = styled.img`
 
 export const NavbarMobileMenuIcon = styled.img`
     display: none;
+    -webkit-tap-highlight-color: transparent;
 
     @media screen and (max-width: 768px){
         display: block;
         width: 40px;
         height: 40px;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 480px){
+        width: 35px;
+        height: 35px;
     }
 `
 
@@ -170,7 +191,7 @@ export const NavbarMobileMenu = styled.div`
         &.active{
             display: flex;
             position: absolute;
-            top: 90px;
+            top: 80px;
             right: 20px;
             background-color: ${({ theme }) => theme.colors.secondary};
             padding: 20px;

@@ -162,6 +162,7 @@ export const WantToConnect = styled.a`
     font-weight: 500;
     transition: all 0.3s ease;
     width: fit-content;
+    -webkit-tap-highlight-color: transparent;
 
     @media screen and (max-width: 768px){
         width: 100%;
