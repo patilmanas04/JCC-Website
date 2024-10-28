@@ -232,4 +232,39 @@ router.put('/updateuser', fetchUserDetails, [
     }
 })
 
+// Delete the user with user id
+router.delete('/deleteuser', fetchUserDetails, async(req, res) => {
+    let success = false
+
+    try{
+        const adminId = req.user.id
+        const adminDetails = await UserModel.findOne({ _id: adminId }, { password: 0, verified: 0, __v: 0, _id: 0, date: 0 })
+    
+        if(adminDetails.userType === 'admin'){
+            const userId = req.body.userId
+            const user = await UserModel.findOne({ _id: userId })
+
+            if(!user){
+                return res.status(400).json({
+                    success,
+                    message: "User not found!"
+                })
+            }
+
+            const deleteUser = await UserModel.deleteOne({ _id: userId})
+
+            success = true
+
+            return res.status(200).json({ success, message: "User deleted successfully!" })
+        }
+    }
+    catch(error){
+        console.error(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
+    }
+})
+
 module.exports = router
