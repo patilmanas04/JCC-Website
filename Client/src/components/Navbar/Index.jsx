@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 import menu_icon from '../../assets/menu_icon.svg'
 import close_icon from '../../assets/close_icon.svg'
 import ProfileIcon from '../../assets/profile_icon.svg'

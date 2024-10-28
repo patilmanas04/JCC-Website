@@ -1,5 +1,5 @@
 import React from 'react'
-import LogoImage from '../../assets/logo.png'
+import LogoImage from '../../assets/logo.svg'
 import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
 import InstagramIcon from '../../assets/instagram_icon.svg'
