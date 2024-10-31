@@ -6,7 +6,7 @@ export const EmailVerificationWrapper = styled.section`
     align-items: center;
     height: 100vh;
     width: 100%;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
 
     @media screen and (max-height: 350px){
         height: 100%;
@@ -37,12 +37,12 @@ export const EmailVerificationIcon = styled.img`
 `
 
 export const EmailVerificationTitle = styled.h1`
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
 `
 
 export const LoginButton = styled.button`
-    background-color: ${({ theme }) => theme.accent};
-    color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.background};
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -51,6 +51,6 @@ export const LoginButton = styled.button`
     font-size: 16px;
     
     &:hover {
-        background-color: ${({ theme }) => theme.primary};
+        background-color: ${({ theme }) => theme.colors.primary};
     }
 `
