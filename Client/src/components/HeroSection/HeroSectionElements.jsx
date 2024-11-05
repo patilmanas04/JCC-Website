@@ -17,6 +17,10 @@ export const HeroSectionWrapper = styled.section`
     @media screen and (max-width: 768px){
         height: 600px;
     }
+
+    @media screen and (max-width: 480px){
+        margin-top: 60px;
+    }
 `
 
 export const HeroSectionContent = styled.div`

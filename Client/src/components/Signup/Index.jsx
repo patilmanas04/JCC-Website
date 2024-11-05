@@ -25,7 +25,7 @@ const Signup = () => {
         const email = emailRef.current.value
         const password = passwordRef.current.value
 
-        const response = await fetch('https://jcc-website.onrender.com/api/auth/register', {
+        const response = await fetch('http://localhost:3000/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
