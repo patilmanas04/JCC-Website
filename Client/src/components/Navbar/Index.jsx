@@ -26,6 +26,10 @@ const Navbar = () => {
         setIsLoggedIn(false)
     }
 
+    const handleMobileMenuItemClick = () => {
+        setIsOpen(false)
+    }
+
     return (
         <NavbarWrapper>
             <NavbarContainer>
@@ -43,11 +47,11 @@ const Navbar = () => {
                 </NavbarMenu>
                 <NavbarMobileMenuIcon src={!isOpen?menu_icon:close_icon} logo='menu_icon' onClick={toggleMenu}/>
                 <NavbarMobileMenu className={isOpen?'active':''}>
-                    <NavbarItem href='#aboutus'>About Us</NavbarItem>
-                    <NavbarItem href='#services'>Services</NavbarItem>
-                    <NavbarItem href='#contactus'>Contact Us</NavbarItem>
+                    <NavbarItem href='#aboutus' onClick={handleMobileMenuItemClick}>About Us</NavbarItem>
+                    <NavbarItem href='#services' onClick={handleMobileMenuItemClick}>Services</NavbarItem>
+                    <NavbarItem href='#contactus' onClick={handleMobileMenuItemClick}>Contact Us</NavbarItem>
                     {
-                        isLoggedIn?<><NavbarItem><Link to="/profile">Profile</Link></NavbarItem><NavbarItem type='button' onClick={handleLogout}>Logout</NavbarItem></>:<NavbarItem><Link to="/login">Login</Link></NavbarItem>
+                        isLoggedIn?<><NavbarItem onClick={handleMobileMenuItemClick}><Link to="/profile">Profile</Link></NavbarItem><NavbarItem type='button' onClick={handleLogout}>Logout</NavbarItem></>:<NavbarItem><Link to="/login">Login</Link></NavbarItem>
                     }
                 </NavbarMobileMenu>
             </NavbarContainer>
