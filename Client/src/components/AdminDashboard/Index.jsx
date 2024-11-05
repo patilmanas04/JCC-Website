@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DeleteIcon from '../../assets/delete_icon.svg'
 import { AdminDashboardWrapper, AdminDashboardContainer, AdminDashboardHeader, AdminDashboardTitle, AdminDashboardSubtitle, AdminDetails, AdminName, AdminEmail, LogoutButton, AllUsersDetails, UserDetails, UserName, UserEmail, AccountCreationDate, DeleteButtonWrapper, DeleteAccountButton, ConfirmDeleteModal, DeleteModalContent, DeleteModalTitle, DeleteModalButtons, DeleteModalButton } from './AdminDashboardElements'
 import { useNavigate } from 'react-router-dom'
+import Loader from '../Loader/Index'
 
 const AdminDashboard = () => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
@@ -9,6 +10,7 @@ const AdminDashboard = () => {
         name: '',
         email: ''
     })
+    const [isLoading, setIsLoading] = useState(true)
 
     const [selectedUser, setSelectedUser] = useState('')
 
@@ -35,7 +37,8 @@ const AdminDashboard = () => {
                         email: data.adminDetails.email
                     })
 
-                    setAllUsersDetails(data.allUsersDetails) 
+                    setAllUsersDetails(data.allUsersDetails)
+                    setIsLoading(false)
                 }
                 else{
                     navigate('/')
@@ -88,6 +91,7 @@ const AdminDashboard = () => {
     }
 
     return (
+        isLoading?<Loader />:
         <AdminDashboardWrapper>
             <AdminDashboardContainer>
                 <AdminDashboardHeader>

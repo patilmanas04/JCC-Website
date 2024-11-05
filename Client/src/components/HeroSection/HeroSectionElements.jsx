@@ -98,6 +98,7 @@ export const OurServicesButton = styled.a`
 `
 
 export const ScheduleACallButton = styled.button`
+    font-family: 'Poppins', sans-serif;
     padding: 10px 20px;
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.background};

@@ -4,9 +4,12 @@ import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, 
 import { useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 import GoToHomeButton from '../GoToHomeButton/Index'
+import Loader from '../Loader/Index'
 
 const Profile = () => {
     const navigate = useNavigate()
+
+    const [isLoading, setIsLoading] = useState(true)
 
     const [alert, setAlert] = useState({
         success: false,
@@ -41,6 +44,7 @@ const Profile = () => {
                 if(data.success){
                     setCredentials(data.userDetails)
                     document.title = 'JCC | Profile'
+                    setIsLoading(false)
                 }
                 else{
                     navigate('/login')
@@ -92,6 +96,7 @@ const Profile = () => {
     }
 
     return (
+        isLoading?<Loader />:
         <ProfileWrapper>
             <GoToHomeButton />
             <ProfileContainer>
