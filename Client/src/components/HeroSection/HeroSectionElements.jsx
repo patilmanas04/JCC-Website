@@ -17,6 +17,10 @@ export const HeroSectionWrapper = styled.section`
     @media screen and (max-width: 768px){
         height: 600px;
     }
+
+    @media screen and (max-width: 480px){
+        margin-top: 60px;
+    }
 `
 
 export const HeroSectionContent = styled.div`
@@ -94,6 +98,7 @@ export const OurServicesButton = styled.a`
 `
 
 export const ScheduleACallButton = styled.button`
+    font-family: 'Poppins', sans-serif;
     padding: 10px 20px;
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.background};

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DeleteIcon from '../../assets/delete_icon.svg'
 import { AdminDashboardWrapper, AdminDashboardContainer, AdminDashboardHeader, AdminDashboardTitle, AdminDashboardSubtitle, AdminDetails, AdminName, AdminEmail, LogoutButton, AllUsersDetails, UserDetails, UserName, UserEmail, AccountCreationDate, DeleteButtonWrapper, DeleteAccountButton, ConfirmDeleteModal, DeleteModalContent, DeleteModalTitle, DeleteModalButtons, DeleteModalButton } from './AdminDashboardElements'
 import { useNavigate } from 'react-router-dom'
+import Loader from '../Loader/Index'
 
 const AdminDashboard = () => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
@@ -9,6 +10,7 @@ const AdminDashboard = () => {
         name: '',
         email: ''
     })
+    const [isLoading, setIsLoading] = useState(true)
 
     const [selectedUser, setSelectedUser] = useState('')
 
@@ -19,7 +21,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchAdminAndUsersDetails = async () => {
             try{
-                const response = await fetch('https://jcc-website.onrender.com/api/users/getallusers', {
+                const response = await fetch('http://localhost:3000/api/users/getallusers', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -35,7 +37,8 @@ const AdminDashboard = () => {
                         email: data.adminDetails.email
                     })
 
-                    setAllUsersDetails(data.allUsersDetails) 
+                    setAllUsersDetails(data.allUsersDetails)
+                    setIsLoading(false)
                 }
                 else{
                     navigate('/')
@@ -65,7 +68,7 @@ const AdminDashboard = () => {
         // setIsDeleteModalOpen(!isDeleteModalOpen)
 
         try{
-            const response = await fetch('https://jcc-website.onrender.com/api/auth/deleteuser', {
+            const response = await fetch('http://localhost:3000/api/auth/deleteuser', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -88,6 +91,7 @@ const AdminDashboard = () => {
     }
 
     return (
+        isLoading?<Loader />:
         <AdminDashboardWrapper>
             <AdminDashboardContainer>
                 <AdminDashboardHeader>

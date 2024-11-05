@@ -4,9 +4,12 @@ import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, 
 import { useNavigate } from 'react-router-dom'
 import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 import GoToHomeButton from '../GoToHomeButton/Index'
+import Loader from '../Loader/Index'
 
 const Profile = () => {
     const navigate = useNavigate()
+
+    const [isLoading, setIsLoading] = useState(true)
 
     const [alert, setAlert] = useState({
         success: false,
@@ -28,7 +31,7 @@ const Profile = () => {
 
         const getUserDetails = async () => {
             try{
-                const response = await fetch('https://jcc-website.onrender.com/api/auth/getuser', {
+                const response = await fetch('http://localhost:3000/api/auth/getuser', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -41,6 +44,7 @@ const Profile = () => {
                 if(data.success){
                     setCredentials(data.userDetails)
                     document.title = 'JCC | Profile'
+                    setIsLoading(false)
                 }
                 else{
                     navigate('/login')
@@ -68,7 +72,7 @@ const Profile = () => {
 
     const handleUpdate = async () => {
         try{
-            const response = await fetch('https://jcc-website.onrender.com/api/auth/updateuser', {
+            const response = await fetch('http://localhost:3000/api/auth/updateuser', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,6 +96,7 @@ const Profile = () => {
     }
 
     return (
+        isLoading?<Loader />:
         <ProfileWrapper>
             <GoToHomeButton />
             <ProfileContainer>

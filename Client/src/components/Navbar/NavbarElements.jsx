@@ -191,11 +191,17 @@ export const NavbarMobileMenu = styled.div`
         &.active{
             display: flex;
             position: absolute;
-            top: 80px;
+            top: 100px;
             right: 20px;
             background-color: ${({ theme }) => theme.colors.secondary};
             padding: 20px;
             transition: top ease-in-out 0.3s;
+        }
+    }
+
+    @media screen and (max-width: 480px){
+        &.active{
+            top: 80px;
         }
     }
 `
