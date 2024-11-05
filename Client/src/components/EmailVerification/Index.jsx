@@ -3,8 +3,10 @@ import GreenTick from '../../assets/green_tick.svg'
 import ServerIcon from '../../assets/server_icon.svg'
 import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, LoginButton } from './EmailVerificationElements'
 import { Link, useParams } from 'react-router-dom'
+import Loader from '../Loader/Index'
 
 const EmailVerification = () => {
+    const [isLoading, setIsLoading] = useState(true)
     const [isValidUrl, setIsValidUrl] = useState(false)
     const { userId, verificationToken } = useParams()
 
@@ -22,6 +24,7 @@ const EmailVerification = () => {
                 
                 const data = await response.json()
                 setIsValidUrl(data.success)
+                setIsLoading(false)
             }
             catch(error){
                 console.log(error)
@@ -33,6 +36,7 @@ const EmailVerification = () => {
     }, [])
 
     return (
+        isLoading?<Loader />:
         <EmailVerificationWrapper>
             <EmailVerificationContainer>
                 <EmailVerificationContent>
