@@ -31,7 +31,7 @@ const Profile = () => {
 
         const getUserDetails = async () => {
             try{
-                const response = await fetch('http://localhost:3000/api/auth/getuser', {
+                const response = await fetch('https://jcc-website.onrender.com/api/auth/getuser', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const Profile = () => {
 
     const handleUpdate = async () => {
         try{
-            const response = await fetch('http://localhost:3000/api/auth/updateuser', {
+            const response = await fetch('https://jcc-website.onrender.com/api/auth/updateuser', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
