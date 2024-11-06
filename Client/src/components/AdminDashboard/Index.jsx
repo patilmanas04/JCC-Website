@@ -19,6 +19,8 @@ const AdminDashboard = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        document.title = 'JCC | Admin Dashboard'
+
         const fetchAdminAndUsersDetails = async () => {
             try{
                 const response = await fetch('http://localhost:3000/api/users/getallusers', {
