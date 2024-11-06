@@ -2,9 +2,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import ProfileIconSvg from '../../assets/profile_icon.svg'
 import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './ProfileElements'
 import { useNavigate } from 'react-router-dom'
-import AuthenticationAlertMessage from '../AuthenticationAlertMessage/Index'
 import GoToHomeButton from '../GoToHomeButton/Index'
 import Loader from '../Loader/Index'
+import { updateProfileFormValidator } from '../../utils/formValidators'
+import AlertBox from '../AlertBox/Index'
 
 const Profile = () => {
     const navigate = useNavigate()
@@ -31,7 +32,7 @@ const Profile = () => {
 
         const getUserDetails = async () => {
             try{
-                const response = await fetch('https://jcc-website.onrender.com/api/auth/getuser', {
+                const response = await fetch('http://localhost:3000/api/auth/getuser', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -70,9 +71,16 @@ const Profile = () => {
         navigate('/')
     }
 
-    const handleUpdate = async () => {
+    const handleUpdate = async (e) => {
         try{
-            const response = await fetch('https://jcc-website.onrender.com/api/auth/updateuser', {
+            const formValidationResult = updateProfileFormValidator(credentials.firstName, credentials.lastName)
+
+            if(!formValidationResult.success){
+                setAlert(formValidationResult)
+                return
+            }
+
+            const response = await fetch('http://localhost:3000/api/auth/updateuser', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -119,7 +127,7 @@ const Profile = () => {
                     </ProfileItem>
                 </ProfileContent>
                 {
-                    alert.message && <AuthenticationAlertMessage success={alert.success} message={alert.message}/>
+                    alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
                 }
                 <ProfileActions>
                     <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>

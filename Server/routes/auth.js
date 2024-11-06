@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express = require('express')
 const router = express.Router()
-const { body, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
@@ -11,18 +10,8 @@ const sendEmail = require('../utils/sendEmail')
 const fetchUserDetails = require('../middleware/fetchUserDetails')
 
 // Regsiter a new user
-router.post('/register', [
-    body('firstName', 'First Name is required').notEmpty().isLength({ min: 1 }),
-    body('lastName', 'Last Name is required').notEmpty().isLength({ min: 1 }),
-    body('email', 'Email is required').isEmail(),
-    body('password', 'Password must be at least 8 characters long').isLength({ min: 8 })
-], async (req, res) => {
+router.post('/register', async (req, res) => {
     let success = false
-
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-        return res.status(400).json({ success, message: "First Name, Last Name, Email and Password should not be empty" })
-    }
 
     try{
         const { firstName, lastName, email, password } = req.body
@@ -102,17 +91,9 @@ router.post('/users/:id/verify-email/:token', async (req, res) => {
 })
 
 // Login a user
-router.post('/login', [
-    body('email', 'Email is required').isEmail(),
-    body('password', 'Password is required').isLength({ min: 1 })
-], async (req, res) => {
+router.post('/login', async (req, res) => {
     let success = false
     let isAdmin = false
-
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-        return res.status(400).json({ success, message: "Email and Password should not be empty" })
-    }
 
     try{
         const { email, password } = req.body
@@ -198,16 +179,8 @@ router.get('/getuser', fetchUserDetails, async(req, res) => {
 })
 
 // Update user details
-router.put('/updateuser', fetchUserDetails, [
-    body('firstName', 'First Name is required').notEmpty().isLength({ min: 1 }),
-    body('lastName', 'Last Name is required').notEmpty().isLength({ min: 1 })
-], async(req, res) => {
+router.put('/updateuser', fetchUserDetails, async(req, res) => {
     let success = false
-
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-        return res.status(400).json({ success, message: "First Name and Last Name should not be empty" })
-    }
 
     try{
         const userId = req.user.id
