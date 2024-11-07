@@ -4,13 +4,16 @@ import { theme } from '../../utils/themes'
 
 const Loader = () => {
     return (
-        <CircularProgress style={{
-            color: theme.colors.accent,
+        <div style={{
             position: 'absolute',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
-        }} />
+        }}>
+            <CircularProgress style={{
+                color: theme.colors.accent,
+            }} />
+        </div>
     )
 }
 

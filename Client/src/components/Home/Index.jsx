@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../Navbar/Index'
 import HeroSection from '../HeroSection/Index'
 import About from '../About/Index'
@@ -9,8 +9,14 @@ import Contact from '../Contact/Index'
 import Footer from '../Footer/Index'
 import Copyright from '../Copyright/Index'
 import BackToTopButton from '../BackToTopButton/Index'
+import userContext from '../../contexts/userContext'
+import AdminNavbar from '../AdminNavbar/Index'
 
 const Home = () => {
+
+    const context = useContext(userContext)
+    const { isAdmin, setIsAdmin } = context
+
     const [showBackToTopButton, setShowBackToTopButton] = useState(false)
 
     const handleScroll = () => {
@@ -24,6 +30,31 @@ const Home = () => {
     };
     
     useEffect(() => {
+        const checkAdmin = async () => {
+            const response = await fetch('https://jcc-website.onrender.com/api/auth/checkadmin', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Auth-Token': localStorage.getItem('authToken')
+                }
+            })
+
+            const data = await response.json()
+
+            if(data.success){
+                setIsAdmin({
+                    status: true,
+                    checked: true
+                })
+            }
+        }
+
+        if(localStorage.getItem('authToken')){
+            if(!isAdmin.checked){
+                checkAdmin()
+            }
+        }
+
         document.title = "JCC | Home"
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -33,7 +64,9 @@ const Home = () => {
 
     return (
         <>
-            <Navbar />
+            {
+                isAdmin.status?<AdminNavbar />:<Navbar />
+            }
             <HeroSection />
             <About />
             <Services />

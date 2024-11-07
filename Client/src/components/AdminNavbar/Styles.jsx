@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavbarWrapper = styled.section`
+export const AdminNavbarWrapper = styled.section`
     width: 100%;
     height: 80px;
     background-color: ${({ theme }) => theme.colors.secondary};
@@ -23,7 +23,7 @@ export const NavbarWrapper = styled.section`
     }
 `
 
-export const NavbarContainer = styled.div`
+export const AdminNavbarContainer = styled.div`
     max-width: 1200px;
     width: 100%;
     height: 100%;
@@ -32,12 +32,13 @@ export const NavbarContainer = styled.div`
     align-items: center;
 `
 
-export const NavbarLogo = styled.div`
+export const AdminNavbarLogo = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
 `
 
-export const NavbarIcon = styled.img`
+export const AdminNavbarIcon = styled.img`
     width: 50px;
     height: 50px;
     border-radius: 999px;
@@ -48,7 +49,7 @@ export const NavbarIcon = styled.img`
     }
 `
 
-export const NavbarTitle = styled.h1`
+export const AdminNavbarTitle = styled.h1`
     color: ${({ theme }) => theme.colors.primary};
     font-size: 25px;
     font-weight: 700;
@@ -60,17 +61,17 @@ export const NavbarTitle = styled.h1`
     }
 `
 
-export const NavbarMenu = styled.div`
+export const AdminNavbarMenu = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 930px){
         display: none;
     }
 `
 
-export const NavbarItem = styled.a`
+export const AdminNavbarItem = styled.a`
     width: fit-content;
     color: ${({ theme }) => theme.colors.primary};
     font-size: ${({ theme }) => theme.typography.desktopBody};
@@ -132,6 +133,31 @@ export const LoginButton = styled.button`
     }
 `
 
+export const DashboardButton = styled.button`
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.3s;
+    text-align: center;
+
+    &:hover{
+        opacity: 0.8;
+    }
+
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
+    }
+`
+
 export const LogoutButton = styled.button`
     background-color: ${({ theme }) => theme.colors.error};
     color: ${({ theme }) => theme.colors.background};
@@ -164,11 +190,11 @@ export const ProfileButton = styled.img`
     cursor: pointer;
 `
 
-export const NavbarMobileMenuIcon = styled.img`
+export const AdminNavbarMobileMenuIcon = styled.img`
     display: none;
     -webkit-tap-highlight-color: transparent;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 930px){
         display: block;
         width: 40px;
         height: 40px;
@@ -181,7 +207,7 @@ export const NavbarMobileMenuIcon = styled.img`
     }
 `
 
-export const NavbarMobileMenu = styled.div`
+export const AdminNavbarMobileMenu = styled.div`
     display: none;
     flex-direction: column;
     gap: 20px;

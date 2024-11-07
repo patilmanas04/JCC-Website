@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import ProfileIconSvg from '../../assets/profile_icon.svg'
 import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './ProfileElements'
 import { useNavigate } from 'react-router-dom'
@@ -6,9 +6,12 @@ import GoToHomeButton from '../GoToHomeButton/Index'
 import Loader from '../Loader/Index'
 import { updateProfileFormValidator } from '../../utils/formValidators'
 import AlertBox from '../AlertBox/Index'
+import userContext from '../../contexts/userContext'
 
 const Profile = () => {
     const navigate = useNavigate()
+    const context = useContext(userContext)
+    const { getUserDetails, updateUserDetails, userCredentials, setUserCredentials, currentUserCredentials, setIsAdmin } = context
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -17,124 +20,91 @@ const Profile = () => {
         message: ''
     })
 
-    const [credentials, setCredentials] = useState({
-        firstName: '',
-        lastName: '',
-        email: ''
-    })
-
     useEffect(() => {
-
         const token = localStorage.getItem('authToken')
         if(!token){
             navigate('/login')
         }
 
-        const getUserDetails = async () => {
-            try{
-                const response = await fetch('https://jcc-website.onrender.com/api/auth/getuser', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Auth-Token': localStorage.getItem('authToken')
-                    }
-                })
-
-                const data = await response.json()
-
-                if(data.success){
-                    setCredentials(data.userDetails)
-                    document.title = 'JCC | Profile'
-                    setIsLoading(false)
-                }
-                else{
-                    navigate('/login')
-                }
-            }
-            catch(error){
-                console.log(error)
-            }
+        if (!userCredentials.firstName && !userCredentials.lastName) {
+            getUserDetails(setIsLoading)
+        } else {
+            setIsLoading(false)
         }
-
-        getUserDetails()
     }, [])
 
     const onChange = (e) => {
-        setCredentials({
-            ...credentials,
+        setUserCredentials({
+            ...userCredentials,
             [e.target.name]: e.target.value
         })
     }
 
     const handleLogout = () => {
         localStorage.removeItem('authToken')
+        setUserCredentials({
+            firstName: '',
+            lastName: '',
+            email: ''
+        })
+        setIsAdmin({
+            status: false,
+            checked: false
+        })
         navigate('/')
     }
 
     const handleUpdate = async (e) => {
-        try{
-            const formValidationResult = updateProfileFormValidator(credentials.firstName, credentials.lastName)
+        const formValidationResult = updateProfileFormValidator(userCredentials.firstName, userCredentials.lastName)
 
-            if(!formValidationResult.success){
-                setAlert(formValidationResult)
-                return
-            }
+        if(!formValidationResult.success){
+            setAlert(formValidationResult)
+            return
+        }
 
-            const response = await fetch('https://jcc-website.onrender.com/api/auth/updateuser', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Auth-Token': localStorage.getItem('authToken')
-                },
-                body: JSON.stringify({
-                    firstName: credentials.firstName,
-                    lastName: credentials.lastName
-                })
-            })
-
-            const data = await response.json()
+        if(userCredentials.firstName === currentUserCredentials.firstName && userCredentials.lastName === currentUserCredentials.lastName){
             setAlert({
-                success: data.success,
-                message: data.message
+                success: false,
+                message: 'No changes made to update'
             })
+            return
         }
-        catch(error){
-            console.log(error)
-        }
+
+        updateUserDetails(userCredentials, setAlert)
     }
 
     return (
         isLoading?<Loader />:
-        <ProfileWrapper>
-            <GoToHomeButton />
-            <ProfileContainer>
-                <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
-                <ProfileOverview>
-                    <ProfileIcon src={ProfileIconSvg} alt="profile_icon"/>
-                    <ProfileDetails>
-                        <ProfileName>{credentials.firstName} {credentials.lastName}</ProfileName>
-                        <ProfileEmail>{credentials.email}</ProfileEmail>
-                    </ProfileDetails>
-                </ProfileOverview>
-                <ProfileContent>
-                    <ProfileItem>
-                        <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
-                        <ProfileValue type='text' name='firstName' id='firstName' value={credentials.firstName} onChange={onChange}/>
-                    </ProfileItem>
-                    <ProfileItem>
-                        <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
-                        <ProfileValue type='text' name='lastName' id='lastName' value={credentials.lastName} onChange={onChange}/>
-                    </ProfileItem>
-                </ProfileContent>
-                {
-                    alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
-                }
-                <ProfileActions>
-                    <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
-                    <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
-                </ProfileActions>
-            </ProfileContainer>
-        </ProfileWrapper>
+            <ProfileWrapper>
+                <GoToHomeButton />
+                <ProfileContainer>
+                    <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
+                    <ProfileOverview>
+                        <ProfileIcon src={ProfileIconSvg} alt="profile_icon"/>
+                        <ProfileDetails>
+                            <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
+                            <ProfileEmail>{userCredentials.email}</ProfileEmail>
+                        </ProfileDetails>
+                    </ProfileOverview>
+                    <ProfileContent>
+                        <ProfileItem>
+                            <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
+                            <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
+                        </ProfileItem>
+                        <ProfileItem>
+                            <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
+                            <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
+                        </ProfileItem>
+                    </ProfileContent>
+                    {
+                        alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
+                    }
+                    <ProfileActions>
+                        <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
+                        <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
+                    </ProfileActions>
+                </ProfileContainer>
+            </ProfileWrapper>
     )
 }
 
