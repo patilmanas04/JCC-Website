@@ -11,7 +11,7 @@ import userContext from '../../contexts/userContext'
 const Profile = () => {
     const navigate = useNavigate()
     const context = useContext(userContext)
-    const { getUserDetails, updateUserDetails, userCredentials, setUserCredentials, currentUserCredentials } = context
+    const { getUserDetails, updateUserDetails, userCredentials, setUserCredentials, currentUserCredentials, setIsAdmin } = context
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -42,6 +42,15 @@ const Profile = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken')
+        setUserCredentials({
+            firstName: '',
+            lastName: '',
+            email: ''
+        })
+        setIsAdmin({
+            status: false,
+            checked: false
+        })
         navigate('/')
     }
 
@@ -66,36 +75,36 @@ const Profile = () => {
 
     return (
         isLoading?<Loader />:
-        <ProfileWrapper>
-            <GoToHomeButton />
-            <ProfileContainer>
-                <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
-                <ProfileOverview>
-                    <ProfileIcon src={ProfileIconSvg} alt="profile_icon"/>
-                    <ProfileDetails>
-                        <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
-                        <ProfileEmail>{userCredentials.email}</ProfileEmail>
-                    </ProfileDetails>
-                </ProfileOverview>
-                <ProfileContent>
-                    <ProfileItem>
-                        <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
-                        <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
-                    </ProfileItem>
-                    <ProfileItem>
-                        <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
-                        <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
-                    </ProfileItem>
-                </ProfileContent>
-                {
-                    alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
-                }
-                <ProfileActions>
-                    <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
-                    <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
-                </ProfileActions>
-            </ProfileContainer>
-        </ProfileWrapper>
+            <ProfileWrapper>
+                <GoToHomeButton />
+                <ProfileContainer>
+                    <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
+                    <ProfileOverview>
+                        <ProfileIcon src={ProfileIconSvg} alt="profile_icon"/>
+                        <ProfileDetails>
+                            <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
+                            <ProfileEmail>{userCredentials.email}</ProfileEmail>
+                        </ProfileDetails>
+                    </ProfileOverview>
+                    <ProfileContent>
+                        <ProfileItem>
+                            <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
+                            <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
+                        </ProfileItem>
+                        <ProfileItem>
+                            <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
+                            <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
+                        </ProfileItem>
+                    </ProfileContent>
+                    {
+                        alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
+                    }
+                    <ProfileActions>
+                        <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
+                        <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
+                    </ProfileActions>
+                </ProfileContainer>
+            </ProfileWrapper>
     )
 }
 

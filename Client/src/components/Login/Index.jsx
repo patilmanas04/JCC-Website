@@ -1,11 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './LoginElements'
 import { Link, useNavigate } from 'react-router-dom'
 import GoToHomeButton from '../GoToHomeButton/Index'
 import AlertBox from '../AlertBox/Index'
+import InputPassword from '../FormControls/InputPassword/Index'
+import userContext from '../../contexts/userContext'
 
 const Login = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })
+
+    const context = useContext(userContext)
+    const { setIsAdmin } = context
 
     useEffect(() => {
         document.title = "JCC | Log in"
@@ -19,7 +24,7 @@ const Login = () => {
         e.preventDefault()
 
         const email = e.target.email.value
-        const password = e.target.password.value
+        const password = passwordRef.current.value
 
         const response = await fetch('http://localhost:3000/api/auth/login', {
             method: 'POST',
@@ -34,9 +39,17 @@ const Login = () => {
         if(data.success){
             localStorage.setItem('authToken', data.authToken)
             if(data.isAdmin){
+                setIsAdmin({
+                    status: true,
+                    checked: true
+                })
                 navigate('/admin-dashboard')
             }
             else{
+                setIsAdmin({
+                    status: false,
+                    checked: true
+                })
                 navigate('/')
             }
         }
@@ -60,7 +73,7 @@ const Login = () => {
                     </LoginField>
                     <LoginField>
                         <Label htmlFor='password'>Password</Label>
-                        <Input id='password' name='password' type="password" placeholder="Enter your password" ref={passwordRef} required/>
+                        <InputPassword placeholder="Enter your password" reference={passwordRef}/>
                     </LoginField>
                     <LoginButton type='submit'>Log in</LoginButton>
                     {alert.message && <AlertBox message={alert.message} severity={alert.success?"success":"error"}/>}

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import GoToHomeButton from '../GoToHomeButton/Index'
 import { signupFormValidator } from '../../utils/formValidators'
 import AlertBox from '../AlertBox/Index'
+import InputPassword from '../FormControls/InputPassword/Index'
 
 const Signup = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })
@@ -25,7 +26,7 @@ const Signup = () => {
         const firstName = e.target.firstName.value
         const lastName = e.target.lastName.value
         const email = e.target.email.value
-        const password = e.target.password.value
+        const password = passwordRef.current.value
 
         const formValidationResult = signupFormValidator(email, password)
 
@@ -77,7 +78,7 @@ const Signup = () => {
                     </SignupField>
                     <SignupField>
                         <Label htmlFor='password'>Password</Label>
-                        <Input id='password' name='password' type="password" placeholder="Password must be 8 characters long" ref={passwordRef} required/>
+                        <InputPassword placeholder="Password must be at least 8 characters long" reference={passwordRef}/>
                     </SignupField>
                     <SignupButton type='submit'>Sign up</SignupButton>
                     {alert.message && <AlertBox severity={alert.success?"success":"error"} message={alert.message} />}

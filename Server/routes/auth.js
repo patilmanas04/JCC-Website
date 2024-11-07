@@ -235,4 +235,28 @@ router.delete('/deleteuser', fetchUserDetails, async(req, res) => {
     }
 })
 
+router.get('/checkadmin', fetchUserDetails, async (req, res) => {
+    let success = false
+
+    try{
+        const userId = req.user.id
+        const userDetails = await UserModel.findOne({ _id: userId })
+
+        if(userDetails.userType === 'admin'){
+            success = true
+            return res.status(200).json({ success })
+        }
+        else{
+            return res.status(400).json({ success })
+        }
+    }
+    catch(error){
+        console.log(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
+    }
+})
+
 module.exports = router

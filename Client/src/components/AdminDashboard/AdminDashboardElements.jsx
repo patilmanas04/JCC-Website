@@ -4,6 +4,7 @@ export const AdminDashboardWrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 80px;
     width: 100%;
     background-color: ${({ theme }) => theme.colors.background};
     padding: 40px;
@@ -11,6 +12,10 @@ export const AdminDashboardWrapper = styled.section`
 
     @media screen and (max-width: 768px){
         padding: 20px;
+    }
+
+    @media screen and (max-width: 480px){
+        margin-top: 60px;
     }
 ` 
 

@@ -14,6 +14,76 @@ const UserProvider = (props) => {
         email: ''
     })
 
+    const [isAdmin, setIsAdmin] = useState({
+        status: false,
+        checked: false
+    })
+
+    const [adminDetails, setAdminDetails] = useState({
+        name: '',
+        email: ''
+    })
+
+    const [selectedUserId, setSelectedUserId] = useState('')
+
+    const [allUsersDetails, setAllUsersDetails] = useState([])
+
+    const getAdminAndAllUsersDetails = async (setIsLoading) => {
+        try{
+            const response = await fetch('http://localhost:3000/api/users/getallusers', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Auth-Token': localStorage.getItem('authToken')
+                }
+            })
+
+            const data = await response.json()
+
+            console.log(data)
+
+            if(data.success){
+                setAdminDetails({
+                    name: data.adminDetails.firstName + ' ' + data.adminDetails.lastName,
+                    email: data.adminDetails.email
+                })
+
+                setAllUsersDetails(data.allUsersDetails)
+                setIsLoading(false)
+            }
+            else{
+                return false
+            }
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
+    const deleteUser = async (isDeleteModalOpen, setIsDeleteModalOpen) => {
+        try{
+            const response = await fetch('http://localhost:3000/api/auth/deleteuser', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Auth-Token': localStorage.getItem('authToken')
+                },
+                body: JSON.stringify({userId: selectedUserId})
+            })
+
+            const data = await response.json()
+
+            if(data.success){
+                const updatedUsersList = allUsersDetails.filter(user => user._id !== selectedUserId)
+                setAllUsersDetails(updatedUsersList)
+                setIsDeleteModalOpen(!isDeleteModalOpen)
+            }
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
     const getUserDetails = async (setIsLoading) => {
         try{
             const response = await fetch('http://localhost:3000/api/auth/getuser', {
@@ -57,6 +127,12 @@ const UserProvider = (props) => {
 
             const data = await response.json()
             setCurrentUserCredentials(credentials)
+            if(isAdmin.status){
+                setAdminDetails({
+                    name: credentials.firstName + ' ' + credentials.lastName,
+                    email: adminDetails.email
+                })
+            }
             setAlert({
                 success: data.success,
                 message: data.message
@@ -68,7 +144,7 @@ const UserProvider = (props) => {
     }
 
     return (
-        <userContext.Provider value={{getUserDetails, updateUserDetails, userCredentials, setUserCredentials, currentUserCredentials}}>
+        <userContext.Provider value={{ getUserDetails, updateUserDetails, userCredentials, setUserCredentials, currentUserCredentials, isAdmin, setIsAdmin, adminDetails, selectedUserId, setSelectedUserId, allUsersDetails, getAdminAndAllUsersDetails, deleteUser }}>
             {props.children}
         </userContext.Provider>
     )
