@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
         const fetchAdminAndUsersDetails = async () => {
             try{
-                const response = await fetch('http://localhost:3000/api/users/getallusers', {
+                const response = await fetch('https://jcc-website.onrender.com/api/users/getallusers', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const AdminDashboard = () => {
         // setIsDeleteModalOpen(!isDeleteModalOpen)
 
         try{
-            const response = await fetch('http://localhost:3000/api/auth/deleteuser', {
+            const response = await fetch('https://jcc-website.onrender.com/api/auth/deleteuser', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
