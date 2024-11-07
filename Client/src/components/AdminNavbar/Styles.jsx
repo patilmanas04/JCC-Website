@@ -51,12 +51,13 @@ export const AdminNavbarIcon = styled.img`
 
 export const AdminNavbarTitle = styled.h1`
     color: ${({ theme }) => theme.colors.primary};
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     margin-left: 10px;
+    font-family: "Lobster Two", sans-serif;
 
     @media screen and (max-width: 480px){
-        font-size: 18px;
+        font-size: 23px;
     }
 `
 
