@@ -31,7 +31,7 @@ const Home = () => {
     
     useEffect(() => {
         const checkAdmin = async () => {
-            const response = await fetch('http://localhost:3000/api/auth/checkadmin', {
+            const response = await fetch('https://jcc-website.onrender.com/api/auth/checkadmin', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
