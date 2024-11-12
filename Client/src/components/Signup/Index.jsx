@@ -37,7 +37,7 @@ const Signup = () => {
             return setAlert(formValidationResult)
         }
 
-        const response = await fetch('https://jcc-website.onrender.com/api/auth/register', {
+        const response = await fetch('http://localhost:3000/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

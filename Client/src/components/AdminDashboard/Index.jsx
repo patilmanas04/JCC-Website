@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import Loader from '../Loader/Index'
 import AdminNavbar from '../AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
+import { formatReadableDate } from '../../utils/formatReadableDate'
 
 const AdminDashboard = () => {
     const context = useContext(userContext)
@@ -58,7 +59,7 @@ const AdminDashboard = () => {
                                     <UserDetails key={index}>
                                         <UserName>{user.firstName + ' ' + user.lastName}</UserName>
                                         <UserEmail>{user.email}</UserEmail>
-                                        <AccountCreationDate>Account created on: {user.date}</AccountCreationDate>
+                                        <AccountCreationDate>Account created on: {formatReadableDate(user.date)}</AccountCreationDate>
                                         <DeleteButtonWrapper onClick={() => toggleDeleteModal(user._id)}>
                                             <DeleteAccountButton src={DeleteIcon}/>
                                         </DeleteButtonWrapper>
