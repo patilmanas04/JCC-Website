@@ -37,6 +37,7 @@ export const InputPasswordIcon = styled.img`
     width: 20px;
     cursor: pointer;
     transition: opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover{
         opacity: 0.7;

@@ -1,6 +1,6 @@
 import React from 'react'
 import LeftArrow from '../../assets/left_arrow.svg'
-import { GoToHomeButtonInside, LeftArrowIcon } from './GoToHomeButtonElements'
+import { GoToHomeButtonInside, LeftArrowIcon } from './Styles'
 import { useNavigate } from 'react-router-dom'
 
 const GoToHomeButton = () => {

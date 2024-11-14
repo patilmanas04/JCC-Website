@@ -1,8 +1,8 @@
 import React from 'react'
-import { HeroSectionWrapper, HeroSectionContent, HeroSectionTitle, HeroSectionSubtitle, HeroSectionButtons, OurServicesButton, ScheduleACallButton } from './HeroSectionElements'
 import { Link } from 'react-router-dom'
+import { HeroSectionWrapper, HeroSectionContent, HeroSectionTitle, HeroSectionSubtitle, HeroSectionButtons, OurServicesButton, ScheduleACallButton } from './Styles'
 
-const HeroSection = () => {
+const Introduction = () => {
     return (
         <HeroSectionWrapper>
             <HeroSectionContent>
@@ -17,4 +17,4 @@ const HeroSection = () => {
     )
 }
 
-export default HeroSection
+export default Introduction

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CopyrightWrapper, CopyrightText } from './CopyrightElements'
+import { CopyrightWrapper, CopyrightText } from './Styles'
 
 const Copyright = () => {
     return (

@@ -5,7 +5,7 @@ import Image2 from '../../assets/resume_and_cover_letter_assistance.jpg'
 import Image3 from '../../assets/interview_preparation.jpg'
 import Image4 from '../../assets/career_workshops.jpg'
 import Image5 from '../../assets/corporate_partnerships.jpg'
-import { ServicesWrapper, ServicesContent, ServicesTitle, Span, ServicesSubtitle, ServicesContainer, ServiceCard, ServiceCardImage, ServiceCardContent, ServiceCardTitle, ServiceCardSubtitle, Divider, ServiceCardDescription, WantToConnect } from './ServicesElements'
+import { ServicesWrapper, ServicesContent, ServicesTitle, Span, ServicesSubtitle, ServicesContainer, ServiceCard, ServiceCardImage, ServiceCardContent, ServiceCardTitle, ServiceCardSubtitle, Divider, ServiceCardDescription, WantToConnect } from './Styles'
 
 const Services = () => {
     const serviceImages = [Image1, Image2, Image3, Image4, Image5]

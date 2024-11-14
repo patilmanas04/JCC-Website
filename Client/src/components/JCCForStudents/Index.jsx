@@ -1,5 +1,5 @@
 import React from 'react'
-import { JCCForStudentsWrapper, JCCForStudentsContent, JCCForStudentsTitle, JCCForStudentsDescription, Span } from './JCCForStudentsElements'
+import { JCCForStudentsWrapper, JCCForStudentsContent, JCCForStudentsTitle, JCCForStudentsDescription, Span } from './Styles'
 
 const JCCForStudents = () => {
     return (

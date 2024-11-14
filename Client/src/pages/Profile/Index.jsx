@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
-import ProfileIconSvg from '../../assets/profile_icon.svg'
-import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './ProfileElements'
 import { useNavigate } from 'react-router-dom'
-import GoToHomeButton from '../GoToHomeButton/Index'
-import Loader from '../Loader/Index'
-import { updateProfileFormValidator } from '../../utils/formValidators'
-import AlertBox from '../AlertBox/Index'
+import ProfileIconSvg from '../../assets/profile_icon.svg'
+import GoToHomeButton from '../../components/GoToHomeButton/Index'
+import Loader from '../../components/Loader/Index'
+import AlertBox from '../../components/AlertBox/Index'
 import userContext from '../../contexts/userContext'
+import { updateProfileFormValidator } from '../../utils/formValidators'
+import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './Styles'
 
 const Profile = () => {
     const navigate = useNavigate()

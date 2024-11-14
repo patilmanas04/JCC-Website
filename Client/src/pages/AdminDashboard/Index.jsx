@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
-import DeleteIcon from '../../assets/delete_icon.svg'
-import { AdminDashboardWrapper, AdminDashboardContainer, AdminDashboardHeader, AdminDashboardTitle, AdminDashboardSubtitle, AdminDetails, AdminName, AdminEmail, LogoutButton, AllUsersDetails, UserDetails, UserName, UserEmail, AccountCreationDate, DeleteButtonWrapper, DeleteAccountButton, ConfirmDeleteModal, DeleteModalContent, DeleteModalTitle, DeleteModalButtons, DeleteModalButton } from './AdminDashboardElements'
 import { useNavigate } from 'react-router-dom'
-import Loader from '../Loader/Index'
-import AdminNavbar from '../AdminNavbar/Index'
+import DeleteIcon from '../../assets/delete_icon.svg'
+import Loader from '../../components/Loader/Index'
+import AdminNavbar from '../../components/AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
 import { formatReadableDate } from '../../utils/formatReadableDate'
+import { AdminDashboardWrapper, AdminDashboardContainer, AdminDashboardHeader, AdminDashboardTitle, AdminDashboardSubtitle, AdminDetails, AdminName, AdminEmail, LogoutButton, AllUsersDetails, UserDetails, UserName, UserEmail, AccountCreationDate, DeleteButtonWrapper, DeleteAccountButton, ConfirmDeleteModal, DeleteModalContent, DeleteModalTitle, DeleteModalButtons, DeleteModalButton } from './Styles'
 
 const AdminDashboard = () => {
     const context = useContext(userContext)
