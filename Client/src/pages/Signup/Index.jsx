@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './SignupElements'
 import { Link, useNavigate } from 'react-router-dom'
-import GoToHomeButton from '../GoToHomeButton/Index'
+import GoToHomeButton from '../../components/GoToHomeButton/Index'
+import AlertBox from '../../components/AlertBox/Index'
+import InputPassword from '../../components/FormControls/InputPassword/Index'
 import { signupFormValidator } from '../../utils/formValidators'
-import AlertBox from '../AlertBox/Index'
-import InputPassword from '../FormControls/InputPassword/Index'
+import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './Styles'
 
 const Signup = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })

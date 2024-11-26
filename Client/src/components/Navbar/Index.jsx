@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import menu_icon from '../../assets/menu_icon.svg'
 import close_icon from '../../assets/close_icon.svg'
 import ProfileIcon from '../../assets/profile_icon.svg'
-import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton } from './NavbarElements'
-import { Link } from 'react-router-dom'
 import userContext from '../../contexts/userContext'
+import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton } from './Styles'
 
 const Navbar = () => {
     const context = useContext(userContext)

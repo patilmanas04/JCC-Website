@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import GreenTick from '../../assets/green_tick.svg'
 import ServerIcon from '../../assets/server_icon.svg'
-import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, LoginButton } from './EmailVerificationElements'
-import { Link, useParams } from 'react-router-dom'
-import Loader from '../Loader/Index'
+import Loader from '../../components/Loader/Index'
+import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, LoginButton } from './Styles'
 
 const EmailVerification = () => {
     const [isLoading, setIsLoading] = useState(true)

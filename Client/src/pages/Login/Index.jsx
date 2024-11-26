@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './LoginElements'
 import { Link, useNavigate } from 'react-router-dom'
-import GoToHomeButton from '../GoToHomeButton/Index'
-import AlertBox from '../AlertBox/Index'
-import InputPassword from '../FormControls/InputPassword/Index'
+import GoToHomeButton from '../../components/GoToHomeButton/Index'
+import AlertBox from '../../components/AlertBox/Index'
+import InputPassword from '../../components/FormControls/InputPassword/Index'
 import userContext from '../../contexts/userContext'
+import { LoginWrapper, LoginContainer, LoginContent, LoginTitle, LoginSubtitle, LoginForm, LoginField, Label, Input, LoginButton, LoginFooter, Span } from './Styles'
 
 const Login = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })

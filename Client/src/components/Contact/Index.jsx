@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { Snackbar } from '@mui/material'
 import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
-import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, Modal, ModalContent, DropDownMenu, Option, DropDownMenuWrapper } from './ContactElements'
-import { Link } from 'react-router-dom'
+import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, DropDownMenu, Option, DropDownMenuWrapper } from './Styles'
 
 const Contact = () => {
-    const [showModal, setShowModal] = useState(false)
+    const [showSnackbar, setShowSnackbar] = useState(false)
     const [type, setType] = useState('individual')
     const dropDownRef = useRef()
 
@@ -19,7 +20,7 @@ const Contact = () => {
         const name = formData.get('name')
         const email = formData.get('email')
         const message = formData.get('message')
-        const type = dropDownRef.current.value
+        const type = dropDownRef.current.value[0].toUpperCase() + dropDownRef.current.value.slice(1)
         const company = formData.get('company')
 
         const response = await fetch('https://jcc-website.onrender.com/api/contact/sendmessage', {
@@ -39,14 +40,10 @@ const Contact = () => {
         const data = await response.json()
 
         if (data.success){
-            setShowModal(true)
+            setShowSnackbar(true)
         }
 
         e.target.reset()
-
-        setTimeout(() => {
-            setShowModal(false)
-        }, 4000)
     }
 
     return (
@@ -101,7 +98,7 @@ const Contact = () => {
                         <InformationContent>
                             <InformationTitle>Email</InformationTitle>
                             <InformationSubtitle>
-                                jcc@gmail.com
+                                joharicareercounsultancy@gmail.com
                             </InformationSubtitle>
                         </InformationContent>
                     </Information>
@@ -119,9 +116,11 @@ const Contact = () => {
                     </Information>
                 </ContactInformation>
             </ContactContainer>
-            <Modal className={showModal?'show':''}>
-                <ModalContent>Message send successfully!</ModalContent>
-            </Modal>
+            <Snackbar 
+                open={showSnackbar}
+                autoHideDuration={5000}
+                message="Message sent successfully!"
+            />
         </ContactWrapper>
     )
 }

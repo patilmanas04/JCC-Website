@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
 
         const url = `${process.env.CLIENT_URL}/users/${user._id}/verify-email/${token.token}`
 
-        sendEmail(user.email, "Email Verification", `Click on the link to verify your email: ${url}`)
+        sendEmail(user.email, "Email Verification", url)
 
         success = true
         return res.status(200).json({ success, message: "An email sent to your mail id please verify" })
@@ -126,7 +126,7 @@ router.post('/login', async (req, res) => {
     
             const url = `${process.env.CLIENT_URL}/users/${user._id}/verify-email/${token.token}`
     
-            sendEmail(user.email, "Email Verification", `Click on the link to verify your email: ${url}`)
+            sendEmail(user.email, "Email Verification", url)
 
             return res.status(400).json({
                 success,

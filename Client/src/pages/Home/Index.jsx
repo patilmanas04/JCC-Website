@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Navbar from '../Navbar/Index'
-import HeroSection from '../HeroSection/Index'
-import About from '../About/Index'
-import Services from '../Services/Index'
-import Benefits from '../Benefits/Index'
-import JCCForStudents from '../JCCForStudents/Index'
-import Contact from '../Contact/Index'
-import Footer from '../Footer/Index'
-import Copyright from '../Copyright/Index'
-import BackToTopButton from '../BackToTopButton/Index'
+import Navbar from '../../components/Navbar/Index'
+import Introduction from '../../components/Introduction/Index'
+import About from '../../components/About/Index'
+import Services from '../../components/Services/Index'
+import Benefits from '../../components/Benefits/Index'
+import JCCForStudents from '../../components/JCCForStudents/Index'
+import Contact from '../../components/Contact/Index'
+import Footer from '../../components/Footer/Index'
+import Copyright from '../../components/Copyright/Index'
+import BackToTopButton from '../../components/BackToTopButton/Index'
+import AdminNavbar from '../../components/AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
-import AdminNavbar from '../AdminNavbar/Index'
 
 const Home = () => {
 
@@ -67,7 +67,7 @@ const Home = () => {
             {
                 isAdmin.status?<AdminNavbar />:<Navbar />
             }
-            <HeroSection />
+            <Introduction />
             <About />
             <Services />
             <Benefits />

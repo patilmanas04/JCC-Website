@@ -85,13 +85,17 @@ export const ServiceCard = styled.div`
     }
 `
 
-export const ServiceCardImage = styled.img`
+export const ServiceCardImageWrapper = styled.div`
     width: 50%;
 
     @media screen and (max-width: 768px){
         width: 100%;
         order: 1;
     }
+`
+
+export const ServiceCardImage = styled.img`
+    width: 100%;
 `
 
 export const ServiceCardContent = styled.div`

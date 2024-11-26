@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import LogoImage from '../../assets/logo.svg'
 import EmailIcon from '../../assets/email_icon.svg'
 import PhoneIcon from '../../assets/phone_icon.svg'
 import InstagramIcon from '../../assets/instagram_icon.svg'
-import { FooterWrapper, FooterContainer, FooterInformation, CompanyName, Logo, CompanyNameText, CompanyAddress, AddressTitle, Address, CompanyContact, ContactDetails, ContactIcon, ContactText, CompanySocialMedia, SocialMediaTitle, SocialMediaLinks, SocialMediaLink, SocialMediaIcon, FooterLinks, LinksTitle, QuickLinks, QuickLink} from './FooterElements'
-import { Link } from 'react-router-dom'
+import { FooterWrapper, FooterContainer, FooterInformation, CompanyName, Logo, CompanyNameText, CompanyAddress, AddressTitle, Address, CompanyContact, ContactDetails, ContactIcon, ContactText, CompanySocialMedia, SocialMediaTitle, SocialMediaLinks, SocialMediaLink, SocialMediaIcon, FooterLinks, LinksTitle, QuickLinks, QuickLink} from './Styles'
 
 const Footer = () => {
     return (
@@ -22,7 +22,7 @@ const Footer = () => {
                     <CompanyContact>
                         <ContactDetails>
                             <ContactIcon src={EmailIcon} alt="Email" />
-                            <ContactText>jcc@gmail.com</ContactText>
+                            <ContactText>joharicareercounsultancy@gmail.com</ContactText>
                         </ContactDetails>
                         <ContactDetails>
                             <ContactIcon src={PhoneIcon} alt="Phone" />

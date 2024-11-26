@@ -297,30 +297,6 @@ export const Divider = styled.div`
     }
 `
 
-export const Modal = styled.div`
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 10px;
-    bottom: 10px;
-    max-width: 320px;
-    width: 100%;
-    background-color: ${({ theme }) => theme.colors.primary};
-    padding: 15px 30px 15px 15px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px rgba(22, 22, 22, 0.25);
-
-    &.show {
-        display: block;
-    }
-`
-
-export const ModalContent = styled.p`
-    color: ${({ theme }) => theme.colors.background};
-    font-size: 16px;
-    text-align: left;
-`
-
 export const DropDownMenuWrapper = styled.div`
     width: 100%;
     height: 55px;

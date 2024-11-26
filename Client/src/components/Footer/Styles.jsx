@@ -84,7 +84,7 @@ export const Address = styled.p`
 export const CompanyContact = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
 `
 

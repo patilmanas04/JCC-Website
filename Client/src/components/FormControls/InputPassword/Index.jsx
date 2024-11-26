@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import eyeIcon from '../../../assets/eye_icon.svg'
 import eyeSlashIcon from '../../../assets/eye_slash_icon.svg'
-import { InputPasswordWrapper, InputPasswordField, InputPasswordIconWrapper, InputPasswordIcon } from './InputPasswordElements'
+import { InputPasswordWrapper, InputPasswordField, InputPasswordIconWrapper, InputPasswordIcon } from './Styles'
 
 const InputPassword = (props) => {
     const { placeholder, reference} = props

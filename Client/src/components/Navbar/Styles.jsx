@@ -53,7 +53,6 @@ export const NavbarTitle = styled.h1`
     font-size: 25px;
     font-weight: 700;
     margin-left: 10px;
-    font-family: "Lobster Two", sans-serif;
 
     @media screen and (max-width: 480px){
         font-size: 23px;
