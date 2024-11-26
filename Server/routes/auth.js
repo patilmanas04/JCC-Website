@@ -69,7 +69,7 @@ router.post('/users/:id/verify-email/:token', async (req, res) => {
 
         const token = await TokenModel.findOne({ token: req.params.token })
         if(!token){
-            res.status(400).json({
+            return res.status(400).json({
                 success,
                 message: "Invalid Url!"
             })
