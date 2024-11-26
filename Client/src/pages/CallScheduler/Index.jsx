@@ -22,7 +22,7 @@ const CallScheduler = () => {
                 justifyContent: 'center',
                 marginTop: '20px'
             }}><GoToHomeButton /></div>
-            <InlineWidget url='https://calendly.com/22amtics235'/>
+            <InlineWidget url='https://calendly.com/joharicareercounsultancy'/>
         </>
     )
 }

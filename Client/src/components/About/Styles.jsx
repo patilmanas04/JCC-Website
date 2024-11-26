@@ -52,9 +52,12 @@ export const AboutDescription = styled.p`
     }
 `
 
-export const AboutImage = styled.img`
+export const AboutImageWrapper = styled.div`
     width: 30%;
     margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (max-width: 1000px){
         width: 50%;
@@ -63,6 +66,11 @@ export const AboutImage = styled.img`
     @media screen and (max-width: 927px){
         width: 100%;
         margin-left: 0;
-        margin-top: 20px;
+        margin-top: 10px;
     }
+`
+
+export const AboutImage = styled.img`
+    width: 100%;
+    height: auto;
 `

@@ -12,6 +12,7 @@ router.post('/sendmessage', [
     try{
         const { type, name, company, email, message } = req.body
 
+        // TODO: Remove the validation 
         const errors = validationResult(req)
         if(!errors.isEmpty()){
             return res.status(400).json({ success, message: "Name, Email and Message should not be empty" })

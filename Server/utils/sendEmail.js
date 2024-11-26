@@ -1,7 +1,8 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer')
+const ejs = require('ejs')
 
-const sendEmail = (to, subject, text) => {
+const sendEmail = async (to, subject, url) => {
     try{
         const transporter = nodemailer.createTransport({
             service: process.env.MAIL_SERVICE,
@@ -17,7 +18,8 @@ const sendEmail = (to, subject, text) => {
             from: process.env.MAIL_AUTH_USER,
             to: to,
             subject: subject,
-            text: text
+            // text: url,
+            html: await ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url })
         }
     
         transporter.sendMail(mailOptions)

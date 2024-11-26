@@ -5,12 +5,14 @@ const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 4000
 
+app.set('view engine', 'ejs')
+
 connectToMongoDB()
 app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send("Hello World!")
+    res.send("Welcome to the JCC!")
 })
 
 app.use('/api/auth', require('./routes/auth'))
