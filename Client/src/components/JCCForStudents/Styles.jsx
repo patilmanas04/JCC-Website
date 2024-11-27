@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import WhyJCCForStudentsBackgroundImage from '../../assets/why_jcc_for_students.jpg'
+import { assets } from "../../data/constants"
 
 export const JCCForStudentsWrapper = styled.section`
     margin-top: 4rem;
@@ -8,7 +8,7 @@ export const JCCForStudentsWrapper = styled.section`
     justify-content: center;
     align-items: center;
     padding: 10rem 40px;
-    background-image: url(${WhyJCCForStudentsBackgroundImage});
+    background-image: url(${assets.WhyJCCForStudentsBackgroundImage});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

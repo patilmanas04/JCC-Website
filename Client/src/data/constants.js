@@ -53,3 +53,37 @@ export const benefits = [
         description: "We offer in-person and virtual sessions to accommodate busy schedules."
     },
 ]
+
+export const assets = {
+    logo: "https://patilmanas04.github.io/JCC-Assets/assets/main/logo.svg",
+    profile_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/profile_icon.svg",
+    menu_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/menu_icon.svg",
+    close_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/close_icon.svg",
+    banner: "https://patilmanas04.github.io/JCC-Assets/assets/main/banner.webp",
+    about_image: "https://patilmanas04.github.io/JCC-Assets/assets/main/about_image.webp",
+    serviceImages: [
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/individual_career_counselling.webp",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/resume_and_cover_letter_assistance.webp",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/interview_preparation.webp",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/career_workshops.webp",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/corporate_partnerships.webp",
+    ],
+    benefitsIcons: [
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/lightbulb.svg",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/gear.svg",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/graph.svg",
+        "https://patilmanas04.github.io/JCC-Assets/assets/main/calendar.svg",
+    ],
+    line: "https://patilmanas04.github.io/JCC-Assets/assets/main/line.svg",
+    WhyJCCForStudentsBackgroundImage: "https://patilmanas04.github.io/JCC-Assets/assets/main/why_jcc_for_students.webp",
+    phone_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/phone_icon.svg",
+    email_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/email_icon.svg",
+    instagram_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/instagram_icon.svg",
+    up_arrow: "https://patilmanas04.github.io/JCC-Assets/assets/main/up_arrow.svg",
+    eye_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/eye_icon.svg",
+    eye_slash_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/eye_slash_icon.svg",
+    green_tick: "https://patilmanas04.github.io/JCC-Assets/assets/main/green_tick.svg",
+    server_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/server_icon.svg",
+    delete_icon: "https://patilmanas04.github.io/JCC-Assets/assets/main/delete_icon.svg",
+    left_arrow: "https://patilmanas04.github.io/JCC-Assets/assets/main/left_arrow.svg",
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import LeftArrow from '../../assets/left_arrow.svg'
+import { assets } from '../../data/constants'
 import { GoToHomeButtonInside, LeftArrowIcon } from './Styles'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,7 +7,7 @@ const GoToHomeButton = () => {
     const navigate = useNavigate()
 
     return (
-        <GoToHomeButtonInside onClick={() => navigate('/')}><LeftArrowIcon src={LeftArrow} />Go to home</GoToHomeButtonInside>
+        <GoToHomeButtonInside onClick={() => navigate('/')}><LeftArrowIcon fetchPriority='high' loading="lazy" src={assets.left_arrow} />Go to home</GoToHomeButtonInside>
     )
 }
 

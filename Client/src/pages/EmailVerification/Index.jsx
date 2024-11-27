@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import GreenTick from '../../assets/green_tick.svg'
-import ServerIcon from '../../assets/server_icon.svg'
+import { assets } from '../../data/constants'
 import Loader from '../../components/Loader/Index'
 import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, LoginButton } from './Styles'
 
@@ -40,7 +39,7 @@ const EmailVerification = () => {
         <EmailVerificationWrapper>
             <EmailVerificationContainer>
                 <EmailVerificationContent>
-                    <EmailVerificationIcon src={isValidUrl?GreenTick:ServerIcon} />
+                    <EmailVerificationIcon src={isValidUrl?assets.green_tick:assets.server_icon} />
                     <EmailVerificationTitle>{isValidUrl?"Email Verified Successfully!":"404 Not Found"}</EmailVerificationTitle>
                 </EmailVerificationContent>
                 {

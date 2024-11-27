@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ProfileIconSvg from '../../assets/profile_icon.svg'
+import { assets } from '../../data/constants'
 import GoToHomeButton from '../../components/GoToHomeButton/Index'
 import Loader from '../../components/Loader/Index'
 import AlertBox from '../../components/AlertBox/Index'
@@ -80,7 +80,7 @@ const Profile = () => {
                 <ProfileContainer>
                     <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
                     <ProfileOverview>
-                        <ProfileIcon src={ProfileIconSvg} alt="profile_icon"/>
+                        <ProfileIcon src={assets.profile_icon} alt="profile_icon"/>
                         <ProfileDetails>
                             <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
                             <ProfileEmail>{userCredentials.email}</ProfileEmail>

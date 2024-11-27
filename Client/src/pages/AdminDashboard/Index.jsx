@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import DeleteIcon from '../../assets/delete_icon.svg'
+import { assets } from '../../data/constants'
 import Loader from '../../components/Loader/Index'
 import AdminNavbar from '../../components/AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
                                         <UserEmail>{user.email}</UserEmail>
                                         <AccountCreationDate>Account created on: {formatReadableDate(user.date)}</AccountCreationDate>
                                         <DeleteButtonWrapper onClick={() => toggleDeleteModal(user._id)}>
-                                            <DeleteAccountButton src={DeleteIcon}/>
+                                            <DeleteAccountButton src={assets.delete_icon}/>
                                         </DeleteButtonWrapper>
                                     </UserDetails>
                                 )

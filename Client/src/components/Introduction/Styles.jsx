@@ -1,11 +1,12 @@
 import styled from "styled-components"
-import banner from '../../assets/banner.png'
+import { assets } from "../../data/constants"
+
 
 export const HeroSectionWrapper = styled.section`
     width: 100%;
     height: 720px;
     margin-top: 80px;
-    background: url('${banner}');
+    background: url(${assets.banner});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
