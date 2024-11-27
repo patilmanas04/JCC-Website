@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/logo.svg'
-import menu_icon from '../../assets/menu_icon.svg'
-import close_icon from '../../assets/close_icon.svg'
-import ProfileIcon from '../../assets/profile_icon.svg'
+import { assets } from '../../data/constants'
 import userContext from '../../contexts/userContext'
 import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton } from './Styles'
 
@@ -47,7 +44,7 @@ const Navbar = () => {
         <NavbarWrapper>
             <NavbarContainer>
                 <NavbarLogo>
-                    <NavbarIcon src={logo} alt='logo' />
+                    <NavbarIcon src={assets.logo} alt='logo' fetchPriority='high'/>
                     <NavbarTitle>JCC</NavbarTitle>
                 </NavbarLogo>
                 <NavbarMenu>
@@ -55,10 +52,10 @@ const Navbar = () => {
                     <NavbarItem href='#services'>Services</NavbarItem>
                     <NavbarItem href='#contactus'>Contact Us</NavbarItem>
                     {
-                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton src={ProfileIcon} alt='profile_icon'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
+                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton src={assets.profile_icon} alt='profile_icon' fetchPriority='high'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
                     }
                 </NavbarMenu>
-                <NavbarMobileMenuIcon src={!isOpen?menu_icon:close_icon} logo='menu_icon' onClick={toggleMenu}/>
+                <NavbarMobileMenuIcon loading='eager' src={!isOpen?assets.menu_icon:assets.close_icon} logo='menu_icon' onClick={toggleMenu} fetchPriority='high'/>
                 <NavbarMobileMenu className={isOpen?'active':''}>
                     <NavbarItem href='#aboutus' onClick={handleMobileMenuItemClick}>About Us</NavbarItem>
                     <NavbarItem href='#services' onClick={handleMobileMenuItemClick}>Services</NavbarItem>

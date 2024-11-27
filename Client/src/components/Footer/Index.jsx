@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import LogoImage from '../../assets/logo.svg'
-import EmailIcon from '../../assets/email_icon.svg'
-import PhoneIcon from '../../assets/phone_icon.svg'
-import InstagramIcon from '../../assets/instagram_icon.svg'
+import { assets } from '../../data/constants'
 import { FooterWrapper, FooterContainer, FooterInformation, CompanyName, Logo, CompanyNameText, CompanyAddress, AddressTitle, Address, CompanyContact, ContactDetails, ContactIcon, ContactText, CompanySocialMedia, SocialMediaTitle, SocialMediaLinks, SocialMediaLink, SocialMediaIcon, FooterLinks, LinksTitle, QuickLinks, QuickLink} from './Styles'
 
 const Footer = () => {
@@ -12,7 +9,7 @@ const Footer = () => {
             <FooterContainer>
                 <FooterInformation>
                     <CompanyName>
-                        <Logo src={LogoImage} alt="Logo" />
+                        <Logo loading="lazy" src={assets.logo} alt="Logo" />
                         <CompanyNameText>Johari Career Consultancy</CompanyNameText>
                     </CompanyName>
                     <CompanyAddress>
@@ -21,18 +18,18 @@ const Footer = () => {
                     </CompanyAddress>
                     <CompanyContact>
                         <ContactDetails>
-                            <ContactIcon src={EmailIcon} alt="Email" />
+                            <ContactIcon loading="lazy" src={assets.email_icon} alt="Email" />
                             <ContactText>joharicareercounsultancy@gmail.com</ContactText>
                         </ContactDetails>
                         <ContactDetails>
-                            <ContactIcon src={PhoneIcon} alt="Phone" />
+                            <ContactIcon loading="lazy" src={assets.phone_icon} alt="Phone" />
                             <ContactText>+91 6232586854</ContactText>
                         </ContactDetails>
                     </CompanyContact>
                     <CompanySocialMedia>
                         <SocialMediaTitle>Follow Us</SocialMediaTitle>
                         <SocialMediaLinks>
-                            <SocialMediaLink href='https://www.instagram.com/johari_counsultancy?igsh=Yzl5NnM0NWZ0bGhy' target='_blank'><SocialMediaIcon src={InstagramIcon}/></SocialMediaLink>
+                            <SocialMediaLink href='https://www.instagram.com/johari_counsultancy?igsh=Yzl5NnM0NWZ0bGhy' target='_blank'><SocialMediaIcon loading="lazy" src={assets.instagram_icon}/></SocialMediaLink>
                         </SocialMediaLinks>
                     </CompanySocialMedia>
                 </FooterInformation>

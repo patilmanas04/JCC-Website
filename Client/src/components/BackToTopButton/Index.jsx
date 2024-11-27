@@ -1,5 +1,5 @@
 import React from 'react'
-import UpArrow from '../../assets/up_arrow.svg'
+import { assets } from '../../data/constants'
 import { BackToTopButtonWrapper, BackToTopButtonIcon } from './Styles'
 
 const BackToTopButton = () => {
@@ -9,7 +9,7 @@ const BackToTopButton = () => {
 
     return (
         <BackToTopButtonWrapper onClick={handleClick}>
-            <BackToTopButtonIcon src={UpArrow} />
+            <BackToTopButtonIcon src={assets.up_arrow} loading="lazy" />
         </BackToTopButtonWrapper>
     )
 }

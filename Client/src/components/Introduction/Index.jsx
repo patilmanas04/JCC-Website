@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { HeroSectionWrapper, HeroSectionContent, HeroSectionTitle, HeroSectionSubtitle, HeroSectionButtons, OurServicesButton, ScheduleACallButton } from './Styles'
-import Reveal from '../../animations/Reveal/Index'
 
 const Introduction = () => {
     return (

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import line from '../../assets/line.svg'
+import { assets } from "../../data/constants"
 
 export const BenefitsWrapper = styled.section`
     margin-top: 60px;
@@ -10,7 +10,7 @@ export const BenefitsWrapper = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(${line});
+    background-image: url(${assets.line});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
