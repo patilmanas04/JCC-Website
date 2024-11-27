@@ -1,7 +1,8 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer')
+const ejs = require('ejs')
 
-const sendMessage = (type, name, company, email, message) => {
+const sendResetPasswordEmail = async (to, subject, url) => {
     try{
         const transporter = nodemailer.createTransport({
             service: process.env.MAIL_SERVICE,
@@ -15,9 +16,10 @@ const sendMessage = (type, name, company, email, message) => {
     
         const mailOptions = {
             from: process.env.MAIL_AUTH_USER,
-            to: process.env.MAIL_AUTH_USER,
-            subject: `Message from ${name} <${email}>`,
-            text: `Type: ${type}\nName: ${name}\n${(company!=null?"Company: "+company+"\n":"")}Email: ${email}\nMessage: ${message}`
+            to: to,
+            subject: subject,
+            text: "Click on the link to reset the password: " + url,
+            // html: await ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url })
         }
     
         transporter.sendMail(mailOptions)
@@ -27,4 +29,4 @@ const sendMessage = (type, name, company, email, message) => {
     }
 }
 
-module.exports = sendMessage
+module.exports = sendResetPasswordEmail

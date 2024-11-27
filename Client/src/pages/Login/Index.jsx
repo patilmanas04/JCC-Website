@@ -75,6 +75,13 @@ const Login = () => {
                         <Label htmlFor='password'>Password</Label>
                         <InputPassword placeholder="Enter your password" reference={passwordRef}/>
                     </LoginField>
+                    <LoginField style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'flex-end',
+                    }}>
+                        <Link to="/forgot-password"><Span>Forgot your password?</Span></Link>
+                    </LoginField>
                     <LoginButton type='submit'>Log in</LoginButton>
                     {alert.message && <AlertBox message={alert.message} severity={alert.success?"success":"error"}/>}
                 </LoginForm>

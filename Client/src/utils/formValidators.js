@@ -40,3 +40,24 @@ export const updateProfileFormValidator = (firstName, lastName) => {
         message: ''
     }
 }
+
+export const resetPasswordFormValidator = (newPassword, confirmPassword) => {
+    if(newPassword.length < 8){
+        return {
+            success: false,
+            message: 'Password must be at least 8 characters long'
+        }
+    }
+
+    if(newPassword !== confirmPassword){
+        return {
+            success: false,
+            message: 'Passwords do not match'
+        }
+    }
+
+    return {
+        success: true,
+        message: ''
+    }
+}

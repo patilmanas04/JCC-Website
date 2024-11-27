@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { assets } from '../../data/constants'
 import Loader from '../../components/Loader/Index'
+import PageNotFound from '../PageNotFound/Index'
 import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, LoginButton } from './Styles'
 
 const EmailVerification = () => {
@@ -35,19 +36,16 @@ const EmailVerification = () => {
     }, [])
 
     return (
-        isLoading?<Loader />:
+        isLoading?<Loader />:isValidUrl?
         <EmailVerificationWrapper>
             <EmailVerificationContainer>
                 <EmailVerificationContent>
                     <EmailVerificationIcon src={isValidUrl?assets.green_tick:assets.server_icon} />
-                    <EmailVerificationTitle>{isValidUrl?"Email Verified Successfully!":"404 Not Found"}</EmailVerificationTitle>
+                    <EmailVerificationTitle>Email Verified Successfully!</EmailVerificationTitle>
                 </EmailVerificationContent>
-                {
-                    isValidUrl?<Link to='/login'><LoginButton type="button">Log in</LoginButton></Link>:""
-                }
-                
+                <Link to='/login'><LoginButton type="button">Log in</LoginButton></Link>
             </EmailVerificationContainer>
-        </EmailVerificationWrapper>
+        </EmailVerificationWrapper>:<PageNotFound />
     )
 }
 

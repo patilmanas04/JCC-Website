@@ -18,16 +18,12 @@ const sendEmail = async (to, subject, url) => {
             from: process.env.MAIL_AUTH_USER,
             to: to,
             subject: subject,
-            // text: url,
             html: await ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url })
         }
     
         transporter.sendMail(mailOptions)
-
-        console.log("Email sent successfully")
     }
     catch(error){
-        console.log("Error sending email")
         console.log(error)
     }
 }
