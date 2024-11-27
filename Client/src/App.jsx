@@ -10,6 +10,8 @@ import Profile from './pages/Profile/Index'
 import CallScheduler from './pages/CallScheduler/Index'
 import AdminDashboard from './pages/AdminDashboard/Index'
 import UserProvider from './contexts/UserProvider'
+import ForgotPassword from './pages/ForgotPassword/Index'
+import ResetPassword from './pages/ResetPassword/Index'
 
 function App() {
 	return (
@@ -22,6 +24,8 @@ function App() {
 							<Route path="/login" element={<Login />} />
 							<Route path="/signup" element={<Signup />} />
 							<Route path="/users/:userId/verify-email/:verificationToken" element={<EmailVerification />} />
+							<Route path="/forgot-password" element={<ForgotPassword />} />
+							<Route path="/users/:userId/reset-password/:resetToken" element={<ResetPassword />} />
 							<Route path="/profile" element={<Profile />} />
 							<Route path="/scheduleacall" element={<CallScheduler />} />
 							<Route path="/admin-dashboard" element={<AdminDashboard />} />

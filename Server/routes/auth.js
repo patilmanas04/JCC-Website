@@ -8,6 +8,7 @@ const UserModel = require('../models/User')
 const TokenModel = require('../models/Token')
 const sendEmail = require('../utils/sendEmail')
 const fetchUserDetails = require('../middleware/fetchUserDetails')
+const sendResetPasswordEmail = require('../utils/sendResetPasswordEmail')
 
 // Regsiter a new user
 router.post('/register', async (req, res) => {
@@ -33,7 +34,16 @@ router.post('/register', async (req, res) => {
             password: hashedPassword
         })
 
-        const token = await TokenModel.create({
+        let token = await TokenModel.findOne({ userId: user._id })
+
+        if(token){
+            return res.status(400).json({
+                success,
+                message: "An email is already sent to your mail id please verify"
+            })
+        }
+
+        token = await TokenModel.create({
             userId: user._id,
             token: crypto.randomBytes(32).toString('hex')
         })
@@ -78,7 +88,6 @@ router.post('/users/:id/verify-email/:token', async (req, res) => {
         user = await UserModel.updateOne({ _id: user._id }, { verified: true })
 
         success = true
-        console.log("Email Verified Successfully!")
         return res.status(200).json({ success, message: "Email Verified Successfully!" })
     }
     catch(error){
@@ -117,13 +126,18 @@ router.post('/login', async (req, res) => {
         const isVerified = user.verified
         if(!isVerified){
             let token = await TokenModel.findOne({ userId: user._id })
-            if(!token){
-                token = await TokenModel.create({
-                    userId: user._id,
-                    token: crypto.randomBytes(32).toString('hex')
+            if(token){
+                return res.status(400).json({
+                    success,
+                    message: "An email is already sent to your mail id please verify"
                 })
             }
-    
+            
+            token = await TokenModel.create({
+                userId: user._id,
+                token: crypto.randomBytes(32).toString('hex')
+            })
+
             const url = `${process.env.CLIENT_URL}/users/${user._id}/verify-email/${token.token}`
     
             sendEmail(user.email, "Email Verification", url)
@@ -249,6 +263,135 @@ router.get('/checkadmin', fetchUserDetails, async (req, res) => {
         else{
             return res.status(400).json({ success })
         }
+    }
+    catch(error){
+        console.log(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
+    }
+})
+
+router.post('/forgotpassword', async (req, res) => {
+    let success = false
+
+    try{
+        const { email } = req.body
+        const user = await UserModel.findOne({ email: email })
+
+        if(!user){
+            return res.status(400).json({
+                success,
+                message: "User not found!"
+            })
+        }
+
+        let token = await TokenModel.findOne({ userId: user._id })
+
+        if(token){
+            console.log("Token exists")
+            return res.status(400).json({ success, message: "An email is already sent to your mail to reset the password" })
+        }
+
+        token = await TokenModel.create({
+            userId: user._id,
+            token: crypto.randomBytes(32).toString('hex')
+        })
+
+        const url = `${process.env.CLIENT_URL}/users/${user._id}/reset-password/${token.token}`
+
+        sendResetPasswordEmail(user.email, "Reset Password", url)
+
+        success = true
+
+        return res.status(200).json({ success, message: "An email sent to your mail to reset the password" })
+    }
+    catch(error){
+        console.log(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
+    }
+})
+
+router.post('/users/:id/reset-password/:token', async(req, res) => {
+    let success = false
+
+    try{
+        let user = await UserModel.findOne({ _id: req.params.id })
+        if(!user){
+            return res.status(400).json({
+                success,
+                message: "Invalid Url!"
+            })
+        }
+
+        const token = await TokenModel.findOne({ token: req.params.token })
+        if(!token){
+            return res.status(400).json({
+                success,
+                message: "Invalid Url!"
+            })
+        }
+
+        success = true
+
+        return res.status(200).json({ success })
+    }
+    catch(error){
+        console.log(error.message)
+        return res.status(500).json({
+            success,
+            message: "Internal Server Error!"
+        })
+    }
+})
+
+router.put('/updatepassword', async(req, res) => {
+    let success = false
+
+    try{
+        const { userId, password, resetToken } = req.body
+
+        let token = await TokenModel.findOne({ userId: userId, token: resetToken })
+
+        if(!token){
+            return res.status(400).json({
+                success,
+                message: "Please request for a new password reset link!"
+            })
+        }
+
+        let user = await UserModel.findOne({ _id: userId })
+
+        if(!user){
+            return res.status(400).json({
+                success,
+                message: "User not found!"
+            })
+        }
+
+        const isSamePassword = await bcrypt.compare(password, user.password)
+
+        if(isSamePassword){
+            return res.status(400).json({
+                success,
+                message: "Please enter a new password!"
+            })
+        }
+
+        const salt = await bcrypt.genSalt(Number(process.env.SALT_LENGTH))
+        const hashedPassword = await bcrypt.hash(password, salt)
+
+        user = await UserModel.updateOne({ _id: userId }, { password: hashedPassword })
+
+        await TokenModel.deleteOne({ userId: userId })
+
+        success = true
+
+        return res.status(200).json({ success, message: "Your password has been reset successfully. You can now log in with your new password." })
     }
     catch(error){
         console.log(error.message)

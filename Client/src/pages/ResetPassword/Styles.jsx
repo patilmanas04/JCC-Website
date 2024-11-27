@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-export const LoginWrapper = styled.section`
+export const ResetPasswordWrapper = styled.section`
     width: 100%;
     height: 100vh;
     display: flex;
@@ -10,7 +10,7 @@ export const LoginWrapper = styled.section`
     padding: 0 40px;
     overflow-y: auto;
 
-    @media screen and (max-height: 600px){
+    @media screen and (max-height: 550px){
         height: 100%;
     }
 
@@ -19,7 +19,7 @@ export const LoginWrapper = styled.section`
     }
 `
 
-export const LoginContainer = styled.div`
+export const ResetPasswordContainer = styled.div`
     max-width: 500px;
     width: 100%;
     background: ${({ theme }) => theme.colors.background};
@@ -40,7 +40,7 @@ export const LoginContainer = styled.div`
     }
 `
 
-export const LoginContent = styled.div`
+export const ResetPasswordContent = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ export const LoginContent = styled.div`
     }
 `
 
-export const LoginTitle = styled.h1`
+export const ResetPasswordTitle = styled.h1`
     font-size: 30px;
     font-weight: 600;
     line-height: 1.2;
@@ -63,15 +63,17 @@ export const LoginTitle = styled.h1`
     }
 `
 
-export const LoginSubtitle = styled.p`
+export const ResetPasswordSubtitle = styled.p`
     font-size: 16px;
+    line-height: 1.2;
+    margin-top: 10px;
 
     @media screen and (max-width: 500px){
         font-size: 15px;
     }
 `
 
-export const LoginForm = styled.form`
+export const ResetPasswordForm = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -80,7 +82,7 @@ export const LoginForm = styled.form`
     gap: 20px;
 `
 
-export const LoginField = styled.div`
+export const ResetPasswordField = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -105,7 +107,7 @@ export const Input = styled.input`
     }
 `
 
-export const LoginButton = styled.button`
+export const ResetPasswordButton = styled.button`
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -116,7 +118,7 @@ export const LoginButton = styled.button`
     cursor: pointer;
 `
 
-export const LoginFooter = styled.p`
+export const ResetPasswordFooter = styled.p`
     width: 100%;
     font-size: 16px;
     text-align: center;
