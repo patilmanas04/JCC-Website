@@ -14,14 +14,30 @@ const sendEmail = async (to, subject, url) => {
             }
         })
     
-        const mailOptions = {
-            from: process.env.MAIL_AUTH_USER,
-            to: to,
-            subject: subject,
-            html: await ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url })
-        }
+        ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url }, (err, template) => {
+            if(err){
+                console.log(err)
+            }
+            else{
+                const mailOptions = {
+                    from: process.env.MAIL_AUTH_USER,
+                    to: to,
+                    subject: subject,
+                    html: template
+                }
+            
+                transporter.sendMail(mailOptions)
+            }
+        })
+
+        // const mailOptions = {
+        //     from: process.env.MAIL_AUTH_USER,
+        //     to: to,
+        //     subject: subject,
+        //     html: await ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url })
+        // }
     
-        transporter.sendMail(mailOptions)
+        // transporter.sendMail(mailOptions)
     }
     catch(error){
         console.log(error)

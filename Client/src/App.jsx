@@ -12,6 +12,7 @@ import AdminDashboard from './pages/AdminDashboard/Index'
 import UserProvider from './contexts/UserProvider'
 import ForgotPassword from './pages/ForgotPassword/Index'
 import ResetPassword from './pages/ResetPassword/Index'
+import PageNotFound from './pages/PageNotFound/Index'
 
 function App() {
 	return (
@@ -29,6 +30,7 @@ function App() {
 							<Route path="/profile" element={<Profile />} />
 							<Route path="/scheduleacall" element={<CallScheduler />} />
 							<Route path="/admin-dashboard" element={<AdminDashboard />} />
+							<Route path="*" element={<PageNotFound />} />
 					</Routes>
 				</Router>
 			</UserProvider>
