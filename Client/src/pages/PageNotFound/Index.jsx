@@ -8,14 +8,14 @@ const PageNotFound = () => {
         <PageNotFoundWrapper>
             <PageNotFoundContainer>
                 <PageNotFoundContent>
-                    <PageNotFoundIcon src={assets.server_icon} />
+                    <PageNotFoundIcon src={assets.page_not_found_404} />
                     <PageNotFoundTitle>Oops! We Can’t Find That Page</PageNotFoundTitle>
                     <PageNotFoundSubtitle>It seems you’ve found a broken link or mistyped the URL</PageNotFoundSubtitle>
                 </PageNotFoundContent>
                 <GoToHomeButton />
                 <PageNotFoundFooter>
                     <Logo src={assets.logo} loading="lazy" fetchPriority='high'/>
-                    <LogoText>Johati Career Consultancy</LogoText>
+                    <LogoText>Johari Career Consultancy</LogoText>
                 </PageNotFoundFooter>
             </PageNotFoundContainer>
         </PageNotFoundWrapper>

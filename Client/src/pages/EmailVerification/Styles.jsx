@@ -40,6 +40,30 @@ export const EmailVerificationTitle = styled.h1`
     color: ${({ theme }) => theme.colors.primary};
 `
 
+export const EmailVerificationSubtitle = styled.p`
+    font-style: italic;
+    color: ${({ theme }) => theme.colors.primary};
+`
+
+export const EmailVerificationFooter = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
+export const Logo = styled.img`
+    width: 50px;
+    border-radius: 999px;
+`
+
+export const LogoText = styled.p`
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+`
+
 export const LoginButton = styled.button`
     background-color: ${({ theme }) => theme.colors.accent};
     color: ${({ theme }) => theme.colors.background};

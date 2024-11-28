@@ -88,6 +88,9 @@ router.post('/users/:id/verify-email/:token', async (req, res) => {
         user = await UserModel.updateOne({ _id: user._id }, { verified: true })
 
         success = true
+
+        await TokenModel.deleteOne({ userId: req.params.id })
+
         return res.status(200).json({ success, message: "Email Verified Successfully!" })
     }
     catch(error){
@@ -290,7 +293,6 @@ router.post('/forgotpassword', async (req, res) => {
         let token = await TokenModel.findOne({ userId: user._id })
 
         if(token){
-            console.log("Token exists")
             return res.status(400).json({ success, message: "An email is already sent to your mail to reset the password" })
         }
 
@@ -387,7 +389,8 @@ router.put('/updatepassword', async(req, res) => {
 
         user = await UserModel.updateOne({ _id: userId }, { password: hashedPassword })
 
-        await TokenModel.deleteOne({ userId: userId })
+        const deletedToken = await TokenModel.deleteOne({ userId: userId })
+        console.log(deletedToken)
 
         success = true
 
