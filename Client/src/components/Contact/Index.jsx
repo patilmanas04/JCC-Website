@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Snackbar } from '@mui/material'
 import { assets } from '../../data/constants'
-import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, Divider, DropDownMenu, Option, DropDownMenuWrapper } from './Styles'
+import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, DropDownMenu, Option, DropDownMenuWrapper } from './Styles'
 
 const Contact = () => {
     const [showSnackbar, setShowSnackbar] = useState(false)
@@ -22,7 +22,7 @@ const Contact = () => {
         const type = dropDownRef.current.value[0].toUpperCase() + dropDownRef.current.value.slice(1)
         const company = formData.get('company')
 
-        const response = await fetch('https://jcc-website.onrender.com/api/contact/sendmessage', {
+        const response = await fetch('http://localhost:3000/api/contact/sendmessage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,6 +90,17 @@ const Contact = () => {
                     </ContactButtons>
                 </ContactForm>
                 <ContactInformation>
+                <Information>
+                        <IconWrapper>
+                            <Icon loading="lazy"  src={assets.phone_icon} alt="phone"/>
+                        </IconWrapper>
+                        <InformationContent>
+                            <InformationTitle>Phone</InformationTitle>
+                            <InformationSubtitle>
+                                +91 6232586854
+                            </InformationSubtitle>
+                        </InformationContent>
+                    </Information>
                     <Information>
                         <IconWrapper>
                             <Icon loading="lazy" src={assets.email_icon} alt="email"/>
@@ -98,18 +109,6 @@ const Contact = () => {
                             <InformationTitle>Email</InformationTitle>
                             <InformationSubtitle>
                                 joharicareercounsultancy@gmail.com
-                            </InformationSubtitle>
-                        </InformationContent>
-                    </Information>
-                    <Divider></Divider>
-                    <Information>
-                        <IconWrapper>
-                            <Icon loading="lazy"  src={assets.phone_icon} alt="phone"/>
-                        </IconWrapper>
-                        <InformationContent>
-                            <InformationTitle>Phone</InformationTitle>
-                            <InformationSubtitle>
-                                +91 6232586854
                             </InformationSubtitle>
                         </InformationContent>
                     </Information>

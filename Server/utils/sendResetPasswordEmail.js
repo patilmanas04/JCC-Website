@@ -14,15 +14,21 @@ const sendResetPasswordEmail = async (to, subject, url) => {
             }
         })
     
-        const mailOptions = {
-            from: process.env.MAIL_AUTH_USER,
-            to: to,
-            subject: subject,
-            text: "Click on the link to reset the password: " + url,
-            // html: await ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url })
-        }
-    
-        transporter.sendMail(mailOptions)
+        ejs.renderFile(__dirname + '/../views/ResetPassword.ejs', { url: url }, (err, template) => {
+            if(err){
+                console.log(err)
+            }
+            else{
+                const mailOptions = {
+                    from: process.env.MAIL_AUTH_USER,
+                    to: to,
+                    subject: subject,
+                    html: template
+                }
+            
+                transporter.sendMail(mailOptions)
+            }
+        })
     }
     catch(error){
         console.log(error)

@@ -6,6 +6,7 @@ import AdminNavbar from '../../components/AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
 import { formatReadableDate } from '../../utils/formatReadableDate'
 import { AdminDashboardWrapper, AdminDashboardContainer, AdminDashboardHeader, AdminDashboardTitle, AdminDashboardSubtitle, AdminDetails, AdminName, AdminEmail, LogoutButton, AllUsersDetails, UserDetails, UserName, UserEmail, AccountCreationDate, DeleteButtonWrapper, DeleteAccountButton, ConfirmDeleteModal, DeleteModalContent, DeleteModalTitle, DeleteModalButtons, DeleteModalButton } from './Styles'
+import PageNotFound from '../PageNotFound/Index'
 
 const AdminDashboard = () => {
     const context = useContext(userContext)
@@ -13,13 +14,14 @@ const AdminDashboard = () => {
 
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+    const [isValidUrl, setIsValidUrl] = useState(false)
 
     const navigate = useNavigate()
 
     useEffect(() => {
         document.title = 'JCC | Admin Dashboard'
 
-        getAdminAndAllUsersDetails(setIsLoading)
+        getAdminAndAllUsersDetails(setIsLoading, setIsValidUrl)
     }, [])
 
     const handleLogout = () => {
@@ -37,8 +39,8 @@ const AdminDashboard = () => {
     }
 
     return (
-        isLoading?<Loader />:
-        <>
+        isLoading?<><Loader />{console.log(isValidUrl)}</>:
+        (isValidUrl)?<>
             <AdminNavbar />
             <AdminDashboardWrapper>
                 <AdminDashboardContainer>
@@ -79,7 +81,7 @@ const AdminDashboard = () => {
                     </ConfirmDeleteModal>
                 </AdminDashboardContainer>
             </AdminDashboardWrapper>
-        </>
+        </>:<PageNotFound />
     )
 }
 

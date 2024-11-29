@@ -26,7 +26,7 @@ const Login = () => {
         const email = e.target.email.value
         const password = passwordRef.current.value
 
-        const response = await fetch('https://jcc-website.onrender.com/api/auth/login', {
+        const response = await fetch('http://localhost:3000/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

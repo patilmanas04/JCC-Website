@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verification</title>
+    <title>Contact Response</title>
     <style>
         *{
             margin: 0;
@@ -80,18 +80,12 @@
             margin-bottom: 10px;
         }
 
-        .main-content .content .welcome-text{
+        .main-content .content .application-name{
             font-size: 16px;
             font-weight: 400;
-            color: #333;
+            color: #FF5233;
             text-align: center;
             margin-bottom: 10px;
-        }
-
-        .main-content .content .welcome-text a{
-            color: #FF5233 !important;
-            text-decoration: underline;
-            font-weight: 600;
         }
 
         .main-content .content .text{
@@ -99,9 +93,8 @@
             font-weight: 400;
             color: #333;
             text-align: center;
-            margin-bottom: 40px;
         }
-
+        
         .main-content .content .verify-button{
             width: 100%;
             padding: 10px 20px;
@@ -188,13 +181,22 @@
         </div>
         <div class="main-content">
             <div class="bg" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;">
-                <img loading="eager" src="https://patilmanas04.github.io/JCC-Assets/assets/email_template/email_icon.webp" alt="email verification">
+                <img loading="eager" src="https://patilmanas04.github.io/JCC-Assets/assets/email_template/contact_email.webp" alt="email verification">
             </div>
             <div class="content">
-                <h2>Verify your email address</h2>
-                <p class="welcome-text">Welcome to <a href="https://joharicareerconsultancy.com" target="_blank">JCC</a></p>
-                <p class="text">Please click on the button below to verify your email address and activate your account</p>
-                <a href="<%= url %>" target="_blank" class="verify-button">Verify Email</a>
+                <h2>New Inquiry Received</h2>
+                <p class="text" style="margin-top: 30px; text-align: left;">Dear <span class="application-name">JCC</span> Admin,</p>
+                <p class="text" style="margin-bottom: 30px; text-align: left;">A new inquiry has been submitted through the JCC Contact Us form. Below are the details provided by the user:</p>
+                <p class="text" style="margin-top: 30px; text-align: left;"><b>User Type: </b><%= type%></p>
+                <p class="text" style="margin-top: 2px; text-align: left;"><b>Name: </b><%= name%></p>
+                <p class="text" style="margin-top: 2px; text-align: left;"><b>Email: </b><%= email%></p>
+                <% if (company) { %>
+                    <p class="text" style="margin-top: 2px; text-align: left;"><b>Company: </b><%= company %></p>
+                <% } %>
+                <p class="text" style="margin-top: 2px; text-align: left;"><b>Message: </b><%= message%></p>
+                <p class="text" style="margin-top: 30px; text-align: left;">Please review the inquiry and take the necessary action. If a response is needed, you can reach out to the user at their provided email address: <%= email%>.</p>
+                <p class="text" style="margin-top: 30px; text-align: left;">Thank you,</p>
+                <p class="text" style="margin-top: 2px; text-align: left;">JCC Team</p>
             </div>
         </div>
         <div class="footer">
