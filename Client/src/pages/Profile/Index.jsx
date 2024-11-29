@@ -32,6 +32,7 @@ const Profile = () => {
             getUserDetails(setIsLoading, setIsValidUrl)
         } else {
             setIsLoading(false)
+            setIsValidUrl(true)
         }
     }, [])
 
