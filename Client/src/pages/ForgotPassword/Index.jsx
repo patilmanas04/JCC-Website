@@ -19,7 +19,7 @@ const ForgotPassword = () => {
 		
 		const email = e.target.email.value
 		
-		const response = await fetch('http://localhost:3000/api/auth/forgotpassword', {
+		const response = await fetch('https://jcc-website.onrender.com/api/auth/forgotpassword', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

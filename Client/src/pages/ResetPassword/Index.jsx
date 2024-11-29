@@ -22,7 +22,7 @@ const ResetPassword = () => {
 
         const verifyResetToken = async () => {
             try{
-                const response = await fetch(`http://localhost:3000/api/auth/users/${userId}/reset-password/${resetToken}`, { 
+                const response = await fetch(`https://jcc-website.onrender.com/api/auth/users/${userId}/reset-password/${resetToken}`, { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ const ResetPassword = () => {
             return setAlert(validationResult)
         }
         
-        const response = await fetch(`http://localhost:3000/api/auth/updatepassword`, {
+        const response = await fetch(`https://jcc-website.onrender.com/api/auth/updatepassword`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
