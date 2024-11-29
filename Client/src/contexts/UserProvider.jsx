@@ -28,7 +28,7 @@ const UserProvider = (props) => {
 
     const [allUsersDetails, setAllUsersDetails] = useState([])
 
-    const getAdminAndAllUsersDetails = async (setIsLoading) => {
+    const getAdminAndAllUsersDetails = async (setIsLoading, setIsValidUrl) => {
         try{
             const response = await fetch('http://localhost:3000/api/users/getallusers', {
                 method: 'GET',
@@ -39,8 +39,10 @@ const UserProvider = (props) => {
             })
 
             const data = await response.json()
+            
+            setIsLoading(false)
 
-            console.log(data)
+            setIsValidUrl(data.success)
 
             if(data.success){
                 setAdminDetails({
@@ -49,7 +51,6 @@ const UserProvider = (props) => {
                 })
 
                 setAllUsersDetails(data.allUsersDetails)
-                setIsLoading(false)
             }
             else{
                 return false
@@ -84,7 +85,7 @@ const UserProvider = (props) => {
         }
     }
 
-    const getUserDetails = async (setIsLoading) => {
+    const getUserDetails = async (setIsLoading, setIsValidUrl) => {
         try{
             const response = await fetch('http://localhost:3000/api/auth/getuser', {
                 method: 'GET',
@@ -96,11 +97,14 @@ const UserProvider = (props) => {
 
             const data = await response.json()
 
+            setIsLoading(false)
+
+            setIsValidUrl(data.success)
+
             if(data.success){
                 setUserCredentials(data.userDetails)
                 setCurrentUserCredentials(data.userDetails)
                 document.title = 'JCC | Profile'
-                setIsLoading(false)
             }
             else{
                 navigate('/login')
