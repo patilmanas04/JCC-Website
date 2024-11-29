@@ -206,13 +206,13 @@ export const ContactInformation = styled.div`
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
     color: ${({ theme }) => theme.colors.background};
+    gap: 30px;
 
-    @media screen and (max-width: 628px){
-        flex-direction: column;
-        gap: 40px;
+    @media screen and (max-width: 890px){
+        gap: 20px;
     }
 `
 
@@ -237,7 +237,8 @@ export const IconWrapper = styled.div`
     }
 
     @media screen and (max-width: 480px){
-        width: 60px;
+        max-width: 60px;
+        min-width: 60px;
         height: 60px;
     }
 `
@@ -255,10 +256,11 @@ export const Icon = styled.img`
 `
 
 export const InformationContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-left: 20px;
+
+    @media screen and (max-width: 768px){
+        margin-left: 15px;
+    }
 `
 
 export const InformationTitle = styled.h2`
@@ -276,24 +278,14 @@ export const InformationTitle = styled.h2`
 
 export const InformationSubtitle = styled.p`
     font-size: 18px;
-
+    word-break: break-word;
+    
     @media screen and (max-width: 768px){
         font-size: 16px;
     }
-
+    
     @media screen and (max-width: 480px){
         font-size: 14px;
-    }
-`
-
-export const Divider = styled.div`
-    width: 2px;
-    height: 100px;
-    background-color: ${({ theme }) => theme.colors.background};
-    margin: 0 40px;
-
-    @media screen and (max-width: 628px){
-        display: none;
     }
 `
 
