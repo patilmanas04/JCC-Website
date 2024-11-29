@@ -12,7 +12,8 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send("Welcome to the JCC!")
+    // res.send("Welcome to the JCC!")
+    res.render("ContactMail", { type: "individual", name: "Manas", email: "blablabla@gmail.com", message: "Test message" })
 })
 
 app.use('/api/auth', require('./routes/auth'))

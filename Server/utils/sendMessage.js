@@ -1,5 +1,6 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer')
+const ejs = require('ejs')
 
 const sendMessage = (type, name, company, email, message) => {
     try{
@@ -13,14 +14,21 @@ const sendMessage = (type, name, company, email, message) => {
             }
         })
     
-        const mailOptions = {
-            from: process.env.MAIL_AUTH_USER,
-            to: process.env.MAIL_AUTH_USER,
-            subject: `Message from ${name} <${email}>`,
-            text: `Type: ${type}\nName: ${name}\n${(company!=null?"Company: "+company+"\n":"")}Email: ${email}\nMessage: ${message}`
-        }
-    
-        transporter.sendMail(mailOptions)
+        ejs.renderFile(__dirname + '/../views/ContactMail.ejs', { type: type, name: name, company: company, email: email, message: message }, (err, template) => {
+            if(err){
+                console.log(err)
+            }
+            else{
+                const mailOptions = {
+                    from: process.env.MAIL_AUTH_USER,
+                    to: process.env.MAIL_AUTH_USER,
+                    subject: `New Contact Form Submission from ${name}`,
+                    html: template
+                }
+            
+                transporter.sendMail(mailOptions)
+            }
+        })
     }
     catch(error){
         console.log(error)
