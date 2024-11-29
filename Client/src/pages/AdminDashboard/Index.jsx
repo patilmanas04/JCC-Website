@@ -39,7 +39,7 @@ const AdminDashboard = () => {
     }
 
     return (
-        isLoading?<><Loader />{console.log(isValidUrl)}</>:
+        isLoading?<Loader />:
         (isValidUrl)?<>
             <AdminNavbar />
             <AdminDashboardWrapper>

@@ -22,7 +22,7 @@ const Contact = () => {
         const type = dropDownRef.current.value[0].toUpperCase() + dropDownRef.current.value.slice(1)
         const company = formData.get('company')
 
-        const response = await fetch('http://localhost:3000/api/contact/sendmessage', {
+        const response = await fetch('https://jcc-website.onrender.com/api/contact/sendmessage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
