@@ -6,6 +6,7 @@ import { ResetPasswordWrapper, ResetPasswordContainer, ResetPasswordContent, Res
 import { resetPasswordFormValidator } from '../../utils/formValidators'
 import Loader from '../../components/Loader/Index'
 import PageNotFound from '../PageNotFound/Index'
+import { Helmet } from 'react-helmet-async'
 
 const ResetPassword = () => {
     const { userId, resetToken } = useParams()
@@ -18,8 +19,6 @@ const ResetPassword = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })
     
     useEffect(() => {
-        document.title = "JCC | Reset Password"
-
         const verifyResetToken = async () => {
             try{
                 const response = await fetch(`https://jcc-website.onrender.com/api/auth/users/${userId}/reset-password/${resetToken}`, { 
@@ -72,31 +71,41 @@ const ResetPassword = () => {
     }
 
     return (
-        isLoading?<Loader />:isValidUrl?
-        <ResetPasswordWrapper>
-            <ResetPasswordContainer>
-                <ResetPasswordContent>
-                    <ResetPasswordTitle>Create a New Password</ResetPasswordTitle>
-                    <ResetPasswordSubtitle>Make sure your password is strong and secure.
-                    </ResetPasswordSubtitle>
-                </ResetPasswordContent>
-                <ResetPasswordForm onSubmit={handleSubmit}>
-                    <ResetPasswordField>
-                        <Label htmlFor='newPassword'>New Password</Label>
-                        <InputPassword placeholder="Enter your new password" reference={newPasswordRef}/>
-                    </ResetPasswordField>
-                    <ResetPasswordField>
-                        <Label htmlFor='newPassword'>Confirm Password</Label>
-                        <InputPassword placeholder="Re-enter your new password." reference={confirmPasswordRef}/>
-                    </ResetPasswordField>
-                    <ResetPasswordButton type='submit'>Reset Password</ResetPasswordButton>
-                    {alert.message && <AlertBox message={alert.message} severity={alert.success?"success":"error"}/>}
-                </ResetPasswordForm>
-                <ResetPasswordFooter>
-                    Return to <Link to="/login"><Span>Login.</Span></Link>
-                </ResetPasswordFooter>
-            </ResetPasswordContainer>
-        </ResetPasswordWrapper>:<PageNotFound />
+        <>
+            <Helmet>
+                <title>Reset Password - JCC</title>
+                <meta name="description" content="Securely reset your password to regain access to your JCC account." />
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            {
+
+                isLoading?<Loader />:isValidUrl?
+                <ResetPasswordWrapper>
+                    <ResetPasswordContainer>
+                        <ResetPasswordContent>
+                            <ResetPasswordTitle>Create a New Password</ResetPasswordTitle>
+                            <ResetPasswordSubtitle>Make sure your password is strong and secure.
+                            </ResetPasswordSubtitle>
+                        </ResetPasswordContent>
+                        <ResetPasswordForm onSubmit={handleSubmit}>
+                            <ResetPasswordField>
+                                <Label htmlFor='newPassword'>New Password</Label>
+                                <InputPassword placeholder="Enter your new password" reference={newPasswordRef}/>
+                            </ResetPasswordField>
+                            <ResetPasswordField>
+                                <Label htmlFor='newPassword'>Confirm Password</Label>
+                                <InputPassword placeholder="Re-enter your new password." reference={confirmPasswordRef}/>
+                            </ResetPasswordField>
+                            <ResetPasswordButton type='submit'>Reset Password</ResetPasswordButton>
+                            {alert.message && <AlertBox message={alert.message} severity={alert.success?"success":"error"}/>}
+                        </ResetPasswordForm>
+                        <ResetPasswordFooter>
+                            Return to <Link to="/login"><Span>Login.</Span></Link>
+                        </ResetPasswordFooter>
+                    </ResetPasswordContainer>
+                </ResetPasswordWrapper>:<PageNotFound />
+            }
+        </>
     )
 }
 

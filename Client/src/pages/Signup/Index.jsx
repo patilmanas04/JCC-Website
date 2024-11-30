@@ -5,15 +5,11 @@ import AlertBox from '../../components/AlertBox/Index'
 import InputPassword from '../../components/FormControls/InputPassword/Index'
 import { signupFormValidator } from '../../utils/formValidators'
 import { SignupWrapper, SignupContainer, SignupContent, SignupTitle, SignupSubtitle, SignupForm, SignupField, Label, Input, SignupButton, SignupFooter, Span } from './Styles'
+import { Helmet } from 'react-helmet-async'
 
 const Signup = () => {
     const [alert, setAlert] = useState({ success: false, message: '' })
 
-    useEffect(() => {
-        document.title = "JCC | Sign up"
-    })
-
-    const navigate = useNavigate()
     const firstNameRef = useRef()
     const lastNameRef = useRef()
     const emailRef = useRef()
@@ -55,39 +51,47 @@ const Signup = () => {
     }
 
     return (
-        <SignupWrapper>
-            <SignupContainer>
-                <SignupContent>
-                    <GoToHomeButton />
-                    <SignupTitle>Create a new account👋</SignupTitle>
-                    <SignupSubtitle>It's quick and easy!
-                    </SignupSubtitle>
-                </SignupContent>
-                <SignupForm onSubmit={handleSubmit}>
-                    <SignupField>
-                        <Label htmlFor='firstName'>First Name</Label>
-                        <Input id='firstName' name='firstName' type="text" placeholder="Enter your first name" ref={firstNameRef} required/>
-                    </SignupField>
-                    <SignupField>
-                        <Label htmlFor='lastName'>Last Name</Label>
-                        <Input id='lastName' name='lastName' type="text" placeholder="Enter your last name" ref={lastNameRef} required/>
-                    </SignupField>
-                    <SignupField>
-                        <Label htmlFor='email'>Email</Label>
-                        <Input id='email' name='email' type="email" placeholder="Enter your email" ref={emailRef} required/>
-                    </SignupField>
-                    <SignupField>
-                        <Label htmlFor='password'>Password</Label>
-                        <InputPassword placeholder="Password must be at least 8 characters long" reference={passwordRef}/>
-                    </SignupField>
-                    <SignupButton type='submit'>Sign up</SignupButton>
-                    {alert.message && <AlertBox severity={alert.success?"success":"error"} message={alert.message} />}
-                </SignupForm>
-                <SignupFooter>
-                    Already have an account? <Link to="/login"><Span>Login</Span></Link>
-                </SignupFooter>
-            </SignupContainer>
-        </SignupWrapper>
+        <>
+            <Helmet>
+                <title>Sign Up for JCC - Start Your Journey</title>
+                <meta name="description" content="Join JCC and take the first step towards your goals. Sign up with your name, email, and password to begin your counseling journey." />
+                <meta name="keywords" content="register for career counseling, JCC signup form, create a JCC account, new user registration for JCC, start your counseling journey" />
+                <link rel="canonical" href="https://joharicareerconsultancy.com/signup" />
+            </Helmet>
+            <SignupWrapper>
+                <SignupContainer>
+                    <SignupContent>
+                        <GoToHomeButton />
+                        <SignupTitle>Create a new account👋</SignupTitle>
+                        <SignupSubtitle>It's quick and easy!
+                        </SignupSubtitle>
+                    </SignupContent>
+                    <SignupForm onSubmit={handleSubmit}>
+                        <SignupField>
+                            <Label htmlFor='firstName'>First Name</Label>
+                            <Input id='firstName' name='firstName' type="text" placeholder="Enter your first name" ref={firstNameRef} required/>
+                        </SignupField>
+                        <SignupField>
+                            <Label htmlFor='lastName'>Last Name</Label>
+                            <Input id='lastName' name='lastName' type="text" placeholder="Enter your last name" ref={lastNameRef} required/>
+                        </SignupField>
+                        <SignupField>
+                            <Label htmlFor='email'>Email</Label>
+                            <Input id='email' name='email' type="email" placeholder="Enter your email" ref={emailRef} required/>
+                        </SignupField>
+                        <SignupField>
+                            <Label htmlFor='password'>Password</Label>
+                            <InputPassword placeholder="Password must be at least 8 characters long" reference={passwordRef}/>
+                        </SignupField>
+                        <SignupButton type='submit'>Sign up</SignupButton>
+                        {alert.message && <AlertBox severity={alert.success?"success":"error"} message={alert.message} />}
+                    </SignupForm>
+                    <SignupFooter>
+                        Already have an account? <Link to="/login"><Span>Login</Span></Link>
+                    </SignupFooter>
+                </SignupContainer>
+            </SignupWrapper>
+        </>
     )
 }
 

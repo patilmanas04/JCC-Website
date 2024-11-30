@@ -4,6 +4,7 @@ import { assets } from '../../data/constants'
 import Loader from '../../components/Loader/Index'
 import PageNotFound from '../PageNotFound/Index'
 import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, EmailVerificationSubtitle, EmailVerificationFooter, Logo, LogoText, LoginButton } from './Styles'
+import { Helmet } from 'react-helmet-async'
 
 const EmailVerification = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -11,8 +12,6 @@ const EmailVerification = () => {
     const { userId, verificationToken } = useParams()
 
     useEffect(() => {
-        document.title = "JCC | Email Verification"
-
         const verifyEmail = async () => {
             try{
                 const response = await fetch(`https://jcc-website.onrender.com/api/auth/users/${userId}/verify-email/${verificationToken}`, { 
@@ -36,22 +35,31 @@ const EmailVerification = () => {
     }, [])
 
     return (
-        isLoading?<Loader />:isValidUrl?
-        <EmailVerificationWrapper>
-            <EmailVerificationContainer>
-                <EmailVerificationContent>
-                    <EmailVerificationIcon loading="eager" fetchPriority='high' src={assets.check} />
-                    <EmailVerificationTitle>Your Email Has Been Verified!</EmailVerificationTitle>
-                    <EmailVerificationSubtitle>We’re excited to have you on board! Your email is successfully verified, and you can now log in to your account.</EmailVerificationSubtitle>
-                </EmailVerificationContent>
-                <Link to="/login"><LoginButton type='button'>Login</LoginButton></Link>
-                <EmailVerificationFooter>
-                    <Logo src={assets.logo} loading="lazy" fetchPriority='high'/>
-                    <LogoText>Johari Career Consultancy</LogoText>
-                </EmailVerificationFooter>
-            </EmailVerificationContainer>
-        </EmailVerificationWrapper>
-        :<PageNotFound />
+        <>
+            <Helmet>
+                <title>Email Verification - JCC</title>
+                <meta name="description" content="Verify your email address to complete your registration with JCC." />
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            {
+                isLoading?<Loader />:isValidUrl?
+                <EmailVerificationWrapper>
+                    <EmailVerificationContainer>
+                        <EmailVerificationContent>
+                            <EmailVerificationIcon loading="eager" fetchPriority='high' src={assets.check} />
+                            <EmailVerificationTitle>Your Email Has Been Verified!</EmailVerificationTitle>
+                            <EmailVerificationSubtitle>We’re excited to have you on board! Your email is successfully verified, and you can now log in to your account.</EmailVerificationSubtitle>
+                        </EmailVerificationContent>
+                        <Link to="/login"><LoginButton type='button'>Login</LoginButton></Link>
+                        <EmailVerificationFooter>
+                            <Logo src={assets.logo} loading="lazy" fetchPriority='high'/>
+                            <LogoText>Johari Career Consultancy</LogoText>
+                        </EmailVerificationFooter>
+                    </EmailVerificationContainer>
+                </EmailVerificationWrapper>
+                :<PageNotFound />
+            }
+        </>
     )
 }
 

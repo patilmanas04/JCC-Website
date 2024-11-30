@@ -8,6 +8,7 @@ import userContext from '../../contexts/userContext'
 import { updateProfileFormValidator } from '../../utils/formValidators'
 import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './Styles'
 import PageNotFound from '../PageNotFound/Index'
+import { Helmet } from 'react-helmet-async'
 
 const Profile = () => {
     const navigate = useNavigate()
@@ -77,38 +78,48 @@ const Profile = () => {
     }
 
     return (
-        isLoading?<Loader />:
-        isValidUrl?
-        <ProfileWrapper>
-            <GoToHomeButton />
-            <ProfileContainer>
-                <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
-                <ProfileOverview>
-                    <ProfileIcon src={assets.profile_icon} alt="profile_icon"/>
-                    <ProfileDetails>
-                        <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
-                        <ProfileEmail>{userCredentials.email}</ProfileEmail>
-                    </ProfileDetails>
-                </ProfileOverview>
-                <ProfileContent>
-                    <ProfileItem>
-                        <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
-                        <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
-                    </ProfileItem>
-                    <ProfileItem>
-                        <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
-                        <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
-                    </ProfileItem>
-                </ProfileContent>
-                {
-                    alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
-                }
-                <ProfileActions>
-                    <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
-                    <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
-                </ProfileActions>
-            </ProfileContainer>
-        </ProfileWrapper>:<PageNotFound />
+        <>
+            <Helmet>
+                <title>User Profile - JCC</title>
+                <meta name="description" content="Manage your personal information and account settings." />
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            {
+
+                isLoading?<Loader />:
+                isValidUrl?
+                <ProfileWrapper>
+                    <GoToHomeButton />
+                    <ProfileContainer>
+                        <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
+                        <ProfileOverview>
+                            <ProfileIcon src={assets.profile_icon} alt="profile_icon"/>
+                            <ProfileDetails>
+                                <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
+                                <ProfileEmail>{userCredentials.email}</ProfileEmail>
+                            </ProfileDetails>
+                        </ProfileOverview>
+                        <ProfileContent>
+                            <ProfileItem>
+                                <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
+                                <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
+                            </ProfileItem>
+                            <ProfileItem>
+                                <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
+                                <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
+                            </ProfileItem>
+                        </ProfileContent>
+                        {
+                            alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
+                        }
+                        <ProfileActions>
+                            <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
+                            <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
+                        </ProfileActions>
+                    </ProfileContainer>
+                </ProfileWrapper>:<PageNotFound />
+            }
+        </>
     )
 }
 
