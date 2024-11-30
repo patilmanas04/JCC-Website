@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin-dashboard
+Disallow: /profile
+Disallow: /users/:userId/verify-email/:verificationToken
+Disallow: /users/:userId/reset-password/:resetToken
+Sitemap: https://joharicareerconsultancy.com/sitemap.xml
