@@ -1,14 +1,17 @@
 import React from 'react'
 import { assets } from '../../data/constants'
+import PageNotFound404Icon from '../../components/Icons/PageNotFound404Icon'
 import GoToHomeButton from '../../components/GoToHomeButton/Index'
-import { PageNotFoundWrapper, PageNotFoundContainer, PageNotFoundContent, PageNotFoundIcon, PageNotFoundTitle, PageNotFoundSubtitle, PageNotFoundFooter, Logo, LogoText } from './Styles'
+import { PageNotFoundWrapper, PageNotFoundContainer, PageNotFoundContent, PageNotFoundIconWrapper, PageNotFoundTitle, PageNotFoundSubtitle, PageNotFoundFooter, Logo, LogoText } from './Styles'
 
 const PageNotFound = () => {
     return (
         <PageNotFoundWrapper>
             <PageNotFoundContainer>
                 <PageNotFoundContent>
-                    <PageNotFoundIcon src={assets.page_not_found_404} />
+                    <PageNotFoundIconWrapper>
+                        <PageNotFound404Icon />
+                    </PageNotFoundIconWrapper>
                     <PageNotFoundTitle>Oops! We Can’t Find That Page</PageNotFoundTitle>
                     <PageNotFoundSubtitle>It seems you’ve found a broken link or mistyped the URL</PageNotFoundSubtitle>
                 </PageNotFoundContent>

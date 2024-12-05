@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { assets } from '../../data/constants'
 import { FooterWrapper, FooterContainer, FooterInformation, CompanyName, Logo, CompanyNameText, CompanyAddress, AddressTitle, Address, CompanyContact, ContactDetails, ContactIcon, ContactText, CompanySocialMedia, SocialMediaTitle, SocialMediaLinks, SocialMediaLink, SocialMediaIcon, FooterLinks, LinksTitle, QuickLinks, QuickLink} from './Styles'
+import EmailIcon from '../Icons/EmailIcon'
+import PhoneIcon from '../Icons/PhoneIcon'
+import InstagramIcon from '../Icons/InstagramIcon'
 
 const Footer = () => {
     return (
@@ -18,18 +21,22 @@ const Footer = () => {
                     </CompanyAddress>
                     <CompanyContact>
                         <ContactDetails>
-                            <ContactIcon loading="lazy" src={assets.email_icon} alt="Email" />
+                            <ContactIcon>
+                                <EmailIcon />
+                            </ContactIcon>
                             <ContactText>joharicareercounsultancy@gmail.com</ContactText>
                         </ContactDetails>
                         <ContactDetails>
-                            <ContactIcon loading="lazy" src={assets.phone_icon} alt="Phone" />
+                            <ContactIcon>
+                                <PhoneIcon />
+                            </ContactIcon>
                             <ContactText>+91 6232586854</ContactText>
                         </ContactDetails>
                     </CompanyContact>
                     <CompanySocialMedia>
                         <SocialMediaTitle>Follow Us</SocialMediaTitle>
                         <SocialMediaLinks>
-                            <SocialMediaLink href='https://www.instagram.com/johari_counsultancy?igsh=Yzl5NnM0NWZ0bGhy' target='_blank'><SocialMediaIcon loading="lazy" src={assets.instagram_icon}/></SocialMediaLink>
+                            <SocialMediaLink href='https://www.instagram.com/johari_counsultancy?igsh=Yzl5NnM0NWZ0bGhy' target='_blank'><SocialMediaIcon><InstagramIcon /></SocialMediaIcon></SocialMediaLink>
                         </SocialMediaLinks>
                     </CompanySocialMedia>
                 </FooterInformation>

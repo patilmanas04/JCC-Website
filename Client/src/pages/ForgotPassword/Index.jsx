@@ -2,8 +2,9 @@ import React, { useRef, useEffect, useState } from 'react'
 import { assets } from '../../data/constants'
 import AlertBox from '../../components/AlertBox/Index'
 import { useNavigate, Link } from 'react-router-dom'
-import { ForgotPasswordWrapper, ForgotPasswordContainer, ForgotPasswordContent, ReturnToLoginButton, LeftArrowIcon, ForgotPasswordTitle, ForgotPasswordSubtitle, ForgotPasswordForm, ForgotPasswordField, Label, Input, ForgotPasswordButton, ForgotPasswordFooter, Span } from './Styles'
+import { ForgotPasswordWrapper, ForgotPasswordContainer, ForgotPasswordContent, ReturnToLoginButton, LeftArrowIconWrapper, ForgotPasswordTitle, ForgotPasswordSubtitle, ForgotPasswordForm, ForgotPasswordField, Label, Input, ForgotPasswordButton, ForgotPasswordFooter, Span } from './Styles'
 import { Helmet } from 'react-helmet-async'
+import LeftArrowIcon from '../../components/Icons/LeftArrowIcon'
 
 const ForgotPassword = () => {
 	const emailRef = useRef()
@@ -16,7 +17,7 @@ const ForgotPassword = () => {
 		
 		const email = e.target.email.value
 		
-		const response = await fetch('https://jcc-website.onrender.com/api/auth/forgotpassword', {
+		const response = await fetch('http://localhost:3000/api/auth/forgotpassword', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -40,7 +41,7 @@ const ForgotPassword = () => {
 			<ForgotPasswordWrapper>
 				<ForgotPasswordContainer>
 					<ForgotPasswordContent>
-						<ReturnToLoginButton onClick={() => navigate('/login')}><LeftArrowIcon fetchPriority='high' loading="lazy" src={assets.left_arrow} />Return to login</ReturnToLoginButton>
+						<ReturnToLoginButton onClick={() => navigate('/login')}><LeftArrowIconWrapper><LeftArrowIcon/></LeftArrowIconWrapper>Return to login</ReturnToLoginButton>
 						<ForgotPasswordTitle>Forgot Your Password?</ForgotPasswordTitle>
 						<ForgotPasswordSubtitle>Enter your registered email address below, and we'll send you a link to reset your password.
 						</ForgotPasswordSubtitle>

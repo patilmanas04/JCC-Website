@@ -33,11 +33,14 @@ export const InputPasswordIconWrapper = styled.div`
     justify-content: center;
 `
 
-export const InputPasswordIcon = styled.img`
+export const InputPasswordIcon = styled.div`
     width: 20px;
     cursor: pointer;
     transition: opacity 0.2s;
     -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover{
         opacity: 0.7;

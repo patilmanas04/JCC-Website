@@ -11,12 +11,34 @@ export const ProfileWrapper = styled.section`
     padding: 40px 40px;
     overflow-y: auto;
 
+    @media screen and (max-height: 592px){
+        height: 100%;
+    }
+
+    @media screen and (max-width: 530px){
+        @media screen and (max-height: 608px){
+            height: 100%;
+        }
+    }
+
     @media screen and (max-width: 768px){
         padding: 20px 20px;
     }
 `
 
 export const ProfileContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media screen and (max-width: 768px){
+        height: 100%;
+    }
+`
+
+export const ProfileBox = styled.div`
     max-width: 600px;
     width: 100%;
     display: flex;
@@ -56,8 +78,11 @@ export const ProfileOverview = styled.div`
     gap: 20px;
 `
 
-export const ProfileIcon = styled.img`
+export const ProfileIconWrapper = styled.div`
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const ProfileDetails = styled.div`

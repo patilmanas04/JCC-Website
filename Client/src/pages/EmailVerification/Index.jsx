@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { assets } from '../../data/constants'
 import Loader from '../../components/Loader/Index'
 import PageNotFound from '../PageNotFound/Index'
+import CheckIcon from "../../components/Icons/CheckIcon"
 import { EmailVerificationWrapper, EmailVerificationContainer, EmailVerificationContent, EmailVerificationIcon, EmailVerificationTitle, EmailVerificationSubtitle, EmailVerificationFooter, Logo, LogoText, LoginButton } from './Styles'
 import { Helmet } from 'react-helmet-async'
 
@@ -14,7 +15,7 @@ const EmailVerification = () => {
     useEffect(() => {
         const verifyEmail = async () => {
             try{
-                const response = await fetch(`https://jcc-website.onrender.com/api/auth/users/${userId}/verify-email/${verificationToken}`, { 
+                const response = await fetch(`http://localhost:3000/api/auth/users/${userId}/verify-email/${verificationToken}`, { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -46,7 +47,9 @@ const EmailVerification = () => {
                 <EmailVerificationWrapper>
                     <EmailVerificationContainer>
                         <EmailVerificationContent>
-                            <EmailVerificationIcon loading="eager" fetchPriority='high' src={assets.check} />
+                            <EmailVerificationIcon>
+                                <CheckIcon />
+                            </EmailVerificationIcon>
                             <EmailVerificationTitle>Your Email Has Been Verified!</EmailVerificationTitle>
                             <EmailVerificationSubtitle>We’re excited to have you on board! Your email is successfully verified, and you can now log in to your account.</EmailVerificationSubtitle>
                         </EmailVerificationContent>

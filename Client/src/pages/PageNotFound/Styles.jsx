@@ -8,8 +8,14 @@ export const PageNotFoundWrapper = styled.section`
     width: 100%;
     background-color: ${({ theme }) => theme.colors.background};
 
-    @media screen and (max-height: 350px){
+    @media screen and (max-height: 443.34px){
         height: 100%;
+    }
+
+    @media screen and (max-width: 414px){
+        @media screen and (max-height: 490.34px){
+            height: 100%;
+        }
     }
 `
 
@@ -21,6 +27,10 @@ export const PageNotFoundContainer = styled.div`
     gap: 30px;
     border-radius: 10px;
     padding: 20px;
+
+    @media screen and (max-width: 414px){
+        height: 100%;
+    }
 `
 
 export const PageNotFoundContent = styled.div`
@@ -32,8 +42,11 @@ export const PageNotFoundContent = styled.div`
     text-align: center;
 `
 
-export const PageNotFoundIcon = styled.img`
+export const PageNotFoundIconWrapper = styled.div`
     width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const PageNotFoundTitle = styled.h1`

@@ -243,8 +243,11 @@ export const IconWrapper = styled.div`
     }
 `
 
-export const Icon = styled.img`
+export const Icon = styled.div`
     width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (max-width: 768px){
         width: 35px;

@@ -7,10 +7,10 @@ export const ForgotPasswordWrapper = styled.section`
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.colors.background};
-    padding: 0 40px;
+    padding: 40px;
     overflow-y: auto;
 
-    @media screen and (max-height: 550px){
+    @media screen and (max-height: 473px){
         height: 100%;
     }
 
@@ -34,9 +34,10 @@ export const ForgotPasswordContainer = styled.div`
     color: ${({ theme }) => theme.colors.primary};
 
     @media screen and (max-width: 768px){
-        padding: 0;
+        padding: 60px 0;
         border: none;
         align-items: center;
+        width: 100%;
     }
 `
 
@@ -50,8 +51,11 @@ export const ReturnToLoginButton = styled.p`
     gap: 5px;
 `
 
-export const LeftArrowIcon = styled.img`
+export const LeftArrowIconWrapper = styled.div`
     width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const ForgotPasswordContent = styled.div`

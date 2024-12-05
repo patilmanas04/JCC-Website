@@ -7,15 +7,15 @@ export const SignupWrapper = styled.section`
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.colors.background};
-    padding: 20px 40px;
+    padding: 40px;
     overflow: auto;
 
-    @media screen and (max-width: 768px){
-        padding: 20px 20px;
+    @media screen and (max-height: 700.4px){
+        height: 100%;
     }
 
-    @media screen and (max-height: 700px){
-        height: 100%;
+    @media screen and (max-width: 768px){
+        padding: 0 20px;
     }
 `
 
@@ -34,9 +34,10 @@ export const SignupContainer = styled.div`
     color: ${({ theme }) => theme.colors.primary};
 
     @media screen and (max-width: 768px){
-        padding: 0;
+        padding: 60px 0;
         border: none;
         align-items: center;
+        height: 100%;
     }
 `
 

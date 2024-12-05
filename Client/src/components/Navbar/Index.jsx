@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { assets } from '../../data/constants'
 import userContext from '../../contexts/userContext'
+import MenuIcon from '../Icons/MenuIcon'
+import CloseIcon from '../Icons/CloseIcon'
+import ProfileIcon from '../Icons/ProfileIcon'
 import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton } from './Styles'
 
 const Navbar = () => {
@@ -52,10 +55,14 @@ const Navbar = () => {
                     <NavbarItem href='#services'>Services</NavbarItem>
                     <NavbarItem href='#contactus'>Contact Us</NavbarItem>
                     {
-                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton src={assets.profile_icon} alt='profile_icon' fetchPriority='high'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
+                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton><ProfileIcon/></ProfileButton></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
                     }
                 </NavbarMenu>
-                <NavbarMobileMenuIcon loading='eager' src={!isOpen?assets.menu_icon:assets.close_icon} logo='menu_icon' onClick={toggleMenu} fetchPriority='high'/>
+                <NavbarMobileMenuIcon onClick={toggleMenu}>
+                    {
+                        !isOpen?<MenuIcon />:<CloseIcon />
+                    }
+                </NavbarMobileMenuIcon>
                 <NavbarMobileMenu className={isOpen?'active':''}>
                     <NavbarItem href='#aboutus' onClick={handleMobileMenuItemClick}>About Us</NavbarItem>
                     <NavbarItem href='#services' onClick={handleMobileMenuItemClick}>Services</NavbarItem>

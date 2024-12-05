@@ -6,9 +6,10 @@ import Loader from '../../components/Loader/Index'
 import AlertBox from '../../components/AlertBox/Index'
 import userContext from '../../contexts/userContext'
 import { updateProfileFormValidator } from '../../utils/formValidators'
-import { ProfileWrapper, ProfileContainer, ProfileTitle, Span, ProfileOverview, ProfileIcon, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './Styles'
+import { ProfileWrapper, ProfileContainer, ProfileBox, ProfileTitle, Span, ProfileOverview, ProfileIconWrapper, ProfileDetails, ProfileName, ProfileEmail, ProfileContent, ProfileItem, ProfileLabel, ProfileValue, ProfileActions, UpdateProfileButton, LogoutButton } from './Styles'
 import PageNotFound from '../PageNotFound/Index'
 import { Helmet } from 'react-helmet-async'
+import ProfileIcon from '../../components/Icons/ProfileIcon'
 
 const Profile = () => {
     const navigate = useNavigate()
@@ -89,33 +90,37 @@ const Profile = () => {
                 isLoading?<Loader />:
                 isValidUrl?
                 <ProfileWrapper>
-                    <GoToHomeButton />
                     <ProfileContainer>
-                        <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
-                        <ProfileOverview>
-                            <ProfileIcon src={assets.profile_icon} alt="profile_icon"/>
-                            <ProfileDetails>
-                                <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
-                                <ProfileEmail>{userCredentials.email}</ProfileEmail>
-                            </ProfileDetails>
-                        </ProfileOverview>
-                        <ProfileContent>
-                            <ProfileItem>
-                                <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
-                                <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
-                            </ProfileItem>
-                            <ProfileItem>
-                                <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
-                                <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
-                            </ProfileItem>
-                        </ProfileContent>
-                        {
-                            alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
-                        }
-                        <ProfileActions>
-                            <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
-                            <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
-                        </ProfileActions>
+                        <GoToHomeButton />
+                        <ProfileBox>
+                            <ProfileTitle>User <Span>Profile</Span></ProfileTitle>
+                            <ProfileOverview>
+                                <ProfileIconWrapper>
+                                    <ProfileIcon />
+                                </ProfileIconWrapper>
+                                <ProfileDetails>
+                                    <ProfileName>{userCredentials.firstName} {userCredentials.lastName}</ProfileName>
+                                    <ProfileEmail>{userCredentials.email}</ProfileEmail>
+                                </ProfileDetails>
+                            </ProfileOverview>
+                            <ProfileContent>
+                                <ProfileItem>
+                                    <ProfileLabel htmlFor='firstName'>First Name</ProfileLabel>
+                                    <ProfileValue type='text' name='firstName' id='firstName' value={userCredentials.firstName} onChange={onChange}/>
+                                </ProfileItem>
+                                <ProfileItem>
+                                    <ProfileLabel htmlFor='lastName'>Last Name</ProfileLabel>
+                                    <ProfileValue type='text' name='lastName' id='lastName' value={userCredentials.lastName} onChange={onChange}/>
+                                </ProfileItem>
+                            </ProfileContent>
+                            {
+                                alert.message && <AlertBox severity={alert.success?'success':'error'} message={alert.message} />
+                            }
+                            <ProfileActions>
+                                <UpdateProfileButton type='button' onClick={handleUpdate}>Update Profile</UpdateProfileButton>
+                                <LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton>
+                            </ProfileActions>
+                        </ProfileBox>
                     </ProfileContainer>
                 </ProfileWrapper>:<PageNotFound />
             }
