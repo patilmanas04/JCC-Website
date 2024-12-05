@@ -182,11 +182,14 @@ export const LogoutButton = styled.button`
     }
 `
 
-export const ProfileButton = styled.img`
+export const ProfileButton = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 999px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const AdminNavbarMobileMenuIcon = styled.img`
