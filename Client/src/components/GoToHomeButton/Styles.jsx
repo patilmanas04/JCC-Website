@@ -10,6 +10,9 @@ export const GoToHomeButtonInside = styled.p`
     gap: 5px;
 `
 
-export const LeftArrowIcon = styled.img`
+export const LeftArrowIconWrapper = styled.div`
     width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `

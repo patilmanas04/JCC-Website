@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Snackbar } from '@mui/material'
-import { assets } from '../../data/constants'
+import PhoneIcon from '../Icons/PhoneIcon'
+import EmailIcon from '../Icons/EmailIcon'
 import { ContactWrapper, ContactContainer, ContactContent, ContactTitle, Span, ContactSubtitle, ContactForm, ContactField, Label, Input, Textarea, ContactButtons, SendMessageButton, ScheduleACallButton, ContactInformation, Information, IconWrapper, Icon, InformationContent, InformationTitle, InformationSubtitle, DropDownMenu, Option, DropDownMenuWrapper } from './Styles'
 
 const Contact = () => {
@@ -92,7 +93,9 @@ const Contact = () => {
                 <ContactInformation>
                 <Information>
                         <IconWrapper>
-                            <Icon loading="lazy"  src={assets.phone_icon} alt="phone"/>
+                            <Icon>
+                                <PhoneIcon/>
+                            </Icon>
                         </IconWrapper>
                         <InformationContent>
                             <InformationTitle>Phone</InformationTitle>
@@ -103,7 +106,9 @@ const Contact = () => {
                     </Information>
                     <Information>
                         <IconWrapper>
-                            <Icon loading="lazy" src={assets.email_icon} alt="email"/>
+                            <Icon>
+                                <EmailIcon/>
+                            </Icon>
                         </IconWrapper>
                         <InformationContent>
                             <InformationTitle>Email</InformationTitle>

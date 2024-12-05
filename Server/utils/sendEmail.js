@@ -14,7 +14,7 @@ const sendEmail = async (to, subject, url) => {
             }
         })
     
-        ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url }, (err, template) => {
+        ejs.renderFile(__dirname + '/../views/EmailVerification.ejs', { url: url }, async (err, template) => {
             if(err){
                 console.log(err)
             }
@@ -26,7 +26,7 @@ const sendEmail = async (to, subject, url) => {
                     html: template
                 }
             
-                transporter.sendMail(mailOptions)
+                await transporter.sendMail(mailOptions)
             }
         })
     }

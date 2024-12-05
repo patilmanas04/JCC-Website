@@ -8,8 +8,14 @@ export const EmailVerificationWrapper = styled.section`
     width: 100%;
     background-color: ${({ theme }) => theme.colors.background};
 
-    @media screen and (max-height: 350px){
+    @media screen and (max-height: 443.34px){
         height: 100%;
+    }
+
+    @media screen and (max-width: 414px){
+        @media screen and (max-height: 490.34px){
+            height: 100%;
+        }
     }
 `
 
@@ -21,6 +27,10 @@ export const EmailVerificationContainer = styled.div`
     gap: 30px;
     border-radius: 10px;
     padding: 20px;
+
+    @media screen and (max-width: 414px){
+        height: 100%;
+    }
 `
 
 export const EmailVerificationContent = styled.div`
@@ -32,8 +42,11 @@ export const EmailVerificationContent = styled.div`
     text-align: center;
 `
 
-export const EmailVerificationIcon = styled.img`
+export const EmailVerificationIcon = styled.div`
     width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const EmailVerificationTitle = styled.h1`

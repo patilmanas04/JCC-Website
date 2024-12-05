@@ -23,6 +23,9 @@ export const BackToTopButtonWrapper = styled.div`
     }
 `
 
-export const BackToTopButtonIcon = styled.img`
+export const BackToTopButtonIcon = styled.div`
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `

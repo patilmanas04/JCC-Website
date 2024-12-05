@@ -7,10 +7,10 @@ export const LoginWrapper = styled.section`
     justify-content: center;
     align-items: center;
     background: ${({ theme }) => theme.colors.background};
-    padding: 0 40px;
+    padding: 40px;
     overflow-y: auto;
 
-    @media screen and (max-height: 600px){
+    @media screen and (max-height: 576.4px){
         height: 100%;
     }
 
@@ -34,9 +34,10 @@ export const LoginContainer = styled.div`
     color: ${({ theme }) => theme.colors.primary};
 
     @media screen and (max-width: 768px){
-        padding: 0;
+        padding: 60px 0;
         border: none;
         align-items: center;
+        height: 100%;
     }
 `
 

@@ -94,13 +94,17 @@ export const ContactDetails = styled.div`
     gap: 10px;
 `
 
-export const ContactIcon = styled.img`
+export const ContactIcon = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
 `
 
 export const ContactText = styled.p`
     font-size: 16px;
     font-weight: 400;
+    word-break: break-all;
 `
 
 export const CompanySocialMedia = styled.div`
@@ -140,11 +144,14 @@ export const SocialMediaLink = styled.a`
     }
 `
 
-export const SocialMediaIcon = styled.img`
+export const SocialMediaIcon = styled.div`
     width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media screen and (max-width: 768px){
-        width: 20px;
+        width: 25px;
     }
 `
 

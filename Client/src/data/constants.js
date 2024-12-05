@@ -56,11 +56,9 @@ export const benefits = [
 
 export const assets = {
     logo: "/assets/logo.svg",
-    profile_icon: "/assets/profile_icon.svg",
-    menu_icon: "/assets/menu_icon.svg",
-    close_icon: "/assets/close_icon.svg",
-    banner: "/assets/banner.webp",
+    introduction_bg: "/assets/introduction_bg.webp",
     about_image: "/assets/about_image.webp",
+    about_us_text_bg: "/assets/about_us_text_bg.webp",
     serviceImages: [
         "/assets/individual_career_counselling.webp",
         "/assets/resume_and_cover_letter_assistance.webp",
@@ -76,16 +74,5 @@ export const assets = {
     ],
     line: "/assets/line.svg",
     WhyJCCForStudentsBackgroundImage: "/assets/why_jcc_for_students.webp",
-    phone_icon: "/assets/phone_icon.svg",
-    email_icon: "/assets/email_icon.svg",
-    instagram_icon: "/assets/instagram_icon.svg",
-    up_arrow: "/assets/up_arrow.svg",
-    eye_icon: "/assets/eye_icon.svg",
-    eye_slash_icon: "/assets/eye_slash_icon.svg",
-    check: "/assets/check.svg",
-    server_icon: "/assets/server_icon.svg",
-    delete_icon: "/assets/delete_icon.svg",
-    left_arrow: "/assets/left_arrow.svg",
-    page_not_found_404: "/assets/page_not_found_404.svg",
     server_down: "/assets/server_down.svg",
 }

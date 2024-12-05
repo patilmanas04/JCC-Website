@@ -201,8 +201,11 @@ export const DeleteButtonWrapper = styled.div`
     }
 `
 
-export const DeleteAccountButton = styled.img`
+export const DeleteAccountButton = styled.div`
     width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (max-width: 768px){
         width: 24px;

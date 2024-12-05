@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { assets } from '../../../data/constants'
+import EyeIcon from "../../Icons/EyeIcon"
+import EyeSlashIcon from "../../Icons/EyeSlashIcon"
 import { InputPasswordWrapper, InputPasswordField, InputPasswordIconWrapper, InputPasswordIcon } from './Styles'
 
 const InputPassword = (props) => {
@@ -22,7 +23,11 @@ const InputPassword = (props) => {
         <InputPasswordWrapper>
             <InputPasswordField type="password" placeholder={placeholder} ref={reference} required/>
             <InputPasswordIconWrapper>
-                <InputPasswordIcon loading="lazy" fetchPriority='high' src={passwordVisible?assets.eye_icon:assets.eye_slash_icon} alt="eye" onClick={togglePasswordVisibility}/>
+                <InputPasswordIcon onClick={togglePasswordVisibility}>
+                    {
+                        passwordVisible?<EyeSlashIcon/>:<EyeIcon/>
+                    }
+                </InputPasswordIcon>
             </InputPasswordIconWrapper>
         </InputPasswordWrapper>
     )

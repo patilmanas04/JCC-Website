@@ -13,6 +13,7 @@ import UserProvider from './contexts/UserProvider'
 import ForgotPassword from './pages/ForgotPassword/Index'
 import ResetPassword from './pages/ResetPassword/Index'
 import PageNotFound from './pages/PageNotFound/Index'
+import Logo from './components/Icons/Logo'
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
 							<Route path="/scheduleacall" element={<CallScheduler />} />
 							<Route path="/admin-dashboard" element={<AdminDashboard />} />
 							<Route path="*" element={<PageNotFound />} />
+							<Route path="/logo" element={<Logo />} />
 					</Routes>
 				</Router>
 			</UserProvider>

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { assets } from '../../data/constants'
+import DeleteIcon from "../../components/Icons/DeleteIcon"
 import Loader from '../../components/Loader/Index'
 import AdminNavbar from '../../components/AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet-async'
 
 const AdminDashboard = () => {
     const context = useContext(userContext)
-    const { adminDetails, setSelectedUserId, allUsersDetails, getAdminAndAllUsersDetails, deleteUser } = context
+    const { setIsAdmin, adminDetails, setSelectedUserId, allUsersDetails, getAdminAndAllUsersDetails, deleteUser } = context
 
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
@@ -25,6 +25,12 @@ const AdminDashboard = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken')
+
+        setIsAdmin({
+            status: false,
+            checked: false
+        })
+
         navigate('/')
     }
 
@@ -70,7 +76,9 @@ const AdminDashboard = () => {
                                                 <UserEmail>{user.email}</UserEmail>
                                                 <AccountCreationDate>Account created on: {formatReadableDate(user.date)}</AccountCreationDate>
                                                 <DeleteButtonWrapper onClick={() => toggleDeleteModal(user._id)}>
-                                                    <DeleteAccountButton src={assets.delete_icon}/>
+                                                    <DeleteAccountButton>
+                                                        <DeleteIcon />
+                                                    </DeleteAccountButton>
                                                 </DeleteButtonWrapper>
                                             </UserDetails>
                                         )
