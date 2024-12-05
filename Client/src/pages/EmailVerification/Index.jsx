@@ -15,7 +15,7 @@ const EmailVerification = () => {
     useEffect(() => {
         const verifyEmail = async () => {
             try{
-                const response = await fetch(`http://localhost:3000/api/auth/users/${userId}/verify-email/${verificationToken}`, { 
+                const response = await fetch(`https://jcc-website.onrender.com/api/auth/users/${userId}/verify-email/${verificationToken}`, { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
