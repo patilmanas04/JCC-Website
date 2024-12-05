@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { assets } from '../../data/constants'
 import userContext from '../../contexts/userContext'
 import { AdminNavbarWrapper, AdminNavbarContainer, AdminNavbarLogo, AdminNavbarIcon, AdminNavbarTitle, AdminNavbarMenu, AdminNavbarItem, LoginButton, AdminNavbarMobileMenuIcon, AdminNavbarMobileMenu, DashboardButton, LogoutButton, ProfileButton } from './Styles'
+import ProfileIcon from '../Icons/ProfileIcon'
 
 const AdminNavbar = () => {
     const context = useContext(userContext)
@@ -65,7 +66,7 @@ const AdminNavbar = () => {
                         </>:<AdminNavbarItem><Link to='/'>Go to home</Link></AdminNavbarItem>
                     }
                     {
-                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton fetchPriority='high' loading="eager" src={assets.profile_icon} alt='profile_icon'/></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
+                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton><ProfileIcon/></ProfileButton></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
                     }
                 </AdminNavbarMenu>
                 <AdminNavbarMobileMenuIcon fetchPriority='high' loading="eager" src={!isOpen?assets.menu_icon:assets.close_icon} logo='menu_icon' onClick={toggleMenu}/>
