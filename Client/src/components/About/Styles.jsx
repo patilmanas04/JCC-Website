@@ -1,7 +1,12 @@
 import styled from "styled-components"
+import { assets } from "../../data/constants"
 
 export const AboutWrapper = styled.section`
     background: ${({ theme }) => theme.colors.background};
+    background-image: url(${assets.about_us_text_bg});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 100px 40px;
     width: 100%;
     display: flex;

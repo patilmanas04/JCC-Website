@@ -56,8 +56,9 @@ export const benefits = [
 
 export const assets = {
     logo: "/assets/logo.svg",
-    banner: "/assets/banner.webp",
+    introduction_bg: "/assets/introduction_bg.webp",
     about_image: "/assets/about_image.webp",
+    about_us_text_bg: "/assets/about_us_text_bg.webp",
     serviceImages: [
         "/assets/individual_career_counselling.webp",
         "/assets/resume_and_cover_letter_assistance.webp",

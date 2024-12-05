@@ -6,7 +6,7 @@ export const HeroSectionWrapper = styled.section`
     width: 100%;
     height: 720px;
     margin-top: 80px;
-    background: url(${assets.banner});
+    background: url(${assets.introduction_bg});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
