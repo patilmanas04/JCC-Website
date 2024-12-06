@@ -192,12 +192,14 @@ export const ProfileButton = styled.div`
     align-items: center;
 `
 
-export const AdminNavbarMobileMenuIcon = styled.img`
+export const AdminNavbarMobileMenuIcon = styled.div`
     display: none;
     -webkit-tap-highlight-color: transparent;
 
     @media screen and (max-width: 930px){
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 40px;
         height: 40px;
         cursor: pointer;

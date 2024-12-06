@@ -4,6 +4,8 @@ import { assets } from '../../data/constants'
 import userContext from '../../contexts/userContext'
 import { AdminNavbarWrapper, AdminNavbarContainer, AdminNavbarLogo, AdminNavbarIcon, AdminNavbarTitle, AdminNavbarMenu, AdminNavbarItem, LoginButton, AdminNavbarMobileMenuIcon, AdminNavbarMobileMenu, DashboardButton, LogoutButton, ProfileButton } from './Styles'
 import ProfileIcon from '../Icons/ProfileIcon'
+import MenuIcon from '../Icons/MenuIcon'
+import CloseIcon from '../Icons/CloseIcon'
 
 const AdminNavbar = () => {
     const context = useContext(userContext)
@@ -69,7 +71,11 @@ const AdminNavbar = () => {
                         isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton><ProfileIcon/></ProfileButton></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
                     }
                 </AdminNavbarMenu>
-                <AdminNavbarMobileMenuIcon fetchPriority='high' loading="eager" src={!isOpen?assets.menu_icon:assets.close_icon} logo='menu_icon' onClick={toggleMenu}/>
+                <AdminNavbarMobileMenuIcon onClick={toggleMenu}>
+                    {
+                        !isOpen?<MenuIcon />:<CloseIcon />
+                    }
+                </AdminNavbarMobileMenuIcon>
                 <AdminNavbarMobileMenu className={isOpen?'active':''}>
                     {
                         location.pathname==="/"?<><AdminNavbarItem href='#aboutus' onClick={handleMobileMenuItemClick}>About us</AdminNavbarItem>
