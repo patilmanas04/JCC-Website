@@ -1,13 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { assets } from '../../data/constants'
 import userContext from '../../contexts/userContext'
 import MenuIcon from '../Icons/MenuIcon'
 import CloseIcon from '../Icons/CloseIcon'
 import ProfileIcon from '../Icons/ProfileIcon'
-import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton } from './Styles'
+import { userConfig, adminConfig } from '../../config/navbarConfig'
+import { NavbarWrapper, NavbarContainer, NavbarLogo, NavbarIcon, NavbarTitle, NavbarMenu, NavbarItem, LoginButton, NavbarMobileMenuIcon, NavbarMobileMenu, LogoutButton, ProfileButton, DashboardButton, NavbarMobileItem, NavbarMobileMenuControlsWrapper, NavbarMobileMenuProfileButton } from './Styles'
+import Dropdown from '../Dropdown/Index'
+import NavbarMobileMenuDropdown from '../NavbarMobileMenuDropdown/Index'
 
-const Navbar = () => {
+const Navbar = ({ isAdmin }) => {
+    const menuRef = useRef(null)
+    const location = useLocation()
     const context = useContext(userContext)
     const { setIsAdmin, setUserCredentials } = context
 
@@ -18,6 +23,18 @@ const Navbar = () => {
         const token = localStorage.getItem('authToken')
         if(token){
             setIsLoggedIn(true)
+        }
+
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsOpen(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside)
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
         }
     })
 
@@ -46,14 +63,28 @@ const Navbar = () => {
     return (
         <NavbarWrapper>
             <NavbarContainer>
-                <NavbarLogo>
-                    <NavbarIcon src={assets.logo} alt='logo' fetchPriority='high'/>
-                    <NavbarTitle>JCC</NavbarTitle>
-                </NavbarLogo>
+                <Link to="/">
+                    <NavbarLogo>
+                        <NavbarIcon src={assets.logo} alt='logo' fetchPriority='high'/>
+                        <NavbarTitle>{isAdmin.status?"JCC Admin":"JCC"}</NavbarTitle>
+                    </NavbarLogo>
+                </Link>
                 <NavbarMenu>
-                    <NavbarItem href='#aboutus'>About Us</NavbarItem>
-                    <NavbarItem href='#services'>Services</NavbarItem>
-                    <NavbarItem href='#contactus'>Contact Us</NavbarItem>
+                    {
+                        (location.pathname==="/admin-dashboard")?
+                        <NavbarItem to="/">Go to home</NavbarItem>:
+                        (isAdmin.status?adminConfig:userConfig).map((item, index) => {
+                            if(item.type === "link"){
+                                return <NavbarItem key={index} to={item.path}>{item.title}</NavbarItem>
+                            }
+                            else if(item.type === "dropdown"){
+                                return <Dropdown key={index} title={item.title} list={item.children}/>
+                            }
+                            else if(item.type === "adminButton"){
+                                return <Link to={item.path} key={index}><DashboardButton>{item.title}</DashboardButton></Link>
+                            }
+                        })
+                    }
                     {
                         isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to='/profile'><ProfileButton><ProfileIcon/></ProfileButton></Link></>:<Link to='/login'><LoginButton type='button'>Login</LoginButton></Link>
                     }
@@ -63,12 +94,26 @@ const Navbar = () => {
                         !isOpen?<MenuIcon />:<CloseIcon />
                     }
                 </NavbarMobileMenuIcon>
-                <NavbarMobileMenu className={isOpen?'active':''}>
-                    <NavbarItem href='#aboutus' onClick={handleMobileMenuItemClick}>About Us</NavbarItem>
-                    <NavbarItem href='#services' onClick={handleMobileMenuItemClick}>Services</NavbarItem>
-                    <NavbarItem href='#contactus' onClick={handleMobileMenuItemClick}>Contact Us</NavbarItem>
+                <NavbarMobileMenu ref={menuRef} className={isOpen?'active':''}>
+                    <NavbarMobileMenuControlsWrapper>
                     {
-                        isLoggedIn?<><NavbarItem onClick={handleMobileMenuItemClick}><Link to="/profile">Profile</Link></NavbarItem><NavbarItem type='button' onClick={handleLogout}>Logout</NavbarItem></>:<NavbarItem><Link to="/login">Login</Link></NavbarItem>
+                        isLoggedIn?<><LogoutButton type='button' onClick={handleLogout}>Logout</LogoutButton><Link to="/profile"><NavbarMobileMenuProfileButton type='button'>Profile</NavbarMobileMenuProfileButton></Link></>:<Link to="/login"><LoginButton type='button'>Login</LoginButton></Link>
+                    }
+                    </NavbarMobileMenuControlsWrapper>
+                    {
+                        (location.pathname==="/admin-dashboard")?
+                        <NavbarMobileItem to="/" onClick={handleMobileMenuItemClick}>Go to home</NavbarMobileItem>:
+                        (isAdmin.status?adminConfig:userConfig).map((item, index) => {
+                            if(item.type === "link"){
+                                return <NavbarMobileItem key={index} onClick={handleMobileMenuItemClick} to={item.path}>{item.title}</NavbarMobileItem>
+                            }
+                            else if(item.type === "dropdown"){
+                                return <NavbarMobileMenuDropdown key={index} title={item.title} list={item.children}/>
+                            }
+                            else if(item.type === "adminButton"){
+                                return <Link to={item.path} key={index}><DashboardButton style={{margin: "10px 0"}} onClick={handleMobileMenuItemClick}>{item.title}</DashboardButton></Link>
+                            }
+                        })
                     }
                 </NavbarMobileMenu>
             </NavbarContainer>

@@ -10,7 +10,7 @@ const Introduction = () => {
                 <HeroSectionSubtitle>Take the first step towards a fulfilling career with us today!</HeroSectionSubtitle>    
                 <HeroSectionButtons>
                     <OurServicesButton href='#services'>Our Services</OurServicesButton>
-                    <Link to='/scheduleacall'><ScheduleACallButton>Schedule a Call</ScheduleACallButton></Link>
+                    <Link to='/schedule-a-call'><ScheduleACallButton>Schedule a Call</ScheduleACallButton></Link>
                 </HeroSectionButtons>
             </HeroSectionContent>
         </HeroSectionWrapper>

@@ -1,0 +1,163 @@
+export const userConfig = [
+    {
+        id: '0',
+        title: 'Home',
+        type: 'link',
+        path: '/',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'About Us',
+        type: 'link',
+        path: '/about-us',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'Services',
+        type: 'dropdown',
+        path: '',
+        icon: '',
+        children: [
+            {
+                id: '0',
+                title: 'Individual Career Counseling',
+                type: 'link',
+                path: '/individual-career-counseling',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Resume & Cover Letter Assistance',
+                type: 'link',
+                path: '/resume-and-cover-letter-assistance',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Interview Preparation',
+                type: 'link',
+                path: '/interview-preparation',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Career Workshops',
+                type: 'link',
+                path: '/career-workshops',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Corporate Partnerships',
+                type: 'link',
+                path: '/corporate-partnerships',
+                icon: '',
+            },
+        ]
+    },
+    // {
+    //     id: '0',
+    //     title: 'Services',
+    //     type: 'link',
+    //     path: '/services',
+    //     icon: '',
+    // },
+    {
+        id: '0',
+        title: 'Courses',
+        type: 'link',
+        path: '/courses',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'Contact Us',
+        type: 'link',
+        path: '/contact-us',
+        icon: '',
+    },
+]
+
+export const adminConfig = [
+    {
+        id: '0',
+        title: 'Home',
+        type: 'link',
+        path: '/',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'About Us',
+        type: 'link',
+        path: '/about-us',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'Services',
+        type: 'dropdown',
+        path: '',
+        icon: '',
+        children: [
+            {
+                id: '0',
+                title: 'Individual Career Counseling',
+                type: 'link',
+                path: '/individual-career-counseling',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Resume & Cover Letter Assistance',
+                type: 'link',
+                path: '/resume-and-cover-letter-assistance',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Interview Preparation',
+                type: 'link',
+                path: '/interview-preparation',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Career Workshops',
+                type: 'link',
+                path: '/career-workshops',
+                icon: '',
+            },
+            {
+                id: '0',
+                title: 'Corporate Partnerships',
+                type: 'link',
+                path: '/corporate-partnerships',
+                icon: '',
+            },
+        ]
+    },
+    {
+        id: '0',
+        title: 'Courses',
+        type: 'link',
+        path: '/courses',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'Contact Us',
+        type: 'link',
+        path: '/contact-us',
+        icon: '',
+    },
+    {
+        id: '0',
+        title: 'Dashboard',
+        type: 'adminButton',
+        path: '/admin-dashboard',
+        icon: '',
+    },
+]

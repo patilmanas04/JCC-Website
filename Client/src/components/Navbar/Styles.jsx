@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const NavbarWrapper = styled.section`
+export const NavbarWrapper = styled.nav`
     width: 100%;
     height: 80px;
     background-color: ${({ theme }) => theme.colors.secondary};
@@ -64,12 +65,12 @@ export const NavbarMenu = styled.div`
     align-items: center;
     gap: 20px;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1068px){
         display: none;
     }
 `
 
-export const NavbarItem = styled.a`
+export const NavbarItem = styled(NavLink)`
     width: fit-content;
     color: ${({ theme }) => theme.colors.primary};
     font-size: ${({ theme }) => theme.typography.desktopBody};
@@ -95,6 +96,35 @@ export const NavbarItem = styled.a`
 
     &:hover::after{
         width: 100%;
+    }
+
+    &.active::after{
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
+    }
+`
+
+export const DashboardButton = styled.button`
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.3s;
+    text-align: center;
+
+    &:hover{
+        opacity: 0.8;
     }
 
     @media screen and (max-width: 768px){
@@ -166,7 +196,7 @@ export const ProfileButton = styled.div`
 export const NavbarMobileMenuIcon = styled.div`
     display: none;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1068px){
         display: block;
         width: 40px;
         height: 40px;
@@ -180,27 +210,93 @@ export const NavbarMobileMenuIcon = styled.div`
 `
 
 export const NavbarMobileMenu = styled.div`
-    display: none;
+    position: absolute;
+    top: 80px;
+    left: 100%;
+    width: 100%;
+    background-color: ${({ theme }) => theme.colors.secondary};
+    display: flex;
     flex-direction: column;
-    gap: 20px;
-    border: 1px solid ${({ theme }) => theme.colors.divider};
-    border-radius: 5px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 40px;
+    gap: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    transition: left ease-in-out 0.3s;
+
+    &.active{
+        left: 0;
+    }
 
     @media screen and (max-width: 768px){
-        &.active{
-            display: flex;
-            position: absolute;
-            top: 100px;
-            right: 20px;
-            background-color: ${({ theme }) => theme.colors.secondary};
-            padding: 20px;
-            transition: top ease-in-out 0.3s;
-        }
+        padding: 20px 20px;
+        max-height: calc(100vh - 60px);
     }
 
     @media screen and (max-width: 480px){
-        &.active{
-            top: 80px;
-        }
+        padding: 20px 10px;
+        top: 60px;
+    }
+`
+
+export const NavbarMobileMenuControlsWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+`
+
+export const NavbarMobileMenuProfileButton = styled.button`
+    background-color: ${({ theme }) => theme.colors.error};
+    color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.3s;
+    text-align: center;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.colors.primary};
+    }
+
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
+    }
+`
+
+export const NavbarMobileItem = styled(NavLink)`
+    width: fit-content;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: ${({ theme }) => theme.typography.desktopBody};
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color ease-in-out 0.2s;
+    user-select: none;
+
+    &:hover{
+        color: ${({ theme }) => theme.colors.accent};
+    }
+
+    @media screen and (max-width: 768px){
+        font-size: ${({ theme }) => theme.typography.tabletBody};
+    }
+
+    @media screen and (max-width: 480px){
+        font-size: ${({ theme }) => theme.typography.mobileBody};
+    }
+
+    &.active{
+        color: ${({ theme }) => theme.colors.accent};
     }
 `

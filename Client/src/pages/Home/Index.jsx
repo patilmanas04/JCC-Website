@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Navbar from '../../components/Navbar/Index'
 import Introduction from '../../components/Introduction/Index'
 import About from '../../components/About/Index'
 import Services from '../../components/Services/Index'
@@ -9,15 +8,9 @@ import Contact from '../../components/Contact/Index'
 import Footer from '../../components/Footer/Index'
 import Copyright from '../../components/Copyright/Index'
 import BackToTopButton from '../../components/BackToTopButton/Index'
-import AdminNavbar from '../../components/AdminNavbar/Index'
-import userContext from '../../contexts/userContext'
 import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
-
-    const context = useContext(userContext)
-    const { isAdmin, setIsAdmin } = context
-
     const [showBackToTopButton, setShowBackToTopButton] = useState(false)
 
     const handleScroll = () => {
@@ -31,31 +24,6 @@ const Home = () => {
     };
     
     useEffect(() => {
-        const checkAdmin = async () => {
-            const response = await fetch('https://jcc-website.onrender.com/api/auth/checkadmin', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Auth-Token': localStorage.getItem('authToken')
-                }
-            })
-
-            const data = await response.json()
-
-            if(data.success){
-                setIsAdmin({
-                    status: true,
-                    checked: true
-                })
-            }
-        }
-
-        if(localStorage.getItem('authToken')){
-            if(!isAdmin.checked){
-                checkAdmin()
-            }
-        }
-        
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -70,9 +38,6 @@ const Home = () => {
                 <meta name="keywords" content="career counseling services, expert guidance, personalized advice, student success, professional counseling platform, best counseling services online" />
                 <link rel="canonical" href="https://joharicareerconsultancy.com/" />
             </Helmet>
-            {
-                isAdmin.status?<AdminNavbar />:<Navbar />
-            }
             <Introduction />
             <About />
             <Services />

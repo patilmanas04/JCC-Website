@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import DeleteIcon from "../../components/Icons/DeleteIcon"
 import Loader from '../../components/Loader/Index'
-import AdminNavbar from '../../components/AdminNavbar/Index'
 import userContext from '../../contexts/userContext'
 import { formatReadableDate } from '../../utils/formatReadableDate'
 import { AdminDashboardWrapper, AdminDashboardContainer, AdminDashboardHeader, AdminDashboardTitle, AdminDashboardSubtitle, AdminDetails, AdminName, AdminEmail, LogoutButton, AllUsersDetails, UserDetails, UserName, UserEmail, AccountCreationDate, DeleteButtonWrapper, DeleteAccountButton, ConfirmDeleteModal, DeleteModalContent, DeleteModalTitle, DeleteModalButtons, DeleteModalButton } from './Styles'
@@ -54,7 +53,6 @@ const AdminDashboard = () => {
 
                 isLoading?<Loader />:
                 (isValidUrl)?<>
-                    <AdminNavbar />
                     <AdminDashboardWrapper>
                         <AdminDashboardContainer>
                             <AdminDashboardHeader>

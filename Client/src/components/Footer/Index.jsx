@@ -43,10 +43,10 @@ const Footer = () => {
                 <FooterLinks>
                     <LinksTitle>Quick Links</LinksTitle>
                     <QuickLinks>
-                        <QuickLink href='#aboutus'>About Us</QuickLink>
+                        <QuickLink><Link to="/about-us">About Us</Link></QuickLink>
                         <QuickLink href='#services'>Services</QuickLink>
                         <QuickLink href='#contactus'>Contact Us</QuickLink>
-                        <QuickLink><Link to='/scheduleacall'>Schedule a call</Link></QuickLink>
+                        <QuickLink><Link to='/schedule-a-call'>Schedule a call</Link></QuickLink>
                     </QuickLinks>
                 </FooterLinks>
             </FooterContainer>

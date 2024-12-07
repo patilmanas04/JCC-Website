@@ -13,7 +13,11 @@ import UserProvider from './contexts/UserProvider'
 import ForgotPassword from './pages/ForgotPassword/Index'
 import ResetPassword from './pages/ResetPassword/Index'
 import PageNotFound from './pages/PageNotFound/Index'
-import Logo from './components/Icons/Logo'
+import AboutUs from './pages/AboutUs/Index'
+import Courses from './pages/Courses/Index'
+import ContactUs from './pages/ContactUs/Index'
+import NavbarLayout from './Layouts/NavbarLayout/Index'
+import NoNavbarLayout from './Layouts/NoNavbarLayout/Index'
 
 function App() {
 	return (
@@ -22,17 +26,26 @@ function App() {
 			<UserProvider>
 				<Router>
 					<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/signup" element={<Signup />} />
-							<Route path="/users/:userId/verify-email/:verificationToken" element={<EmailVerification />} />
-							<Route path="/forgot-password" element={<ForgotPassword />} />
-							<Route path="/users/:userId/reset-password/:resetToken" element={<ResetPassword />} />
-							<Route path="/profile" element={<Profile />} />
-							<Route path="/scheduleacall" element={<CallScheduler />} />
-							<Route path="/admin-dashboard" element={<AdminDashboard />} />
-							<Route path="*" element={<PageNotFound />} />
-							<Route path="/logo" element={<Logo />} />
+							{/* Navbar Layout */}
+							<Route element={<NavbarLayout />}>
+								<Route path="/" element={<Home />} />
+								<Route path="/admin-dashboard" element={<AdminDashboard />} />
+								<Route path="/about-us" element={<AboutUs />} />
+								<Route path="/courses" element={<Courses />} />
+								<Route path="/contact-us" element={<ContactUs />} />
+							</Route>
+
+							{/* No Navbar Layout */}
+							<Route element={<NoNavbarLayout />}>
+								<Route path="/login" element={<Login />} />
+								<Route path="/signup" element={<Signup />} />
+								<Route path="/users/:userId/verify-email/:verificationToken" element={<EmailVerification />} />
+								<Route path="/forgot-password" element={<ForgotPassword />} />
+								<Route path="/users/:userId/reset-password/:resetToken" element={<ResetPassword />} />
+								<Route path="/profile" element={<Profile />} />
+								<Route path="/schedule-a-call" element={<CallScheduler />} />
+								<Route path="*" element={<PageNotFound />} />
+							</Route>
 					</Routes>
 				</Router>
 			</UserProvider>
