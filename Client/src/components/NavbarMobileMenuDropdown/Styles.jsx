@@ -8,6 +8,7 @@ export const NavbarMenuItemWrapper = styled.div`
     flex-direction: column;
     gap: 5px;
     width: 100%;
+    user-select: none;
 `
 
 export const NavbarMobileItem = styled.div`

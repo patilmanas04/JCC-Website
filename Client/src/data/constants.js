@@ -57,6 +57,8 @@ export const benefits = [
 export const assets = {
     logo: "/assets/logo.svg",
     introduction_bg: "/assets/introduction_bg.webp",
+    about_us_introduction_bg: "/assets/about_us_introduction_bg.webp",
+    m_and_v_bg: "/assets/m_and_v_bg.webp",
     about_image: "/assets/about_image.webp",
     about_us_text_bg: "/assets/about_us_text_bg.webp",
     serviceImages: [
@@ -75,4 +77,116 @@ export const assets = {
     line: "/assets/line.svg",
     WhyJCCForStudentsBackgroundImage: "/assets/why_jcc_for_students.webp",
     server_down: "/assets/server_down.svg",
+    unique_approach_image: "/assets/unique_approach_image.webp",
 }
+
+export const missionAndVision = [
+    {
+        id: 1,
+        icon: "/assets/target.svg",
+        title: "Mission",
+        description: "To empower individuals with expert career advice, helping them make informed decisions and achieve their dreams."
+    },
+    {
+        id: 2,
+        title: "Vision",
+        icon: "/assets/v_lightbulb.svg",
+        description: "To become the most trusted name in career counseling, fostering growth and success for students and professionals worldwide."
+    }
+]
+
+export const successPoints = [
+    {
+        id: 1,
+        icon: "/assets/laptop.svg",
+        title: "Seamless Online and Offline Support",
+        description: "Connect with us through virtual or face-to-face counseling sessions.",
+        bgColor: "#2469BC",
+    },
+    {
+        id: 2,
+        icon: "/assets/chart.svg",
+        title: "Data-Driven Counseling",
+        description: "We use analytics to provide precise, personalized career advice.",
+        bgColor: "#FF5233",
+    },
+    {
+        id: 3,
+        icon: "/assets/compass.svg",
+        title: "Personalized Career Roadmaps",
+        description: "Tailored plans to align with your unique goals and potential.",
+        bgColor: "#333333",
+    },
+    {
+        id: 4,
+        icon: "/assets/clock.svg",
+        title: "Comprehensive Follow-Up Services",
+        description: "We ensure continued progress with follow-ups after each session.",
+        bgColor: "#F07931",
+    },
+    {
+        id: 5,
+        icon: "/assets/star.svg",
+        title: "Experienced Counselors You Can Trust",
+        description: "Certified experts with years of experience guiding successful careers.",
+        bgColor: "#F4835F",
+    }
+]
+
+export const teamMembers = [
+    {
+        profilePicture: "/assets/team_member_1.jpg",
+        name: "John Doe",
+        designation: "Career Counselor",
+        bio: "John is a seasoned career counselor with over 10 years of experience in guiding students and professionals to achieve their career goals. He has a Master’s degree in Career Counseling and is a certified professional counselor."
+    },
+    {
+        profilePicture: "/assets/team_member_1.jpg",
+        name: "Jane Smith",
+        designation: "Senior Career Advisor",
+        bio: "Jane has over 15 years of experience in career advising. She specializes in helping mid-career professionals transition to new roles and industries. Jane holds a PhD in Organizational Psychology."
+    },
+    {
+        profilePicture: "/assets/team_member_1.jpg",
+        name: "Emily Johnson",
+        designation: "Career Coach",
+        bio: "Emily is a dedicated career coach with a background in human resources. She has a knack for identifying clients' strengths and helping them leverage these in their job search. Emily has a Bachelor’s degree in Human Resource Management."
+    },
+    {
+        profilePicture: "/assets/team_member_1.jpg",
+        name: "Michael Brown",
+        designation: "Job Search Strategist",
+        bio: "Michael is an expert in job search strategies and networking. With a career spanning over 12 years, he has helped numerous clients land their dream jobs. Michael has an MBA and is a certified career coach."
+    }
+]
+
+export const testimonials = [
+    {
+        id: 1,
+        image: "/assets/team_member_1.jpg",
+        name: "Alice Williams",
+        occupation: "Software Engineer",
+        testimonial: "The career counseling sessions were incredibly helpful. I gained clarity on my career path and landed my dream job thanks to their expert guidance."
+    },
+    {
+        id: 2,
+        image: "/assets/team_member_1.jpg",
+        name: "David Thompson",
+        occupation: "Marketing Manager",
+        testimonial: "The resume and cover letter assistance provided by the team was top-notch. My application materials now truly reflect my skills and experience."
+    },
+    {
+        id: 3,
+        image: "/assets/team_member_1.jpg",
+        name: "Sophia Martinez",
+        occupation: "Graphic Designer",
+        testimonial: "The interview preparation sessions boosted my confidence and helped me perform better in interviews. I highly recommend their services."
+    },
+    {
+        id: 4,
+        image: "/assets/team_member_1.jpg",
+        name: "James Anderson",
+        occupation: "Project Manager",
+        testimonial: "The career workshops were very informative and provided me with valuable insights on job search strategies and networking."
+    }
+]

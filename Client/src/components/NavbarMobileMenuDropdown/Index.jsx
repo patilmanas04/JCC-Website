@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DownArrowIcon from '../Icons/DownArrowIcon'
 import { NavbarMenuItemWrapper, NavbarMobileItem, Title, DropdownWrapper, DropdownList, DropdownItem, Divider } from './Styles'
 
-const NavbarMobileMenuDropdown = ({ title, list }) => {
+const NavbarMobileMenuDropdown = ({ title, list, handleMobileMenuItemClick }) => {
     const [isOpen, setIsOpen] = useState(false)
     
     const handleMenuItemClick = () => {
@@ -12,7 +12,7 @@ const NavbarMobileMenuDropdown = ({ title, list }) => {
     return (
         <NavbarMenuItemWrapper>
             <NavbarMobileItem onClick={handleMenuItemClick}>
-                <Title className={isOpen?"active":""}>{title}</Title>
+                <Title>{title}</Title>
                 <DownArrowIcon />
             </NavbarMobileItem>
             <DropdownWrapper className={isOpen?"open":""}>
@@ -20,7 +20,7 @@ const NavbarMobileMenuDropdown = ({ title, list }) => {
                     {
                         list.map((item, index) => {
                             return <>
-                                <DropdownItem key={index} to={item.path} >{item.title}</DropdownItem>
+                                <DropdownItem key={index} to={item.path} onClick={handleMobileMenuItemClick}>{item.title}</DropdownItem>
                                 {
                                     index !== list.length - 1 && <Divider />
                                 }

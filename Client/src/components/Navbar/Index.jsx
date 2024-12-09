@@ -108,7 +108,7 @@ const Navbar = ({ isAdmin }) => {
                                 return <NavbarMobileItem key={index} onClick={handleMobileMenuItemClick} to={item.path}>{item.title}</NavbarMobileItem>
                             }
                             else if(item.type === "dropdown"){
-                                return <NavbarMobileMenuDropdown key={index} title={item.title} list={item.children}/>
+                                return <NavbarMobileMenuDropdown key={index} title={item.title} list={item.children} handleMobileMenuItemClick={handleMobileMenuItemClick}/>
                             }
                             else if(item.type === "adminButton"){
                                 return <Link to={item.path} key={index}><DashboardButton style={{margin: "10px 0"}} onClick={handleMobileMenuItemClick}>{item.title}</DashboardButton></Link>

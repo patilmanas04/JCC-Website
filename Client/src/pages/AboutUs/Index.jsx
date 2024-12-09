@@ -1,10 +1,21 @@
 import React from 'react'
+import AboutUsIntroduction from '../../components/AboutUsIntroduction/Index'
+import AboutUsAbout from '../../components/AboutUsAbout/Index'
+import MissionAndVision from '../../components/MissionAndVision/Index'
+import OurUniqueApproach from '../../components/OurUniqueApproach/Index'
+import MeetTheExperts from '../../components/MeetTheExperts/Index'
+import TestimonialsSlider from '../../components/TestimonialsSlider/Index'
 
 const AboutUs = () => {
     return (
-        <div style={{
-            marginTop: "80px"
-        }}>AboutUs</div>
+        <>
+            <AboutUsIntroduction />
+            <AboutUsAbout />
+            <MissionAndVision />
+            <OurUniqueApproach />
+            <MeetTheExperts />
+            <TestimonialsSlider />
+        </>
     )
 }
 

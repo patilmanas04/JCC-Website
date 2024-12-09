@@ -16,6 +16,11 @@ import PageNotFound from './pages/PageNotFound/Index'
 import AboutUs from './pages/AboutUs/Index'
 import Courses from './pages/Courses/Index'
 import ContactUs from './pages/ContactUs/Index'
+import IndividualCareerCounseling from "./pages/IndividualCareerCounseling/Index"
+import ResumeAndCoverLetterAssistance from "./pages/ResumeAndCoverLetterAssistance/Index"
+import InterviewPreparation from "./pages/InterviewPreparation/Index"
+import CareerWorkshops from "./pages/CareerWorkshops/Index"
+import CorporatePartnerships from "./pages/CorporatePartnerships/Index"
 import NavbarLayout from './Layouts/NavbarLayout/Index'
 import NoNavbarLayout from './Layouts/NoNavbarLayout/Index'
 
@@ -33,6 +38,11 @@ function App() {
 								<Route path="/about-us" element={<AboutUs />} />
 								<Route path="/courses" element={<Courses />} />
 								<Route path="/contact-us" element={<ContactUs />} />
+								<Route path="/individual-career-counseling" element={<IndividualCareerCounseling />} />
+								<Route path="/resume-and-cover-letter-assistance" element={<ResumeAndCoverLetterAssistance />} />
+								<Route path="/interview-preparation" element={<InterviewPreparation />} />
+								<Route path="/career-workshops" element={<CareerWorkshops />} />
+								<Route path="/corporate-partnerships" element={<CorporatePartnerships />} />
 							</Route>
 
 							{/* No Navbar Layout */}

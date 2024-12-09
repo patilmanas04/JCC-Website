@@ -1,11 +1,26 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from "../../components/Navbar/Index"
 import userContext from '../../contexts/userContext'
 import { Outlet } from 'react-router-dom'
+import Footer from '../../components/Footer/Index'
+import Copyright from '../../components/Copyright/Index'
+import BackToTopButton from '../../components/BackToTopButton/Index'
 
 const NavbarLayout = () => {
     const context = useContext(userContext)
     const { isAdmin, setIsAdmin } = context
+
+    const [showBackToTopButton, setShowBackToTopButton] = useState(false)
+
+    const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        if(scrollPosition > 200){
+            setShowBackToTopButton(true)
+        }
+        else{
+            setShowBackToTopButton(false)
+        }
+    };
 
 	useEffect(() => {
 		const checkAdmin = async () => {
@@ -32,6 +47,11 @@ const NavbarLayout = () => {
                 checkAdmin()
             }
         }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
 	}, [])
 
     return (
@@ -40,6 +60,13 @@ const NavbarLayout = () => {
         <main>
             <Outlet />
         </main>
+        <footer>
+            <Footer />
+            <Copyright />
+        </footer>
+        {
+            showBackToTopButton && <BackToTopButton />
+        }
         </>
     )
 }

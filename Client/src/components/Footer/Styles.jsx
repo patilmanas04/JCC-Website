@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 
 export const FooterWrapper = styled.footer`
@@ -181,7 +182,7 @@ export const QuickLinks = styled.div`
     }
 `
 
-export const QuickLink = styled.a`
+export const QuickLink = styled(NavLink)`
     font-size: 16px;
     font-weight: 400;
     width: fit-content;
@@ -199,6 +200,10 @@ export const QuickLink = styled.a`
     }
 
     &:hover::after{
+        width: 100%;
+    }
+
+    &.active::after{
         width: 100%;
     }
 
